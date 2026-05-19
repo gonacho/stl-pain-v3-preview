@@ -54,3 +54,7 @@
 - No card-heavy grid layouts — editorial rows and editorial asymmetry; grids only for provider cards
 - No CSS @keyframes — GSAP only for all animations
 - No gradient backgrounds — hard color block alternation only
+
+## Replacement Section (Gate 1 Update)
+- File: `section-conditions.webp` (replaces `section-providers.webp` — Gate 1 decision: no providers listed at this stage)
+- Conditions We Treat — editorial list-row layout of all 13 condition pages. Each row: condition name + category tag (NEUROLOGICAL / MUSCULOSKELETAL / SPINE / PAIN MANAGEMENT) + one-line description + blue arrow. Hairline dividers only, no cards.

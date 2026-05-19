@@ -53,3 +53,7 @@
 - No default gray shadows — all shadows MUST use teal-tinted rgba values (`rgba(0, 184, 212, x)`)
 - No CSS @keyframes — GSAP only for all animations; no `animation:` property in CSS
 - No warm color temperatures — this concept is cool and clinical throughout; no golds, ambers, or warm tones
+
+## Replacement Section (Gate 1 Update)
+- File: `section-stats.webp` (replaces `section-providers.webp` — Gate 1 decision: no providers listed at this stage)
+- Stats & Social Proof — oversized outcome stats (500+ Patients, 15 Years, 98% Relief, 4.9 Stars) in teal-bordered cards on dark navy. Washington University School of Medicine affiliation badge. Scrolling patient outcome ticker.

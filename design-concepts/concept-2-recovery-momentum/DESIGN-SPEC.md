@@ -53,3 +53,7 @@
 - No sharp angular clip-paths — this concept uses soft gradient transitions, rounded corners (`rounded-2xl`), and warm tone throughout
 - No dark-dominant sections except footer — the primary surface is warm white or warm navy; avoid near-black backgrounds
 - No CSS @keyframes — GSAP only for all animations
+
+## Replacement Section (Gate 1 Update)
+- File: `section-testimonials.webp` (replaces `section-providers.webp` — Gate 1 decision: no providers listed at this stage)
+- Patient Testimonials — three warm-white review cards with gold stars, patient quote, name + condition. Google Reviews 4.9 badge + insurance logos trust bar below.
