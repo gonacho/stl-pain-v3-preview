@@ -79,47 +79,47 @@
 
 > Note: Individual provider profiles (Healthgrades for Dr. Arconati, individual NPI) removed from sameAs stacking per Gate 1 provider removal decision.
 
-## Review Data (Semantic-Filtered) — Checkpoint C PENDING
+## Review Data (Semantic-Filtered) — Checkpoint C ✅ APPROVED 2026-05-19
 
-> **Gate 1 Status (2026-05-19):** Q5 review approval pending Bobbee confirmation. Hold all review injection until approved. Do not include any reviews in schema or visible content until Checkpoint C is resolved.
+> **Gate 1 Status (2026-05-19):** Q5 APPROVED by Bobbee. All 5 semantic-filtered reviews approved verbatim as-is. Review injection is unblocked. Note: Review #6 (Lester Brannam) mentions "Anissa Wheeler" by name — approved as-is per Bobbee. Since no provider pages exist in this build phase, binding for this review is /orthopedic/hyaluronic-acid-injections/ only (not /providers/anissa-wheeler/).
 
 ### Filtering Criteria
 - Star rating ≥4: All 8 reviews are 5-star ✅
 - Mentions top-3 services (Neuropathy Treatment, HA Injections, Physical Therapy) OR top-3 conditions (Knee Pain, Neuropathy, Chronic Pain): 5 of 8 pass
 
-### Candidates for Administrator Approval
+### Approved Reviews (verbatim — all 5 approved 2026-05-19)
 
 **Review #2 — Ms. Fowler (Jan 2025, 5★)**
 - Text: "This treatment works for me and my knee pain is a level 3 a little fluid is on my knee."
 - Mentions: **Knee pain** (condition)
-- Proposed binding: /conditions/knee-pain/
+- Approved binding: /conditions/knee-pain/
 
 **Review #4 — Stephanie Baker (Jul 2024, 5★)**
 - Text: "Had a wonderful experience with this team! Everyone there is so caring and helped me through my knee treatments. Recommend them highly!"
 - Mentions: **Knee treatments** (service/condition)
-- Proposed binding: /conditions/knee-pain/ OR /orthopedic/hyaluronic-acid-injections/
+- Approved binding: /conditions/knee-pain/ AND /orthopedic/hyaluronic-acid-injections/
 
 **Review #5 — Pat Shore (Jun 2024, 5★)**
 - Text: "Everyone is very professional and caring. Treatments are done with utmost care. My doctors gave up on my issues. This treatment has been a Godsend for my neuropathy and vertigo."
 - Mentions: **Neuropathy**, **vertigo** (conditions)
-- Proposed binding: /pain-control/neuropathy-treatment/ AND /conditions/vertigo-vestibular-disorders/
+- Approved binding: /pain-control/neuropathy-treatment/ AND /conditions/vertigo-vestibular-disorders/
 
 **Review #6 — Lester Brannam (May 2024, 5★)**
 - Text: "Anissa Wheeler was my therapist... I was having left knee pain and my doctor said that I needed knee surgery. I am 71 years old and I didn't want to go through surgery so I went to STL Pain Center... I took a gel shot once a week for 5 weeks and they helped tremendously."
 - Mentions: **Knee pain** (condition), **gel shot / HA injections** (service), **Anissa Wheeler** by name (E-E-A-T)
-- Proposed binding: /orthopedic/hyaluronic-acid-injections/ AND /providers/anissa-wheeler/
+- Approved binding: /orthopedic/hyaluronic-acid-injections/ (provider page binding removed — no provider pages in this build phase)
 
 **Review #8 — Patricia Diess (May 2024, 5★)**
 - Text: "The gel injections are fabulous. The staff is very pleasant and are very knowledgeable. It has been a real pleasure working with all of them and getting the relief my knees were needing."
 - Mentions: **Gel injections / HA injections** (service), **knees** (condition)
-- Proposed binding: /orthopedic/hyaluronic-acid-injections/
+- Approved binding: /orthopedic/hyaluronic-acid-injections/
 
 ### Proposed Homepage Reviews (LocalBusiness schema)
 - Review #1 — Heidi Goodsite: "Phenomenal staff! Clean facility with people who really care." (broadest-impact, general quality signal)
 - Review #5 — Pat Shore: neuropathy + vertigo mention (covers #1 target service)
 - Review #6 — Lester Brannam: knee pain + gel shots + provider name mention (strongest E-E-A-T signal)
 
-> **⚠️ Checkpoint C — Semantic Reviews:** Administrator must approve the 5 semantic-filtered candidates above for per-page injection, and the 3 homepage candidates. All text is verbatim from the real GBP listing. Zero paraphrasing, zero fabrication.
+> **✅ Checkpoint C — Semantic Reviews APPROVED (2026-05-19):** All 5 semantic-filtered reviews approved for per-page injection. Homepage reviews (Heidi Goodsite #1, Pat Shore #5, Lester Brannam #6) approved for LocalBusiness schema. All text is verbatim from the real GBP listing. Zero paraphrasing, zero fabrication.
 
 ## Insurance / Payment Data
 - Accepted insurance plans: Medicare, Blue Cross Blue Shield, Aetna, Cigna (+ other major commercial — confirm full list with client)

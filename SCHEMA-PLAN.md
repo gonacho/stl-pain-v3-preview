@@ -79,7 +79,7 @@
 ## Cross-References to ENTITY-VARIABLES.md
 - GBP Locks: see §GBP Locks (Checkpoint A — ✅ APPROVED 2026-05-19)
 - Institutional Anchors: see §Institutional Anchor Entities (Checkpoint B — ✅ APPROVED: Washington University School of Medicine)
-- Semantic Reviews: see §Review Data (Checkpoint C — ⏳ PENDING: Q5 awaiting Bobbee approval)
+- Semantic Reviews: see §Review Data (Checkpoint C — ✅ APPROVED 2026-05-19: all 5 per-page reviews + 3 homepage reviews approved verbatim)
 - NAICS: see §Business Entity > NAICS Code (621111 — from §6 lookup table, no administrator approval needed)
 
 ## Tech Builder Notes
