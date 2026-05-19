@@ -79,7 +79,7 @@
   - Peripheral neuropathy — Wikipedia: https://en.wikipedia.org/wiki/Peripheral_neuropathy
   - Regenerative medicine — Wikipedia: https://en.wikipedia.org/wiki/Regenerative_medicine
 - Professional Memberships: PENDING — to be confirmed by client
-- Services performed: /pain-management/nerve-blocks/, /pain-management/injection-therapy/, /pain-management/kyphoplasty/, /pain-management/medication-management/, /pain-management/medical-weight-loss/, /pain-management/hyaluronic-acid-injections/, /pain-management/prp-therapy/, /pain-management/regenerative-therapy/, /neuropathy-treatment/peripheral-neuropathy/, /neuropathy-treatment/neuromodulation-technique/
+- Services performed: /pain-control/nerve-blocks/, /pain-control/injection-therapy/, /pain-control/kyphoplasty/, /pain-control/medication-management/, /weight-loss/, /orthopedic/hyaluronic-acid-injections/, /orthopedic/prp-therapy/, /orthopedic/regenerative-therapy/, /pain-control/neuropathy-treatment/, /pain-control/neuromodulation-technique/
 - Has client-supplied headshot: yes (existing site — Grade B, needs EDIT-1)
 
 > **⚠️ Credential Note:** Client brief states "Founder/MD" but NPI registry confirms DC (Doctor of Chiropractic). Website also references chiropractic background (drronchiro.com domain found). Project Director must confirm correct credentials for content and schema.
@@ -96,7 +96,7 @@
   - Pain management — Wikipedia: https://en.wikipedia.org/wiki/Pain_management
   - Physical medicine and rehabilitation — Wikipedia: https://en.wikipedia.org/wiki/Physical_medicine_and_rehabilitation
 - Professional Memberships: PENDING
-- Services performed: /physical-therapy/
+- Services performed: /sports-medicine/
 - Has client-supplied headshot: yes (existing site — Grade B, needs EDIT-1)
 
 > **⚠️ Credential Note:** Web research found conflicting information about Anissa Wheeler's credentials. Client brief says PT; website may say NP. Project Director must confirm before content/schema is written.
@@ -143,22 +143,22 @@
 **Review #4 — Stephanie Baker (Jul 2024, 5★)**
 - Text: "Had a wonderful experience with this team! Everyone there is so caring and helped me through my knee treatments. Recommend them highly!"
 - Mentions: **Knee treatments** (service/condition)
-- Proposed binding: /conditions/knee-pain/ OR /pain-management/hyaluronic-acid-injections/
+- Proposed binding: /conditions/knee-pain/ OR /orthopedic/hyaluronic-acid-injections/
 
 **Review #5 — Pat Shore (Jun 2024, 5★)**
 - Text: "Everyone is very professional and caring. Treatments are done with utmost care. My doctors gave up on my issues. This treatment has been a Godsend for my neuropathy and vertigo."
 - Mentions: **Neuropathy**, **vertigo** (conditions)
-- Proposed binding: /neuropathy-treatment/peripheral-neuropathy/ AND /conditions/vertigo-vestibular-disorders/
+- Proposed binding: /pain-control/neuropathy-treatment/ AND /conditions/vertigo-vestibular-disorders/
 
 **Review #6 — Lester Brannam (May 2024, 5★)**
 - Text: "Anissa Wheeler was my therapist... I was having left knee pain and my doctor said that I needed knee surgery. I am 71 years old and I didn't want to go through surgery so I went to STL Pain Center... I took a gel shot once a week for 5 weeks and they helped tremendously."
 - Mentions: **Knee pain** (condition), **gel shot / HA injections** (service), **Anissa Wheeler** by name (E-E-A-T)
-- Proposed binding: /pain-management/hyaluronic-acid-injections/ AND /providers/anissa-wheeler/
+- Proposed binding: /orthopedic/hyaluronic-acid-injections/ AND /providers/anissa-wheeler/
 
 **Review #8 — Patricia Diess (May 2024, 5★)**
 - Text: "The gel injections are fabulous. The staff is very pleasant and are very knowledgeable. It has been a real pleasure working with all of them and getting the relief my knees were needing."
 - Mentions: **Gel injections / HA injections** (service), **knees** (condition)
-- Proposed binding: /pain-management/hyaluronic-acid-injections/
+- Proposed binding: /orthopedic/hyaluronic-acid-injections/
 
 ### Proposed Homepage Reviews (LocalBusiness schema)
 - Review #1 — Heidi Goodsite: "Phenomenal staff! Clean facility with people who really care." (broadest-impact, general quality signal)
@@ -180,7 +180,7 @@
 
 ## llms.txt Content (Tech Builder uses these verbatim)
 
-- positioning_statement: "St. Louis Pain Center is a pain management physician practice in St. Louis, MO, providing neuropathy treatment, regenerative medicine, physical therapy, and comprehensive pain management for patients in south St. Louis County."
+- positioning_statement: "St. Louis Pain Center is a pain control clinic in St. Louis, MO, providing neuropathy treatment, orthopedic care, regenerative medicine, physical therapy, and comprehensive pain management for patients in south St. Louis County."
 
 - about_paragraph: "St. Louis Pain Center LLC, located at 4455 Telegraph Rd #250 in St. Louis, MO, specializes in pain management and neuropathy treatment. Led by Dr. Ron Arconati, DC, the practice offers nerve blocks, injection therapy, PRP therapy, hyaluronic acid injections, regenerative therapy, kyphoplasty, medication management, medical weight loss, neuromodulation technique, and physical therapy services."
 
@@ -189,37 +189,37 @@
 - service_one_liners:
   - service: "Nerve Blocks"
     one_line: "Targeted nerve block injections for acute and chronic pain relief in St. Louis"
-    url: /pain-management/nerve-blocks/
+    url: /pain-control/nerve-blocks/
   - service: "Injection Therapy"
     one_line: "Therapeutic injection therapy for back pain, neck pain, and joint conditions"
-    url: /pain-management/injection-therapy/
+    url: /pain-control/injection-therapy/
   - service: "Kyphoplasty"
     one_line: "Minimally invasive kyphoplasty for spinal compression fracture pain relief"
-    url: /pain-management/kyphoplasty/
+    url: /pain-control/kyphoplasty/
   - service: "Medication Management"
     one_line: "Personalized pain medication management for chronic pain and neuropathy"
-    url: /pain-management/medication-management/
-  - service: "Medical Weight Loss"
-    one_line: "Physician-supervised medical weight loss including tirzepatide and semaglutide"
-    url: /pain-management/medical-weight-loss/
-  - service: "Hyaluronic Acid Injections"
-    one_line: "Hyaluronic acid gel injections for knee and joint pain without surgery"
-    url: /pain-management/hyaluronic-acid-injections/
-  - service: "PRP Therapy"
-    one_line: "Platelet-rich plasma therapy for tissue regeneration and joint healing"
-    url: /pain-management/prp-therapy/
-  - service: "Regenerative Therapy"
-    one_line: "Advanced regenerative medicine for joint, tendon, and soft tissue repair"
-    url: /pain-management/regenerative-therapy/
+    url: /pain-control/medication-management/
   - service: "Neuropathy Treatment"
     one_line: "Comprehensive peripheral neuropathy diagnosis and treatment in St. Louis"
-    url: /neuropathy-treatment/peripheral-neuropathy/
+    url: /pain-control/neuropathy-treatment/
   - service: "Neuromodulation Technique"
     one_line: "Drug-free neuromodulation for neuropathy, chronic pain, and fibromyalgia"
-    url: /neuropathy-treatment/neuromodulation-technique/
+    url: /pain-control/neuromodulation-technique/
+  - service: "Hyaluronic Acid Injections"
+    one_line: "Hyaluronic acid gel injections for knee and joint pain without surgery"
+    url: /orthopedic/hyaluronic-acid-injections/
+  - service: "PRP Therapy"
+    one_line: "Platelet-rich plasma therapy for tissue regeneration and joint healing"
+    url: /orthopedic/prp-therapy/
+  - service: "Regenerative Therapy"
+    one_line: "Advanced regenerative medicine for joint, tendon, and soft tissue repair"
+    url: /orthopedic/regenerative-therapy/
+  - service: "Medical Weight Loss"
+    one_line: "Physician-supervised medical weight loss including tirzepatide and semaglutide"
+    url: /weight-loss/
   - service: "Physical Therapy"
     one_line: "Physical therapy and rehabilitation for pain recovery and mobility"
-    url: /physical-therapy/
+    url: /sports-medicine/
 
 - provider_one_liners:
   - provider: "Dr. Ron Arconati, DC"

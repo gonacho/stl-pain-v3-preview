@@ -7,8 +7,8 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 ## Brand Variables (substituted into all prompts)
 - {city}: St. Louis
 - {state}: Missouri
-- {primary_gbp_category}: Pain management physician
-- {specialty_descriptor}: pain management
+- {primary_gbp_category}: Pain control clinic
+- {specialty_descriptor}: pain control
 - {hex_primary}: PENDING — extract from existing stlpaincenter.com
 - {hex_accent}: PENDING — extract from existing stlpaincenter.com
 - {design_personality}: Bold
@@ -90,10 +90,10 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
     Midwest setting — subtle architectural details suggesting St. Louis. Color palette emphasizes bold 
     contrasts with warm neutrals. No text overlays. Professional medical photography style with shallow 
     depth of field on the greeting interaction.
-- alt_text: "Pain management clinic in St. Louis, MO — welcoming patient environment"
+- alt_text: "Pain control clinic in St. Louis, MO — welcoming patient environment"
 
-### Category Page Hero — Pain Management
-- target: /public/images/pain-management/pain-management-st-louis-mo-hero.webp
+### Category Page Hero — Pain Control
+- target: /public/images/pain-control/pain-control-st-louis-mo-hero.webp
 - api: gpt-image-2-generations
 - size: 1920x1080
 - quality: high
@@ -104,12 +104,25 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
     Bold, modern interior design with dark accent walls and professional medical furniture. 
     The patient appears comfortable and engaged. Mid-morning light. No text overlays. 
     Professional medical photography style.
-- alt_text: "Pain management consultation at St. Louis Pain Center"
+- alt_text: "Pain control consultation at St. Louis Pain Center"
+
+### Category Page Hero — Orthopedic
+- target: /public/images/orthopedic/orthopedic-clinic-st-louis-mo-hero.webp
+- api: gpt-image-2-generations
+- size: 1920x1080
+- quality: high
+- prompt: |
+    Photorealistic editorial photograph of an orthopedic treatment room in a modern medical clinic. 
+    A physician examines a patient's knee joint, with an anatomical model and ultrasound equipment 
+    visible in the background. Clean, well-lit clinical environment with bold modern design — 
+    dark accent walls, professional medical furniture. The patient is seated comfortably on an 
+    exam table. Mid-morning light. No text overlays. Professional medical photography style.
+- alt_text: "Orthopedic consultation at St. Louis Pain Center"
 
 ### Service Page Heroes (11 images)
 
 #### Nerve Blocks
-- target: /public/images/pain-management/nerve-blocks-st-louis-mo.webp
+- target: /public/images/pain-control/nerve-blocks-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -122,7 +135,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Nerve block injection procedure at St. Louis Pain Center"
 
 #### Injection Therapy
-- target: /public/images/pain-management/injection-therapy-st-louis-mo.webp
+- target: /public/images/pain-control/injection-therapy-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -134,7 +147,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Therapeutic injection therapy for pain relief in St. Louis, MO"
 
 #### Kyphoplasty
-- target: /public/images/pain-management/kyphoplasty-st-louis-mo.webp
+- target: /public/images/pain-control/kyphoplasty-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -147,7 +160,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Kyphoplasty procedure for spinal compression fracture treatment"
 
 #### Medication Management
-- target: /public/images/pain-management/medication-management-st-louis-mo.webp
+- target: /public/images/pain-control/medication-management-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -159,7 +172,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Medication management for chronic pain at St. Louis Pain Center"
 
 #### Medical Weight Loss
-- target: /public/images/pain-management/medical-weight-loss-st-louis-mo.webp
+- target: /public/images/weight-loss/medical-weight-loss-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -171,7 +184,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Medical weight loss program at St. Louis Pain Center"
 
 #### Hyaluronic Acid Injections
-- target: /public/images/pain-management/hyaluronic-acid-injections-st-louis-mo.webp
+- target: /public/images/orthopedic/hyaluronic-acid-injections-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -183,7 +196,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Hyaluronic acid knee injection at St. Louis Pain Center"
 
 #### PRP Therapy
-- target: /public/images/pain-management/prp-therapy-st-louis-mo.webp
+- target: /public/images/orthopedic/prp-therapy-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -196,7 +209,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "PRP therapy preparation at St. Louis Pain Center"
 
 #### Regenerative Therapy
-- target: /public/images/pain-management/regenerative-therapy-st-louis-mo.webp
+- target: /public/images/orthopedic/regenerative-therapy-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -209,7 +222,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Regenerative therapy treatment at St. Louis Pain Center"
 
 #### Neuropathy Treatment
-- target: /public/images/neuropathy-treatment/peripheral-neuropathy-st-louis-mo.webp
+- target: /public/images/pain-control/neuropathy-treatment-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -221,7 +234,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Neuropathy examination and treatment in St. Louis, MO"
 
 #### Neuromodulation Technique
-- target: /public/images/neuropathy-treatment/neuromodulation-technique-st-louis-mo.webp
+- target: /public/images/pain-control/neuromodulation-technique-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -233,7 +246,7 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - alt_text: "Neuromodulation technique for neuropathy treatment in St. Louis"
 
 #### Physical Therapy
-- target: /public/images/physical-therapy/physical-therapy-st-louis-mo.webp
+- target: /public/images/sports-medicine/physical-therapy-st-louis-mo.webp
 - api: gpt-image-2-generations
 - size: 1600x900
 - quality: high
@@ -529,14 +542,14 @@ All GBP posts:
 |---|---|
 | Reuse (no API call) | 1 (hero background video) |
 | Edit (GPT-image-2 edits API) | 4 (2 headshots, logo, favicon) |
-| Generate (GPT-image-2 generations API) | 33 (1 homepage hero + 1 category hero + 11 service heroes + 13 condition illustrations + 5 comparison graphics + 2 standard page images) |
+| Generate (GPT-image-2 generations API) | 34 (1 homepage hero + 2 category heroes + 11 service heroes + 13 condition illustrations + 5 comparison graphics + 2 standard page images) |
 | GBP Post Images (generate) | 12 |
-| **TOTAL** | **50** (1 video reuse + 4 edits + 33 generations + 12 GBP posts) |
+| **TOTAL** | **51** (1 video reuse + 4 edits + 34 generations + 12 GBP posts) |
 
 ### Estimated Cost
 - Edits (4 × ~$0.04 each at 800×800): ~$0.16
-- Generations HD (33 × ~$0.08 each at 1600×900/1920×1080): ~$2.64
+- Generations HD (34 × ~$0.08 each at 1600×900/1920×1080): ~$2.72
 - Generations standard (12 × ~$0.04 each at 1080×1080 medium): ~$0.48
-- **Total estimated: ~$3.28**
+- **Total estimated: ~$3.36**
 
 > Note: Costs are estimates based on gpt-image-2 pricing as of 2026-05. Actual costs depend on final dimensions and quality settings.

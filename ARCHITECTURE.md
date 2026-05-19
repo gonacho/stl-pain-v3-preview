@@ -11,7 +11,7 @@
 This is NOT a straight 1:1 migration. Three parallel strategies apply:
 
 ### Migrate
-All 19 existing URLs receive 301 redirects (see Redirect Map below). URLs currently ranking (especially `/neuropathy` for neuropathy keywords, homepage for "pain management physician St. Louis") are redirected with care. DataForSEO Local Rank check recommended before finalizing.
+All 19 existing URLs receive 301 redirects (see Redirect Map below). URLs currently ranking (especially `/neuropathy` for neuropathy keywords, homepage for "pain control clinic St. Louis") are redirected with care. DataForSEO Local Rank check recommended before finalizing.
 
 ### Repurpose
 Existing content is NOT copied 1:1. Per-page content treatment:
@@ -19,28 +19,28 @@ Existing content is NOT copied 1:1. Per-page content treatment:
 | Old URL | Grade | Treatment | New URL |
 |---|---|---|---|
 | / | B | Rewrite to Core 30 AIDA + single-city H1 | / |
-| /neuropathy | B | Preserve cause/symptom framework, expand depth + AIDA | /neuropathy-treatment/peripheral-neuropathy/ |
+| /neuropathy | B | Preserve cause/symptom framework, expand depth + AIDA | /pain-control/neuropathy-treatment/ |
 | /back-pain | B | Expand to Core 30 depth + AIDA | /conditions/back-pain/ |
 | /chronic-pain | B | Expand to Core 30 depth + AIDA | /conditions/chronic-pain/ |
 | /joint-pain | B | Best existing depth — edit + expand | /conditions/joint-pain/ |
 | /knee-pain | B | Expand + AIDA | /conditions/knee-pain/ |
 | /neck-pain | B | Only 2 treatments listed — expand significantly | /conditions/neck-pain/ |
 | /sciatica | B | Most thorough — preserve + expand | /conditions/sciatica/ |
-| /prp-therapy | B | Clarify A2M references or remove; add AIDA | /pain-management/prp-therapy/ |
-| /medical-weight-loss | B | Best data page (SURMOUNT-5 stats) — preserve data + AIDA | /pain-management/medical-weight-loss/ |
-| /neuromodulation-technique | B | Most detailed service page — preserve + expand | /neuropathy-treatment/neuromodulation-technique/ |
+| /prp-therapy | B | Clarify A2M references or remove; add AIDA | /orthopedic/prp-therapy/ |
+| /medical-weight-loss | B | Best data page (SURMOUNT-5 stats) — preserve data + AIDA | /weight-loss/ |
+| /neuromodulation-technique | B | Most detailed service page — preserve + expand | /pain-control/neuromodulation-technique/ |
 | /contact | B | Remap to Core 30 contact with neuropathy FAQs preserved | /contact/ |
 | /schedule-appointment | B | Port to Core 30 booking with Resend Worker form | /new-patients/ |
 | /about-us | C | Complete overhaul — add Dr. Arconati + Anissa bios, credentials, history | /about/ |
-| /regenerative-therapy | C | Rewrite from scratch — "exosome" confusion in current copy | /pain-management/regenerative-therapy/ |
-| /hyaluronic-acid-injections | C | Only 310 words, 1 condition — complete rewrite | /pain-management/hyaluronic-acid-injections/ |
+| /regenerative-therapy | C | Rewrite from scratch — "exosome" confusion in current copy | /orthopedic/regenerative-therapy/ |
+| /hyaluronic-acid-injections | C | Only 310 words, 1 condition — complete rewrite | /orthopedic/hyaluronic-acid-injections/ |
 | /testimonials | C | Replace — reviews distributed per-page in Core 30 | / (301 to homepage) |
 | /privacy-policy | A | Keep as-is with updated date | /hipaa-privacy/ |
 | /terms-and-conditions | A | Keep as-is with updated date | /terms-and-conditions/ |
 
 ### Expand
 Full Core 30 architecture built beyond current 17 pages. New pages (no existing content):
-- Category hub: /pain-management/ (hub for 8 services)
+- Category hubs: /pain-control/ (hub for 6 services), /orthopedic/ (hub for 3 services)
 - 5 new condition pages: Shoulder Pain, Arthritis/Osteoarthritis, Fibromyalgia, Vertigo/Vestibular Disorders, Neuropathy in Feet
 - 6 new service pages: Physical Therapy, Nerve Blocks, Injection Therapy, Kyphoplasty, Medication Management (no current pages)
 - 5 comparison pages (all new)
@@ -51,8 +51,8 @@ Full Core 30 architecture built beyond current 17 pages. New pages (no existing 
 
 ## GBP Entity Summary
 - GBP 1: St. Louis Pain Center — St. Louis, MO
-  - Primary Category: Pain management physician
-  - Secondary Categories: Neuropathy treatment center, Physical therapist
+  - Primary Category: Pain control clinic
+  - Secondary Categories: Medical clinic, Orthopedic clinic, Weight loss clinic, Sports medicine clinic, Wellness center
   - Total GBP Services: 11
   - Phone: (314) 846-2100
 
@@ -60,132 +60,141 @@ Full Core 30 architecture built beyond current 17 pages. New pages (no existing 
 
 ### Homepage Hub (= GBP Landing Page 1)
 - URL: /
-- H1: Pain Management Physician in St. Louis
+- H1: Pain Control Clinic in St. Louis
 - H2s:
-  - Neuropathy Treatment Center in St. Louis, MO
-  - Physical Therapist in St. Louis, MO
-  - Pain Management Services in St. Louis, MO
+  - Orthopedic Clinic in St. Louis, MO
+  - Weight Loss Clinic in St. Louis, MO
+  - Sports Medicine Clinic in St. Louis, MO
+  - Pain Control Services in St. Louis, MO
 - Links to: ALL category pages + ALL service pages (flat-linked in server-rendered HTML)
 
 ### Category Pages
 
-#### Category 1: Pain Management (primary category hub — 8 services → hub page required)
-- URL: /pain-management/
-- H1: Pain Management in St. Louis, MO
+#### Category 1: Pain Control Clinic (primary category hub — 6 services → hub page required)
+- URL: /pain-control/
+- H1: Pain Control in St. Louis, MO
 - Links DOWN to:
-  - /pain-management/nerve-blocks/
-  - /pain-management/injection-therapy/
-  - /pain-management/kyphoplasty/
-  - /pain-management/medication-management/
-  - /pain-management/medical-weight-loss/
-  - /pain-management/hyaluronic-acid-injections/
-  - /pain-management/prp-therapy/
-  - /pain-management/regenerative-therapy/
+  - /pain-control/nerve-blocks/
+  - /pain-control/injection-therapy/
+  - /pain-control/kyphoplasty/
+  - /pain-control/medication-management/
+  - /pain-control/neuropathy-treatment/
+  - /pain-control/neuromodulation-technique/
 - Links UP to: Homepage (contextual anchor text)
 
-#### Category 2: Neuropathy Treatment Center (secondary — 2 services, <3 → no hub page, logical grouping only)
-- URL nesting only: /neuropathy-treatment/
-- No dedicated hub page — services linked directly from homepage and footer
-- Child services:
-  - /neuropathy-treatment/peripheral-neuropathy/
-  - /neuropathy-treatment/neuromodulation-technique/
+#### Category 2: Orthopedic Clinic (secondary — 3 services → hub page required)
+- URL: /orthopedic/
+- H1: Orthopedic Clinic in St. Louis, MO
+- Links DOWN to:
+  - /orthopedic/hyaluronic-acid-injections/
+  - /orthopedic/prp-therapy/
+  - /orthopedic/regenerative-therapy/
+- Links UP to: Homepage (contextual anchor text)
 
-#### Category 3: Physical Therapist (secondary — 1 service → no hub page, direct service page)
-- URL: /physical-therapy/ (service page IS the category landing)
+#### Category 3: Weight Loss Clinic (secondary — 1 service → no hub page, direct service page)
+- URL: /weight-loss/ (service page IS the category landing)
 - No separate hub — single service at category root
+
+#### Category 4: Sports Medicine Clinic (secondary — 1 service → no hub page, direct service page)
+- URL: /sports-medicine/ (service page IS the category landing)
+- No separate hub — single service at category root
+
+> **Note:** "Medical clinic" and "Wellness center" GBP secondaries are generic catch-all categories. They appear in the GBP profile and schema but do NOT drive URL architecture or dedicated hub pages.
 
 ### Service Pages
 
-#### Pain Management Services (8 pages)
+#### Pain Control Services (6 pages)
 
 1. **Nerve Blocks**
-   - URL: /pain-management/nerve-blocks/
+   - URL: /pain-control/nerve-blocks/
    - H1: Nerve Blocks in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: pain-control
    - Conditions linking up: Back Pain, Neck Pain, Sciatica, Chronic Pain
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure with indication → MedicalCondition @id refs
 
 2. **Injection Therapy**
-   - URL: /pain-management/injection-therapy/
+   - URL: /pain-control/injection-therapy/
    - H1: Injection Therapy in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: pain-control
    - Conditions linking up: Back Pain, Shoulder Pain, Neck Pain
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure
 
 3. **Kyphoplasty**
-   - URL: /pain-management/kyphoplasty/
+   - URL: /pain-control/kyphoplasty/
    - H1: Kyphoplasty in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: pain-control
    - Conditions linking up: Back Pain, Sciatica, Chronic Pain
    - Providers: Dr. Ron Arconati
    - Schema: MedicalProcedure (minimally invasive surgical)
 
 4. **Medication Management**
-   - URL: /pain-management/medication-management/
+   - URL: /pain-control/medication-management/
    - H1: Medication Management in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: pain-control
    - Conditions linking up: Chronic Pain, Fibromyalgia, Diabetic Neuropathy
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure
 
-5. **Medical Weight Loss**
-   - URL: /pain-management/medical-weight-loss/
-   - H1: Medical Weight Loss in St. Louis, MO
-   - Parent Category: pain-management
-   - Conditions linking up: Arthritis/Osteoarthritis, Joint Pain, Chronic Pain
+5. **Neuropathy Treatment**
+   - URL: /pain-control/neuropathy-treatment/
+   - H1: Neuropathy Treatment in St. Louis, MO
+   - Parent Category: pain-control
+   - Conditions linking up: Neuropathy, Diabetic Neuropathy, Chronic Pain, Neuropathy in Feet
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure
 
-6. **Hyaluronic Acid Injections**
-   - URL: /pain-management/hyaluronic-acid-injections/
+6. **Neuromodulation Technique**
+   - URL: /pain-control/neuromodulation-technique/
+   - H1: Neuromodulation Technique in St. Louis, MO
+   - Parent Category: pain-control
+   - Conditions linking up: Neuropathy, Chronic Pain, Fibromyalgia, Vertigo/Vestibular Disorders, Neuropathy in Feet
+   - Providers: Dr. Ron Arconati
+   - Schema: TherapeuticProcedure
+
+#### Orthopedic Clinic Services (3 pages)
+
+7. **Hyaluronic Acid Injections**
+   - URL: /orthopedic/hyaluronic-acid-injections/
    - H1: Hyaluronic Acid Injections in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: orthopedic
    - Conditions linking up: Knee Pain, Joint Pain, Arthritis/Osteoarthritis
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure
 
-7. **PRP Therapy**
-   - URL: /pain-management/prp-therapy/
+8. **PRP Therapy**
+   - URL: /orthopedic/prp-therapy/
    - H1: PRP Therapy in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: orthopedic
    - Conditions linking up: Knee Pain, Joint Pain, Shoulder Pain
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure
 
-8. **Regenerative Therapy**
-   - URL: /pain-management/regenerative-therapy/
+9. **Regenerative Therapy**
+   - URL: /orthopedic/regenerative-therapy/
    - H1: Regenerative Therapy in St. Louis, MO
-   - Parent Category: pain-management
+   - Parent Category: orthopedic
    - Conditions linking up: Joint Pain, Arthritis/Osteoarthritis, Knee Pain
    - Providers: Dr. Ron Arconati
    - Schema: TherapeuticProcedure
 
-#### Neuropathy Treatment Services (2 pages)
+#### Weight Loss Clinic (1 page)
 
-9. **Neuropathy Treatment (Peripheral Neuropathy)**
-   - URL: /neuropathy-treatment/peripheral-neuropathy/
-   - H1: Neuropathy Treatment in St. Louis, MO
-   - Parent Category: neuropathy-treatment (logical grouping, no hub page)
-   - Conditions linking up: Neuropathy, Diabetic Neuropathy, Chronic Pain
-   - Providers: Dr. Ron Arconati
-   - Schema: TherapeuticProcedure
-
-10. **Neuromodulation Technique**
-    - URL: /neuropathy-treatment/neuromodulation-technique/
-    - H1: Neuromodulation Technique in St. Louis, MO
-    - Parent Category: neuropathy-treatment (logical grouping)
-    - Conditions linking up: Neuropathy, Chronic Pain, Fibromyalgia, Vertigo/Vestibular Disorders
+10. **Medical Weight Loss**
+    - URL: /weight-loss/
+    - H1: Medical Weight Loss in St. Louis, MO
+    - Parent Category: weight-loss (single service = category landing)
+    - Conditions linking up: Arthritis/Osteoarthritis, Joint Pain, Chronic Pain
     - Providers: Dr. Ron Arconati
     - Schema: TherapeuticProcedure
 
-#### Physical Therapy (1 page)
+#### Sports Medicine Clinic (1 page)
 
 11. **Physical Therapy**
-    - URL: /physical-therapy/
+    - URL: /sports-medicine/
     - H1: Physical Therapy in St. Louis, MO
-    - Parent Category: physical-therapy (single service = category landing)
+    - Parent Category: sports-medicine (single service = category landing)
     - Conditions linking up: Back Pain, Neck Pain, Knee Pain, Shoulder Pain, Sciatica, Fibromyalgia, Vertigo/Vestibular Disorders
     - Providers: Anissa Wheeler
     - Schema: TherapeuticProcedure
@@ -272,31 +281,31 @@ Full Core 30 architecture built beyond current 17 pages. New pages (no existing 
 1. **PRP Therapy vs. Hyaluronic Acid Injections**
    - URL: /compare/prp-therapy-vs-hyaluronic-acid-injections/
    - Primary Keyword: prp vs hyaluronic acid injections
-   - Linking up to: /pain-management/prp-therapy/, /pain-management/hyaluronic-acid-injections/
+   - Linking up to: /orthopedic/prp-therapy/, /orthopedic/hyaluronic-acid-injections/
    - Conclusion framing: Both effective — PRP for tissue regeneration, HA for cushioning/lubrication; practice offers both tailored to patient needs
 
 2. **Regenerative Therapy vs. Cortisone Injections**
    - URL: /compare/regenerative-therapy-vs-cortisone-injections/
    - Primary Keyword: regenerative therapy vs cortisone shots
-   - Linking up to: /pain-management/regenerative-therapy/, /pain-management/injection-therapy/
+   - Linking up to: /orthopedic/regenerative-therapy/, /pain-control/injection-therapy/
    - Conclusion framing: Regenerative approaches address root cause vs. symptom masking; practice favors regenerative-first
 
 3. **Nerve Blocks vs. Medication Management**
    - URL: /compare/nerve-blocks-vs-medication-management/
    - Primary Keyword: nerve block vs pain medication
-   - Linking up to: /pain-management/nerve-blocks/, /pain-management/medication-management/
+   - Linking up to: /pain-control/nerve-blocks/, /pain-control/medication-management/
    - Conclusion framing: Targeted intervention vs. systemic medication; practice uses multimodal approach
 
 4. **Physical Therapy vs. Surgery for Back Pain**
    - URL: /compare/physical-therapy-vs-surgery-back-pain/
    - Primary Keyword: physical therapy vs surgery back pain
-   - Linking up to: /physical-therapy/, /pain-management/kyphoplasty/
+   - Linking up to: /sports-medicine/, /pain-control/kyphoplasty/
    - Conclusion framing: Conservative-first approach; surgery only when necessary
 
 5. **Neuromodulation vs. Traditional Neuropathy Treatment**
    - URL: /compare/neuromodulation-vs-traditional-neuropathy-treatment/
    - Primary Keyword: neuromodulation technique vs neuropathy medication
-   - Linking up to: /neuropathy-treatment/neuromodulation-technique/, /neuropathy-treatment/peripheral-neuropathy/
+   - Linking up to: /pain-control/neuromodulation-technique/, /pain-control/neuropathy-treatment/
    - Conclusion framing: Neuromodulation as advanced drug-free option; practice specializes in both
 
 ### Standard Pages
@@ -323,17 +332,15 @@ Logo | [Services ▾] | [Conditions ▾] | About | Providers | Contact | [Book A
 
 **Services Mega Menu:**
 
-| Pain management physician | Neuropathy treatment center | Physical therapist |
-|---|---|---|
-| Nerve Blocks | Neuropathy Treatment | Physical Therapy |
-| Injection Therapy | Neuromodulation Technique | |
-| Kyphoplasty | | |
-| Medication Management | | |
-| Medical Weight Loss | | |
-| Hyaluronic Acid Injections | | |
-| PRP Therapy | | |
-| Regenerative Therapy | | |
-| [View All Services →] | | |
+| Pain control clinic | Orthopedic clinic | Weight loss clinic | Sports medicine clinic |
+|---|---|---|---|
+| Nerve Blocks | Hyaluronic Acid Injections | Medical Weight Loss | Physical Therapy |
+| Injection Therapy | PRP Therapy | | |
+| Kyphoplasty | Regenerative Therapy | | |
+| Medication Management | | | |
+| Neuropathy Treatment | | | |
+| Neuromodulation Technique | | | |
+| [View All Services →] | | | |
 
 **Conditions Dropdown (separate primary nav peer):**
 
@@ -360,20 +367,21 @@ Logo | [Services ▾] | [Conditions ▾] | About | Providers | Contact | [Book A
 
 Every service page URL below MUST appear as `<a href>` in homepage server-rendered HTML:
 
-1. /pain-management/nerve-blocks/
-2. /pain-management/injection-therapy/
-3. /pain-management/kyphoplasty/
-4. /pain-management/medication-management/
-5. /pain-management/medical-weight-loss/
-6. /pain-management/hyaluronic-acid-injections/
-7. /pain-management/prp-therapy/
-8. /pain-management/regenerative-therapy/
-9. /neuropathy-treatment/peripheral-neuropathy/
-10. /neuropathy-treatment/neuromodulation-technique/
-11. /physical-therapy/
+1. /pain-control/nerve-blocks/
+2. /pain-control/injection-therapy/
+3. /pain-control/kyphoplasty/
+4. /pain-control/medication-management/
+5. /pain-control/neuropathy-treatment/
+6. /pain-control/neuromodulation-technique/
+7. /orthopedic/hyaluronic-acid-injections/
+8. /orthopedic/prp-therapy/
+9. /orthopedic/regenerative-therapy/
+10. /weight-loss/
+11. /sports-medicine/
 
-Plus category hub:
-12. /pain-management/
+Plus category hubs:
+12. /pain-control/
+13. /orthopedic/
 
 Plus standard pages:
 13. /conditions/
@@ -412,24 +420,26 @@ All 11 services have ≥3 condition pages. Coverage complete.
 
 | Keyword | Est. Volume | Option A | Option B | Service Page Target |
 |---|---|---|---|---|
-| prp vs hyaluronic acid injections | TBD | PRP Therapy | HA Injections | /pain-management/prp-therapy/, /pain-management/hyaluronic-acid-injections/ |
-| regenerative therapy vs cortisone | TBD | Regenerative Therapy | Cortisone (external) | /pain-management/regenerative-therapy/ |
-| nerve block vs pain medication | TBD | Nerve Blocks | Medication Management | /pain-management/nerve-blocks/, /pain-management/medication-management/ |
-| physical therapy vs surgery back pain | TBD | Physical Therapy | Surgery (external) | /physical-therapy/, /pain-management/kyphoplasty/ |
-| neuromodulation vs neuropathy medication | TBD | Neuromodulation | Traditional Treatment | /neuropathy-treatment/neuromodulation-technique/ |
+| prp vs hyaluronic acid injections | TBD | PRP Therapy | HA Injections | /orthopedic/prp-therapy/, /orthopedic/hyaluronic-acid-injections/ |
+| regenerative therapy vs cortisone | TBD | Regenerative Therapy | Cortisone (external) | /orthopedic/regenerative-therapy/ |
+| nerve block vs pain medication | TBD | Nerve Blocks | Medication Management | /pain-control/nerve-blocks/, /pain-control/medication-management/ |
+| physical therapy vs surgery back pain | TBD | Physical Therapy | Surgery (external) | /sports-medicine/, /pain-control/kyphoplasty/ |
+| neuromodulation vs neuropathy medication | TBD | Neuromodulation | Traditional Treatment | /pain-control/neuromodulation-technique/ |
 
 > **Note:** Search volumes TBD — DataForSEO keyword research pending. Volumes to be added to RESEARCH.md.
 
 ## Internal Linking Map
 
 - Service pages → link UP to parent category (contextual in-body anchor text)
-- Category page (/pain-management/) → link UP to homepage (contextual in-body)
-- Category page → link DOWN to all 8 child services
+- Category page (/pain-control/) → link UP to homepage (contextual in-body)
+- Category page (/orthopedic/) → link UP to homepage (contextual in-body)
+- Pain control hub → link DOWN to all 6 child services
+- Orthopedic hub → link DOWN to all 3 child services
 - Condition pages → link UP to all treating service pages (never down)
 - Provider pages → link to services they perform (downward) + services link to providers (upward)
 - Comparison pages → link UP to both compared service pages
 - Blog posts (Phase 2) → link UP to target service page
-- Homepage → flat-links to ALL 11 services + category hub + providers hub + conditions hub
+- Homepage → flat-links to ALL 11 services + 2 category hubs + providers hub + conditions hub
 - Footer mirrors full Core 30 hierarchy
 
 ## Anchor Text Ratios
@@ -442,18 +452,18 @@ All 11 services have ≥3 condition pages. Coverage complete.
 | Old URL | New Core 30 URL | Notes |
 |---|---|---|
 | / | / | Keep — homepage |
-| /neuropathy | /neuropathy-treatment/peripheral-neuropathy/ | 301 — #1 target keyword |
+| /neuropathy | /pain-control/neuropathy-treatment/ | 301 — #1 target keyword |
 | /back-pain | /conditions/back-pain/ | 301 |
 | /chronic-pain | /conditions/chronic-pain/ | 301 |
 | /joint-pain | /conditions/joint-pain/ | 301 |
 | /knee-pain | /conditions/knee-pain/ | 301 |
 | /neck-pain | /conditions/neck-pain/ | 301 |
 | /sciatica | /conditions/sciatica/ | 301 |
-| /regenerative-therapy | /pain-management/regenerative-therapy/ | 301 |
-| /hyaluronic-acid-injections | /pain-management/hyaluronic-acid-injections/ | 301 |
-| /prp-therapy | /pain-management/prp-therapy/ | 301 |
-| /medical-weight-loss | /pain-management/medical-weight-loss/ | 301 |
-| /neuromodulation-technique | /neuropathy-treatment/neuromodulation-technique/ | 301 |
+| /regenerative-therapy | /orthopedic/regenerative-therapy/ | 301 |
+| /hyaluronic-acid-injections | /orthopedic/hyaluronic-acid-injections/ | 301 |
+| /prp-therapy | /orthopedic/prp-therapy/ | 301 |
+| /medical-weight-loss | /weight-loss/ | 301 |
+| /neuromodulation-technique | /pain-control/neuromodulation-technique/ | 301 |
 | /about-us | /about/ | 301 |
 | /contact | /contact/ | 301 |
 | /schedule-appointment | /new-patients/ | 301 (or /contact/ — confirm with PD) |
@@ -461,34 +471,34 @@ All 11 services have ≥3 condition pages. Coverage complete.
 | /privacy-policy | /hipaa-privacy/ | 301 |
 | /terms-and-conditions | /terms-and-conditions/ | Keep same |
 
-> **⚠️ Ranking URL Warning:** If /neuropathy is currently ranking in the local pack or organic SERPs, the redirect to /neuropathy-treatment/peripheral-neuropathy/ must be handled with extreme care. Run Local Rank Map via DataForSEO before finalizing.
+> **⚠️ Ranking URL Warning:** If /neuropathy is currently ranking in the local pack or organic SERPs, the redirect to /pain-control/neuropathy-treatment/ must be handled with extreme care. Run Local Rank Map via DataForSEO before finalizing.
 
 ## GBP Post Cadence — 90-Day Topics
 
 | Week | Topic | Target Service Page URL |
 |---|---|---|
-| 1 | Neuropathy awareness: symptoms you shouldn't ignore | /neuropathy-treatment/peripheral-neuropathy/ |
+| 1 | Neuropathy awareness: symptoms you shouldn't ignore | /pain-control/neuropathy-treatment/ |
 | 2 | Knee pain relief without surgery | /conditions/knee-pain/ |
-| 3 | How PRP therapy accelerates healing | /pain-management/prp-therapy/ |
+| 3 | How PRP therapy accelerates healing | /orthopedic/prp-therapy/ |
 | 4 | Back pain tips for desk workers | /conditions/back-pain/ |
-| 5 | Benefits of hyaluronic acid injections for joint pain | /pain-management/hyaluronic-acid-injections/ |
+| 5 | Benefits of hyaluronic acid injections for joint pain | /orthopedic/hyaluronic-acid-injections/ |
 | 6 | Sciatica: causes and when to seek treatment | /conditions/sciatica/ |
-| 7 | Physical therapy for lasting pain relief | /physical-therapy/ |
+| 7 | Physical therapy for lasting pain relief | /sports-medicine/ |
 | 8 | Managing diabetic neuropathy effectively | /conditions/diabetic-neuropathy/ |
-| 9 | Regenerative therapy: your body's own healing power | /pain-management/regenerative-therapy/ |
+| 9 | Regenerative therapy: your body's own healing power | /orthopedic/regenerative-therapy/ |
 | 10 | Neck pain: when to see a pain specialist | /conditions/neck-pain/ |
-| 11 | Medical weight loss and joint health connection | /pain-management/medical-weight-loss/ |
-| 12 | Nerve blocks: targeted pain relief explained | /pain-management/nerve-blocks/ |
+| 11 | Medical weight loss and joint health connection | /weight-loss/ |
+| 12 | Nerve blocks: targeted pain relief explained | /pain-control/nerve-blocks/ |
 
 ## Page Count Summary
 
 | Page Type | Count |
 |---|---|
 | Homepage | 1 |
-| Category Hub Pages | 1 |
+| Category Hub Pages | 2 (Pain Control, Orthopedic) |
 | Service Pages | 11 |
 | Condition Pages | 13 |
 | Provider Pages | 2 |
 | Comparison Pages | 5 |
 | Standard Pages (About, Contact, New Patients, Insurance, HIPAA, Providers Hub, Conditions Hub) | 7 |
-| **TOTAL** | **40** |
+| **TOTAL** | **41** |

@@ -23,8 +23,8 @@
 - Block G: BreadcrumbList (position 1 only)
 - Block H: FAQPage (if FAQs present)
 
-### Category Page (/pain-management/)
-- Block D-category: OfferCatalog (lists all 8 pain management services)
+### Category Pages (/pain-control/, /orthopedic/)
+- Block D-category: OfferCatalog (lists child services per hub: 6 for pain-control, 3 for orthopedic)
 - Block E: MedicalWebPage
 - Block G: BreadcrumbList (2 levels: Home > Pain Management)
 - Block H: FAQPage
@@ -38,7 +38,7 @@
 - Block H: FAQPage
 - Block J: VideoObject (if video exists on page)
 
-### Condition Pages (12 pages)
+### Condition Pages (13 pages)
 - Block I: MedicalCondition with:
   - possibleTreatment → TherapeuticProcedure @id refs (bidirectional graph closure)
   - cause, symptom, signOrSymptom arrays matching visible H3 sections

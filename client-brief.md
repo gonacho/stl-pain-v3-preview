@@ -41,10 +41,10 @@ build_directive: migrate_repurpose_expand
 
 | Field | Value |
 |---|---|
-| GBP Primary Category | Pain management physician |
-| GBP Secondary Categories | Neuropathy treatment center, Physical therapist |
+| GBP Primary Category | Pain control clinic |
+| GBP Secondary Categories | Medical clinic, Orthopedic clinic, Weight loss clinic, Sports medicine clinic, Wellness center |
 
-> **Note:** Primary category confirmed by Bobbee 2026-05-19. Character-for-character: "Pain management physician"
+> **Note:** GBP categories updated by Bobbee 2026-05-19. Character-for-character exact values above.
 
 ---
 
@@ -157,8 +157,8 @@ build_directive: migrate_repurpose_expand
 | New build or migration? | Migration |
 | Business name + location | St. Louis Pain Center, St. Louis, MO |
 | Build classification | Local Clinic |
-| GBP Primary Category | Pain management physician |
-| GBP Secondary Categories | Neuropathy treatment center, Physical therapist |
+| GBP Primary Category | Pain control clinic |
+| GBP Secondary Categories | Medical clinic, Orthopedic clinic, Weight loss clinic, Sports medicine clinic, Wellness center |
 | Local health signal | Midwest sedentary lifestyle — neuropathy & chronic pain risk |
 | Voice/tone | Authoritative + Educational |
 | Provider list | Dr. Ron Arconati (Founder/MD), Anissa Wheeler (PT) — existing headshots |

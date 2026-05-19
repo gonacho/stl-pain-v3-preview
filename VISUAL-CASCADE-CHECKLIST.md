@@ -20,7 +20,14 @@ The five cascade elements per page (all GSAP — never motion/react):
 
 ## Category Pages
 
-### Pain Management
+### Pain Control
+- [ ] Hero motion (GSAP)
+- [ ] Service cards image-backed
+- [ ] Section alternation
+- [ ] Reveal animations (GSAP ScrollTrigger)
+- [ ] End-of-page CTA motion (GSAP)
+
+### Orthopedic
 - [ ] Hero motion (GSAP)
 - [ ] Service cards image-backed
 - [ ] Section alternation
@@ -308,10 +315,10 @@ The five cascade elements per page (all GSAP — never motion/react):
 | Section | Pages | Checkboxes | Complete |
 |---|---|---|---|
 | Homepage | 1 | 5 | 0/5 |
-| Category Pages | 1 | 5 | 0/5 |
+| Category Pages | 2 | 10 | 0/10 |
 | Service Pages | 11 | 55 | 0/55 |
 | Condition Pages | 13 | 65 | 0/65 |
 | Provider Pages | 2 | 10 | 0/10 |
 | Comparison Pages | 5 | 25 | 0/25 |
 | Standard Pages | 7 | 33 | 0/33 |
-| **TOTAL** | **40** | **198** | **0/198** |
+| **TOTAL** | **41** | **203** | **0/203** |
