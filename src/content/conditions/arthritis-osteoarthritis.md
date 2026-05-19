@@ -7,7 +7,10 @@ publishDate: 2026-05-19
 lastEdited: 2026-05-19
 heroImage: /images/arthritis-osteoarthritis-st-louis-mo.webp
 heroImageAlt: Arthritis / Osteoarthritis at St. Louis Pain Center
-treatment_services: []
+treatment_services:
+  - hyaluronic-acid-injections
+  - regenerative-therapy
+  - weight-loss
 causes:
   - Age-Related Cartilage Degeneration
   - Excess Body Weight

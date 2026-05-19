@@ -7,7 +7,9 @@ publishDate: 2026-05-19
 lastEdited: 2026-05-19
 heroImage: /images/vertigo-vestibular-disorders-st-louis-mo.webp
 heroImageAlt: Vertigo / Vestibular Disorders at St. Louis Pain Center
-treatment_services: []
+treatment_services:
+  - neuromodulation-technique
+  - sports-medicine
 causes:
   - Benign Paroxysmal Positional Vertigo (BPPV)
   - Vestibular Neuritis and Labyrinthitis

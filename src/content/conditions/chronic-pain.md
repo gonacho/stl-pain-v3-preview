@@ -7,7 +7,12 @@ publishDate: 2026-05-19
 lastEdited: 2026-05-19
 heroImage: /images/chronic-pain-st-louis-mo.webp
 heroImageAlt: Chronic Pain at St. Louis Pain Center
-treatment_services: []
+treatment_services:
+  - neuropathy-treatment
+  - neuromodulation-technique
+  - kyphoplasty
+  - medication-management
+  - weight-loss
 causes:
   - Degenerative Disc Disease
   - Nerve Damage and Neuropathy

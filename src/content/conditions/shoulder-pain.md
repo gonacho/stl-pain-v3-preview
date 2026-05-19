@@ -7,7 +7,10 @@ publishDate: 2026-05-19
 lastEdited: 2026-05-19
 heroImage: /images/shoulder-pain-st-louis-mo.webp
 heroImageAlt: Shoulder Pain at St. Louis Pain Center
-treatment_services: []
+treatment_services:
+  - prp-therapy
+  - injection-therapy
+  - sports-medicine
 causes:
   - Rotator Cuff Injury
   - Bursitis and Impingement

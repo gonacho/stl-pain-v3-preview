@@ -7,7 +7,10 @@ publishDate: 2026-05-19
 lastEdited: 2026-05-19
 heroImage: /images/fibromyalgia-st-louis-mo.webp
 heroImageAlt: Fibromyalgia at St. Louis Pain Center
-treatment_services: []
+treatment_services:
+  - neuromodulation-technique
+  - medication-management
+  - sports-medicine
 causes:
   - Central Nervous System Dysregulation
   - Physical Trauma or Illness

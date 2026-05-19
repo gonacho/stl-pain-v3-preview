@@ -7,7 +7,10 @@ publishDate: 2026-05-19
 lastEdited: 2026-05-19
 heroImage: /images/neuropathy-in-feet-st-louis-mo.webp
 heroImageAlt: Neuropathy in Feet at St. Louis Pain Center
-treatment_services: []
+treatment_services:
+  - neuropathy-treatment
+  - neuromodulation-technique
+  - sports-medicine
 causes:
   - Diabetic Neuropathy
   - Chemotherapy-Induced Neuropathy
