@@ -12,7 +12,13 @@ build_classification: local-clinic
 gbp_count: 1
 language_flags: [en]
 feature_flags: []
+build_directive: migrate_repurpose_expand
 ```
+
+> **Build Directive (confirmed 2026-05-19 by Bobbee):** This is a migration AND repurpose AND expansion.
+> - **Migrate** — carry forward all ranking URLs with 301 redirects; preserve Grade A content verbatim.
+> - **Repurpose** — actively rewrite/improve Grade B and C pages; reposition the practice around Dr. Arconati's authority and the Midwest chronic pain angle. Do not copy existing thin content wholesale.
+> - **Expand** — build out a full Core 30 architecture beyond the current 17-page site. Add 2–3 condition pages per core service, comparison pages, and category hub pages that do not currently exist.
 
 ---
 
