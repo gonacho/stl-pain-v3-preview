@@ -1,0 +1,125 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MedicalWebPageSchema from '../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../components/schemas/FAQPageSchema.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_PHONE_DISPLAY, SITE_ADDRESS, SITE_HOURS } from '../data/site-config';
+
+const page = await getEntry('pages', 'new-patients');
+if (!page) throw new Error('new-patients page content not found');
+const { Content } = await page.render();
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'New Patients', url: '/new-patients/' },
+];
+
+const steps = [
+  { step: '1', title: 'Schedule Your Visit', body: 'Call our office or submit a request online. We offer prompt scheduling for new patients.' },
+  { step: '2', title: 'Complete New Patient Forms', body: 'Arrive 15 minutes early or ask for forms to complete at home to streamline your check-in.' },
+  { step: '3', title: 'Insurance Verification', body: 'Our team verifies your benefits before your visit so there are no surprises.' },
+  { step: '4', title: 'Comprehensive Evaluation', body: 'Your provider conducts a thorough exam and reviews your medical history and imaging.' },
+  { step: '5', title: 'Personalized Treatment Plan', body: 'You leave with a clear, individualized treatment plan tailored to your diagnosis and goals.' },
+];
+
+const whatToBring = [
+  'Valid photo ID',
+  'Insurance card(s)',
+  'List of current medications and dosages',
+  'Relevant imaging (X-rays, MRIs, CT scans)',
+  'Prior medical records related to your condition',
+  'Completed new patient paperwork (if provided in advance)',
+];
+---
+<BaseLayout title={page.data.title} description={page.data.description} image={page.data.heroImage}>
+  <Fragment slot="schema">
+    <MedicalWebPageSchema
+      title={page.data.title}
+      description={page.data.description}
+      url="/new-patients/"
+      datePublished={page.data.publishDate}
+      dateModified={page.data.lastEdited}
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    {page.data.faqs.length > 0 && <FAQPageSchema faqs={page.data.faqs} />}
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      {page.data.heroImage && (
+        <div class="float-right ml-8 mb-6 hidden lg:block w-72">
+          <img
+            src={page.data.heroImage}
+            alt={page.data.heroImageAlt ?? page.data.h1}
+            width="288"
+            height="192"
+            class="rounded-2xl shadow-brand-lg object-cover"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+      )}
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{page.data.h1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{page.data.description}</p>
+      <div class="flex gap-4 mt-8 gsap-reveal">
+        <a href="/contact/" class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-6 py-3 rounded-xl text-sm shadow-brand">Schedule Appointment</a>
+        <a href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`} class="text-white/70 hover:text-white text-sm flex items-center gap-1 transition-colors">Call {SITE_PHONE_DISPLAY}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps section -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-4xl">
+      <h2 class="text-3xl font-display font-bold text-brand-navy text-center mb-12 gsap-reveal">Your First Visit: What to Expect</h2>
+      <div class="space-y-6">
+        {steps.map((s, i) => (
+          <div class="flex items-start gap-5 gsap-reveal">
+            <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center shrink-0 font-display font-bold text-white text-sm">
+              {s.step}
+            </div>
+            <div class="bg-white rounded-2xl border border-amber-100 shadow-brand p-5 flex-1">
+              <h3 class="font-display font-bold text-brand-navy text-lg mb-1">{s.title}</h3>
+              <p class="text-brand-body/70 text-sm leading-relaxed">{s.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What to bring -->
+  <section class="section bg-white">
+    <div class="container max-w-3xl">
+      <h2 class="text-3xl font-display font-bold text-brand-navy mb-8 gsap-reveal">What to Bring</h2>
+      <ul class="space-y-3">
+        {whatToBring.map(item => (
+          <li class="flex items-center gap-3 text-brand-body/80 gsap-reveal">
+            <svg class="w-5 h-5 text-brand-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-prose">
+      <div class="prose prose-lg prose-headings:font-display prose-headings:text-brand-navy prose-a:text-brand-teal">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  {page.data.faqs.length > 0 && <FAQ faqs={page.data.faqs} />}
+  <CTA />
+</BaseLayout>

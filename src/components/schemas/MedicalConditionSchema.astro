@@ -1,0 +1,43 @@
+---
+import { SITE_URL } from '../../data/site-config';
+
+interface Props {
+  name: string;
+  slug: string;
+  url: string;
+  description: string;
+  causes?: string[];
+  symptoms?: string[];
+  treatment_services?: string[];
+  datePublished?: Date;
+  dateModified?: Date;
+}
+
+const {
+  name, slug, url, description,
+  causes = [], symptoms = [],
+  treatment_services = [],
+  datePublished, dateModified,
+} = Astro.props;
+
+const schema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "MedicalCondition",
+  "@id": `${SITE_URL}/#condition-${slug}`,
+  name,
+  url: `${SITE_URL}${url}`,
+  description,
+  ...(causes.length > 0 ? {
+    cause: causes.map(c => ({ "@type": "MedicalCause", name: c })),
+  } : {}),
+  ...(symptoms.length > 0 ? {
+    signOrSymptom: symptoms.map(s => ({ "@type": "MedicalSymptom", name: s })),
+  } : {}),
+  ...(treatment_services.length > 0 ? {
+    possibleTreatment: treatment_services.map(svcSlug => ({
+      "@id": `${SITE_URL}/#service-${svcSlug}`,
+    })),
+  } : {}),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

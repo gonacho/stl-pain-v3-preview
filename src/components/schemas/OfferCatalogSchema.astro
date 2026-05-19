@@ -1,0 +1,42 @@
+---
+import { SITE_URL } from '../../data/site-config';
+
+interface ServiceItem {
+  name: string;
+  slug: string;
+  url: string;
+  description: string;
+}
+
+interface Props {
+  categoryName: string;
+  categorySlug: string;
+  url: string;
+  description: string;
+  services: ServiceItem[];
+}
+
+const { categoryName, categorySlug, url, description, services } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "@id": `${SITE_URL}/#catalog-${categorySlug}`,
+  name: categoryName,
+  url: `${SITE_URL}${url}`,
+  description,
+  provider: { "@id": `${SITE_URL}/#localbusiness` },
+  itemListElement: services.map((s, i) => ({
+    "@type": "Offer",
+    position: i + 1,
+    itemOffered: {
+      "@type": "TherapeuticProcedure",
+      "@id": `${SITE_URL}/#service-${s.slug}`,
+      name: s.name,
+      url: `${SITE_URL}${s.url}`,
+      description: s.description,
+    },
+  })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

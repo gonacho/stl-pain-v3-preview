@@ -1,0 +1,20 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  snippet?: string;
+}
+const { name, url, snippet } = Astro.props;
+---
+<a
+  href={url}
+  class="card group flex items-start gap-3 bg-white rounded-xl border border-amber-100 shadow-brand-sm p-4 hover:shadow-brand hover:border-brand-gold/30 transition-all duration-200"
+>
+  <div class="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-gold/20 transition-colors">
+    <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  </div>
+  <div>
+    <span class="font-display font-semibold text-brand-navy text-sm group-hover:text-brand-gold transition-colors">{name}</span>
+    {snippet && <p class="text-xs text-brand-body/70 mt-0.5 leading-relaxed">{snippet}</p>}
+  </div>
+</a>

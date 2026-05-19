@@ -1,0 +1,159 @@
+---
+import '../styles/global.css';
+import { SITE_NAME, SITE_URL, SITE_PHONE_DISPLAY } from '../data/site-config';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageTransition from '../components/PageTransition.astro';
+import GrainOverlay from '../components/GrainOverlay.astro';
+import GradientMesh from '../components/GradientMesh.astro';
+import WebSiteSchema from '../components/schemas/WebSiteSchema.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  noIndex?: boolean;
+  canonicalUrl?: string;
+  schemaComponents?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/stl-pain-center-og.webp',
+  imageAlt = 'St. Louis Pain Center',
+  noIndex = false,
+  canonicalUrl,
+} = Astro.props;
+
+const canonical = canonicalUrl ?? new URL(Astro.url.pathname, SITE_URL).href;
+const ogImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=optional" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=optional" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={imageAlt} />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+  <!-- Global schema — always on every page -->
+  <WebSiteSchema />
+
+  <!-- Page-specific schema injected by child layouts -->
+  <slot name="schema" />
+</head>
+<body class="font-body bg-brand-warm text-brand-body">
+  <GrainOverlay />
+  <PageTransition />
+  <Header />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+
+  <!-- GSAP core scripts -->
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('astro:page-load', () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.gsap-reveal, .gsap-reveal-fast').forEach(el => {
+          (el as HTMLElement).style.opacity = '1';
+          (el as HTMLElement).style.transform = 'none';
+        });
+        return;
+      }
+
+      // Scroll-driven section reveals
+      gsap.utils.toArray<HTMLElement>('.gsap-reveal').forEach(el => {
+        gsap.to(el, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 82%',
+            toggleActions: 'play none none none',
+          },
+        });
+      });
+
+      // Fast reveals
+      gsap.utils.toArray<HTMLElement>('.gsap-reveal-fast').forEach(el => {
+        gsap.to(el, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.45,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        });
+      });
+
+      // Card grids stagger
+      gsap.utils.toArray<HTMLElement>('.card-grid').forEach(grid => {
+        const cards = grid.querySelectorAll<HTMLElement>('.card');
+        if (cards.length === 0) return;
+        gsap.from(cards, {
+          autoAlpha: 0,
+          y: 20,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: grid, start: 'top 85%' },
+        });
+      });
+    });
+
+    document.addEventListener('astro:after-swap', () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    });
+  </script>
+</body>
+</html>

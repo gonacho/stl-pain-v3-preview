@@ -1,0 +1,116 @@
+---
+import { SITE_NAME, SITE_PHONE_DISPLAY, SITE_ADDRESS, SITE_HOURS, BOOKING_URL } from '../data/site-config';
+
+const painControlServices = [
+  { name: 'Nerve Blocks', url: '/pain-control/nerve-blocks/' },
+  { name: 'Injection Therapy', url: '/pain-control/injection-therapy/' },
+  { name: 'Kyphoplasty', url: '/pain-control/kyphoplasty/' },
+  { name: 'Medication Management', url: '/pain-control/medication-management/' },
+  { name: 'Neuropathy Treatment', url: '/pain-control/neuropathy-treatment/' },
+  { name: 'Neuromodulation Technique', url: '/pain-control/neuromodulation-technique/' },
+];
+
+const orthopedicServices = [
+  { name: 'Hyaluronic Acid Injections', url: '/orthopedic/hyaluronic-acid-injections/' },
+  { name: 'PRP Therapy', url: '/orthopedic/prp-therapy/' },
+  { name: 'Regenerative Therapy', url: '/orthopedic/regenerative-therapy/' },
+  { name: 'Medical Weight Loss', url: '/weight-loss/' },
+  { name: 'Physical Therapy', url: '/sports-medicine/' },
+];
+
+const conditions = [
+  { name: 'Neuropathy', url: '/conditions/neuropathy/' },
+  { name: 'Knee Pain', url: '/conditions/knee-pain/' },
+  { name: 'Back Pain', url: '/conditions/back-pain/' },
+  { name: 'Chronic Pain', url: '/conditions/chronic-pain/' },
+  { name: 'Sciatica', url: '/conditions/sciatica/' },
+  { name: 'Fibromyalgia', url: '/conditions/fibromyalgia/' },
+  { name: 'Joint Pain', url: '/conditions/joint-pain/' },
+  { name: 'Shoulder Pain', url: '/conditions/shoulder-pain/' },
+];
+---
+
+<footer class="bg-brand-navy-dark text-white/70">
+  <div class="container py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand column -->
+      <div>
+        <a href="/" class="flex items-center gap-3 mb-5">
+          <div class="w-9 h-9 rounded-lg bg-brand-gold flex items-center justify-center shrink-0">
+            <span class="text-white font-display font-bold text-sm">S</span>
+          </div>
+          <div>
+            <span class="font-display font-bold text-white text-base leading-none">{SITE_NAME}</span>
+          </div>
+        </a>
+        <address class="not-italic text-sm space-y-2 mb-5">
+          <p>{SITE_ADDRESS.street}</p>
+          <p>{SITE_ADDRESS.city}, {SITE_ADDRESS.state} {SITE_ADDRESS.zip}</p>
+          <a href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`} class="block text-brand-gold hover:text-brand-gold-dark transition-colors font-semibold">
+            {SITE_PHONE_DISPLAY}
+          </a>
+          <p class="text-xs text-white/50">{SITE_HOURS}</p>
+        </address>
+        <a
+          href={BOOKING_URL}
+          class="inline-block bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-brand hover:shadow-brand-md transition-shadow"
+        >
+          Book Appointment
+        </a>
+      </div>
+
+      <!-- Pain Control Services -->
+      <div>
+        <h3 class="text-white font-display font-semibold text-sm mb-4">Pain Control Clinic</h3>
+        <ul class="space-y-2">
+          {painControlServices.map(s => (
+            <li><a href={s.url} class="text-sm hover:text-white transition-colors link-underline">{s.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Orthopedic + other services -->
+      <div>
+        <h3 class="text-white font-display font-semibold text-sm mb-4">Orthopedic Clinic</h3>
+        <ul class="space-y-2 mb-6">
+          {orthopedicServices.map(s => (
+            <li><a href={s.url} class="text-sm hover:text-white transition-colors link-underline">{s.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Conditions + Standard pages -->
+      <div>
+        <h3 class="text-white font-display font-semibold text-sm mb-4">Conditions We Treat</h3>
+        <ul class="space-y-2 mb-4">
+          {conditions.map(c => (
+            <li><a href={c.url} class="text-sm hover:text-white transition-colors link-underline">{c.name}</a></li>
+          ))}
+          <li><a href="/conditions/" class="text-xs text-brand-teal hover:underline">View All Conditions →</a></li>
+        </ul>
+        <h3 class="text-white font-display font-semibold text-sm mt-5 mb-3">Information</h3>
+        <ul class="space-y-2">
+          <li><a href="/about/" class="text-sm hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/contact/" class="text-sm hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/new-patients/" class="text-sm hover:text-white transition-colors">New Patients</a></li>
+          <li><a href="/insurance/" class="text-sm hover:text-white transition-colors">Insurance</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+      <p>&copy; {new Date().getFullYear()} {SITE_NAME} LLC. All rights reserved.</p>
+      <div class="flex items-center gap-5">
+        <a href="/hipaa-privacy/" class="hover:text-white/70 transition-colors">HIPAA Privacy</a>
+        <a href="/terms-and-conditions/" class="hover:text-white/70 transition-colors">Terms &amp; Conditions</a>
+        <a href="https://www.facebook.com/profile.php?id=61558443726830" target="_blank" rel="noopener noreferrer" class="hover:text-white/70 transition-colors" aria-label="Facebook">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

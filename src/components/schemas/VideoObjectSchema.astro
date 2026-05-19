@@ -1,0 +1,28 @@
+---
+import { SITE_URL } from '../../data/site-config';
+
+interface Props {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: Date;
+  contentUrl?: string;
+  embedUrl?: string;
+  duration?: string;
+}
+
+const { name, description, thumbnailUrl, uploadDate, contentUrl, embedUrl, duration } = Astro.props;
+
+const schema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate: uploadDate.toISOString(),
+  ...(contentUrl ? { contentUrl } : {}),
+  ...(embedUrl ? { embedUrl } : {}),
+  ...(duration ? { duration } : {}),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

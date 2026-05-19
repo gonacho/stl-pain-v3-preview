@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Satoshi display font (Fontshare) ── */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap');
+  font-display: optional;
+}
+
+:root {
+  --header-height: 72px;
+  --brand-accent: #C8A04A;
+  --brand-navy: #1B3A5C;
+  --brand-teal: #0E7C9E;
+  --brand-warm: #FBF7EF;
+  --color-primary-rgb: 200, 160, 74;
+  --color-navy-rgb: 27, 58, 92;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: clip; /* NOT hidden — preserves position:sticky in descendants */
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #2C3E50;
+  background-color: #FBF7EF;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Satoshi', system-ui, sans-serif;
+  font-weight: 700;
+  color: #1B3A5C;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Eyebrow utility ── */
+.eyebrow {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #C8A04A;
+}
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid #C8A04A;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Smooth transitions ── */
+a, button {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── GSAP initial hidden states (set before JS loads to avoid FOUC) ── */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.gsap-reveal-fast {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* ── Shine sweep (for gold CTA buttons) ── */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  pointer-events: none;
+}
+
+/* ── Gold underline hover for links ── */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: width 0.25s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Section base ── */
+.section {
+  padding-top: 6rem; /* py-24 */
+  padding-bottom: 6rem;
+}
+@media (max-width: 768px) {
+  .section {
+    padding-top: 4rem; /* py-16 */
+    padding-bottom: 4rem;
+  }
+}
+
+/* ── Container ── */
+.container {
+  max-width: 80rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .gsap-reveal, .gsap-reveal-fast {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

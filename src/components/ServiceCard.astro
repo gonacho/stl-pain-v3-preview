@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+}
+const { name, url, description, image, imageAlt } = Astro.props;
+---
+<article class="card group bg-[#FBF7EF] rounded-2xl border border-amber-100 shadow-brand overflow-hidden hover:shadow-brand-lg transition-all duration-300">
+  {image && (
+    <div class="relative h-48 overflow-hidden">
+      <img
+        src={image}
+        alt={imageAlt ?? name}
+        width="400"
+        height="192"
+        loading="lazy"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent"></div>
+    </div>
+  )}
+  <div class="p-5">
+    <h3 class="font-display font-bold text-brand-navy text-lg mb-2 group-hover:text-brand-gold transition-colors">{name}</h3>
+    <p class="text-sm text-brand-body/80 mb-4 leading-relaxed">{description}</p>
+    <a
+      href={url}
+      class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-navy transition-colors"
+      aria-label={`Learn more about ${name}`}
+    >
+      Learn More
+      <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>

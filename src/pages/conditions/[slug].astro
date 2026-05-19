@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MedicalConditionSchema from '../../components/schemas/MedicalConditionSchema.astro';
+import MedicalWebPageSchema from '../../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../../components/schemas/FAQPageSchema.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE_URL } from '../../data/site-config';
+
+export async function getStaticPaths() {
+  const conditions = await getCollection('conditions');
+  return conditions.map(c => ({
+    params: { slug: c.data.conditionSlug },
+    props: { condition: c },
+  }));
+}
+
+const { condition } = Astro.props;
+const { Content } = await condition.render();
+const url = `/conditions/${condition.data.conditionSlug}/`;
+
+// Fetch related services that treat this condition
+const allServices = await getCollection('services');
+const relatedServices = allServices.filter(s =>
+  condition.data.treatment_services.includes(
+    s.slug.split('/').pop() ?? s.slug
+  )
+);
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Conditions', url: '/conditions/' },
+  { name: condition.data.h1.split(' in ')[0], url },
+];
+---
+<BaseLayout title={condition.data.title} description={condition.data.description} image={condition.data.heroImage}>
+  <Fragment slot="schema">
+    <MedicalConditionSchema
+      name={condition.data.h1.split(' in ')[0]}
+      slug={condition.data.conditionSlug}
+      url={url}
+      description={condition.data.description}
+      causes={condition.data.causes}
+      symptoms={condition.data.symptoms}
+      treatment_services={condition.data.treatment_services}
+      datePublished={condition.data.publishDate}
+      dateModified={condition.data.lastEdited}
+    />
+    <MedicalWebPageSchema
+      title={condition.data.title}
+      description={condition.data.description}
+      url={url}
+      datePublished={condition.data.publishDate}
+      dateModified={condition.data.lastEdited}
+      mainEntityId={`${SITE_URL}/#condition-${condition.data.conditionSlug}`}
+      aspect="Cause"
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    {condition.data.faqs.length > 0 && <FAQPageSchema faqs={condition.data.faqs} />}
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      {condition.data.heroImage && (
+        <div class="float-right ml-8 mb-6 hidden lg:block w-72">
+          <img
+            src={condition.data.heroImage}
+            alt={condition.data.heroImageAlt ?? condition.data.h1}
+            width="288"
+            height="192"
+            class="rounded-2xl shadow-brand-lg object-cover"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+      )}
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{condition.data.h1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{condition.data.description}</p>
+      <div class="flex gap-4 mt-8 gsap-reveal">
+        <a href="/contact/" class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-6 py-3 rounded-xl text-sm shadow-brand">Book Appointment</a>
+        <a href="/conditions/" class="text-white/70 hover:text-white text-sm flex items-center gap-1 transition-colors">← All Conditions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Causes & Symptoms quick reference -->
+  {(condition.data.causes.length > 0 || condition.data.symptoms.length > 0) && (
+    <section class="bg-white py-10 border-b border-amber-100">
+      <div class="container max-w-4xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {condition.data.causes.length > 0 && (
+            <div>
+              <h2 class="text-lg font-display font-bold text-brand-navy mb-4 gsap-reveal">Common Causes</h2>
+              <ul class="space-y-2">
+                {condition.data.causes.map(cause => (
+                  <li class="flex items-start gap-2 text-sm text-brand-body/80">
+                    <svg class="w-4 h-4 text-brand-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    {cause}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {condition.data.symptoms.length > 0 && (
+            <div>
+              <h2 class="text-lg font-display font-bold text-brand-navy mb-4 gsap-reveal">Signs & Symptoms</h2>
+              <ul class="space-y-2">
+                {condition.data.symptoms.map(symptom => (
+                  <li class="flex items-start gap-2 text-sm text-brand-body/80">
+                    <svg class="w-4 h-4 text-brand-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    {symptom}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Main content -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-prose">
+      <div class="prose prose-lg prose-headings:font-display prose-headings:text-brand-navy prose-a:text-brand-teal">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Related treatments -->
+  {relatedServices.length > 0 && (
+    <section class="section bg-white">
+      <div class="container">
+        <h2 class="text-3xl font-display font-bold text-brand-navy mb-4 gsap-reveal">Treatments Available at St. Louis Pain Center</h2>
+        <p class="text-brand-body/70 mb-8 gsap-reveal">Our specialists may recommend one or more of these evidence-based treatments for your condition.</p>
+        <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedServices.map(s => {
+            const svcSlug = s.slug.split('/').pop() ?? s.slug;
+            const svcUrl = s.slug.startsWith('standalone/')
+              ? `/${svcSlug}/`
+              : `/${s.data.categorySlug}/${svcSlug}/`;
+            return (
+              <ServiceCard
+                name={s.data.title.split('|')[0].trim()}
+                url={svcUrl}
+                description={s.data.description}
+                image={s.data.heroImage}
+                imageAlt={s.data.heroImageAlt}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Testimonials if any -->
+  {condition.data.testimonials.length > 0 && (
+    <Testimonials
+      testimonials={condition.data.testimonials.map(t => ({ author: t.author, text: t.text, rating: t.rating }))}
+    />
+  )}
+
+  {condition.data.faqs.length > 0 && <FAQ faqs={condition.data.faqs} />}
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OrganizationSchema from '../components/schemas/OrganizationSchema.astro';
+import LocalBusinessSchema from '../components/schemas/LocalBusinessSchema.astro';
+import MedicalWebPageSchema from '../components/schemas/MedicalWebPageSchema.astro';
+import WebSiteSchema from '../components/schemas/WebSiteSchema.astro';
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../components/schemas/FAQPageSchema.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ConditionCard from '../components/ConditionCard.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import { SITE_PHONE_DISPLAY, BOOKING_URL, HOMEPAGE_REVIEWS } from '../data/site-config';
+
+const PUBLISH_DATE = new Date('2026-05-19');
+const LAST_EDITED = new Date('2026-05-19');
+
+const allServices = [
+  { name: 'Nerve Blocks', url: '/pain-control/nerve-blocks/', description: 'Targeted nerve block injections for back pain, neck pain, and sciatica relief.', category: 'Pain Control' },
+  { name: 'Injection Therapy', url: '/pain-control/injection-therapy/', description: 'Therapeutic injections for back, neck, and shoulder conditions.', category: 'Pain Control' },
+  { name: 'Kyphoplasty', url: '/pain-control/kyphoplasty/', description: 'Minimally invasive procedure for spinal compression fracture pain.', category: 'Pain Control' },
+  { name: 'Medication Management', url: '/pain-control/medication-management/', description: 'Personalized pain medication management for chronic conditions.', category: 'Pain Control' },
+  { name: 'Neuropathy Treatment', url: '/pain-control/neuropathy-treatment/', description: 'Comprehensive peripheral neuropathy diagnosis and treatment.', category: 'Pain Control' },
+  { name: 'Neuromodulation Technique', url: '/pain-control/neuromodulation-technique/', description: 'Drug-free neuromodulation for neuropathy and chronic pain.', category: 'Pain Control' },
+  { name: 'Hyaluronic Acid Injections', url: '/orthopedic/hyaluronic-acid-injections/', description: 'Gel injections for knee and joint pain without surgery.', category: 'Orthopedic' },
+  { name: 'PRP Therapy', url: '/orthopedic/prp-therapy/', description: 'Platelet-rich plasma for tissue regeneration and joint healing.', category: 'Orthopedic' },
+  { name: 'Regenerative Therapy', url: '/orthopedic/regenerative-therapy/', description: 'Advanced regenerative medicine for joints and soft tissue.', category: 'Orthopedic' },
+  { name: 'Medical Weight Loss', url: '/weight-loss/', description: 'Physician-supervised weight loss with GLP-1 medications.', category: 'Weight Loss' },
+  { name: 'Physical Therapy', url: '/sports-medicine/', description: 'Physical therapy and rehabilitation for pain and mobility.', category: 'Sports Medicine' },
+];
+
+const allConditions = [
+  { name: 'Neuropathy', url: '/conditions/neuropathy/' },
+  { name: 'Diabetic Neuropathy', url: '/conditions/diabetic-neuropathy/' },
+  { name: 'Knee Pain', url: '/conditions/knee-pain/' },
+  { name: 'Joint Pain', url: '/conditions/joint-pain/' },
+  { name: 'Back Pain', url: '/conditions/back-pain/' },
+  { name: 'Neck Pain', url: '/conditions/neck-pain/' },
+  { name: 'Sciatica', url: '/conditions/sciatica/' },
+  { name: 'Chronic Pain', url: '/conditions/chronic-pain/' },
+  { name: 'Shoulder Pain', url: '/conditions/shoulder-pain/' },
+  { name: 'Arthritis / Osteoarthritis', url: '/conditions/arthritis-osteoarthritis/' },
+  { name: 'Fibromyalgia', url: '/conditions/fibromyalgia/' },
+  { name: 'Vertigo / Vestibular Disorders', url: '/conditions/vertigo-vestibular-disorders/' },
+  { name: 'Neuropathy in Feet', url: '/conditions/neuropathy-in-feet/' },
+];
+
+const testimonials = HOMEPAGE_REVIEWS.map(r => ({ author: r.author, text: r.text, rating: r.rating }));
+
+const homepageFaqs = [
+  { question: "What is St. Louis Pain Center?", answer: "St. Louis Pain Center is a pain control clinic in St. Louis, MO specializing in neuropathy treatment, orthopedic care, regenerative medicine, physical therapy, and comprehensive pain management for patients throughout south St. Louis County." },
+  { question: "Where is St. Louis Pain Center located?", answer: "We are located at 4455 Telegraph Rd #250, St. Louis, MO 63129. We serve patients from Oakville, Mehlville, Arnold, Fenton, Kirkwood, and the greater south St. Louis County area." },
+  { question: "What insurances do you accept?", answer: "We accept Medicare, Blue Cross Blue Shield, Aetna, Cigna, and most major commercial insurance plans. Contact us to verify your specific coverage." },
+  { question: "How do I schedule an appointment?", answer: "Call us at (314) 846-2100 or use our online booking form. We offer same-week appointments for new patients when available." },
+];
+
+const breadcrumbs = [{ name: 'Home', url: '/' }];
+---
+<BaseLayout
+  title="Pain Control Clinic in St. Louis | St. Louis Pain Center"
+  description="St. Louis Pain Center — pain control clinic in St. Louis, MO. Neuropathy treatment, orthopedic care, PRP therapy, and comprehensive pain management at 4455 Telegraph Rd."
+>
+  <Fragment slot="schema">
+    <OrganizationSchema />
+    <LocalBusinessSchema isHomepage={true} />
+    <MedicalWebPageSchema
+      title="Pain Control Clinic in St. Louis"
+      description="St. Louis Pain Center provides neuropathy treatment, injection therapy, PRP therapy, and comprehensive pain management in St. Louis, MO."
+      url="/"
+      datePublished={PUBLISH_DATE}
+      dateModified={LAST_EDITED}
+      mainEntityId="https://stlpaincenter.com/#localbusiness"
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    <FAQPageSchema faqs={homepageFaqs} />
+  </Fragment>
+
+  <!-- ── HERO ── -->
+  <section class="relative bg-brand-navy min-h-[85vh] flex items-center overflow-hidden">
+    <!-- Video background -->
+    <video
+      class="absolute inset-0 w-full h-full object-cover opacity-30"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/images/hero-poster-st-louis-mo.webp"
+      aria-hidden="true"
+    >
+      <source src="/video/hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <!-- Gradient mesh -->
+    <div aria-hidden="true" class="absolute top-20 right-10 w-96 h-96 rounded-full bg-brand-gold/12 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute bottom-10 left-20 w-64 h-64 rounded-full bg-brand-teal/10 blur-3xl"></div>
+
+    <div class="container relative z-10 py-20 lg:py-28">
+      <div class="max-w-2xl">
+        <!-- Eyebrow -->
+        <p class="eyebrow text-brand-gold mb-5 gsap-reveal">Pain Control Clinic in St. Louis</p>
+
+        <!-- H1 — Single city, exact GBP category name -->
+        <h1 class="text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6 gsap-reveal" style="letter-spacing: -0.02em;">
+          Pain Control Clinic in St. Louis
+        </h1>
+
+        <p class="text-white/80 text-lg leading-relaxed mb-3 gsap-reveal">
+          Orthopedic Clinic · Weight Loss Clinic · Sports Medicine Clinic in St. Louis, MO
+        </p>
+
+        <p class="text-white/70 text-base leading-relaxed mb-10 max-w-xl gsap-reveal">
+          Serving south St. Louis County since 2019. Expert care for neuropathy, chronic pain, joint conditions, and more — personalized to your recovery.
+        </p>
+
+        <!-- Journey steps -->
+        <div class="flex items-center gap-4 mb-10 gsap-reveal" id="journey-steps">
+          {[
+            { n: '1', label: 'Book Appointment' },
+            { n: '2', label: 'Custom Treatment Plan' },
+            { n: '3', label: 'Reclaim Your Life' },
+          ].map((step, i) => (
+            <div class="flex items-center gap-3">
+              {i > 0 && <div class="w-8 h-px bg-brand-gold/40 hidden sm:block journey-arrow"></div>}
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-white font-display font-bold text-sm shrink-0 journey-num">
+                  {step.n}
+                </div>
+                <span class="text-white/80 text-sm hidden sm:block">{step.label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 gsap-reveal">
+          <a
+            href={BOOKING_URL}
+            id="hero-cta"
+            class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-8 py-4 rounded-xl text-base shadow-brand-lg hover:shadow-brand-xl transition-shadow"
+          >
+            Book Appointment
+          </a>
+          <a
+            href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`}
+            class="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base hover:bg-white/15 transition-colors"
+          >
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            {SITE_PHONE_DISPLAY}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ── -->
+  <section class="bg-white border-b border-amber-100 py-5">
+    <div class="container">
+      <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-brand-body/70">
+        <div class="flex items-center gap-2">
+          <span class="text-brand-gold font-bold">⭐ 4.9</span>
+          <span>Google Reviews</span>
+        </div>
+        <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
+        <span>✓ Medicare Accepted</span>
+        <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
+        <span>✓ Same-Week Appointments</span>
+        <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
+        <span>📍 South St. Louis County</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES — Pain Control ── -->
+  <section class="section bg-brand-warm">
+    <div class="container">
+      <div class="text-center mb-12 gsap-reveal">
+        <p class="eyebrow text-brand-gold mb-3">Pain Control Services in St. Louis, MO</p>
+        <h2 class="text-4xl font-display font-bold text-brand-navy">Pain Control Services in St. Louis, MO</h2>
+      </div>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allServices.filter(s => s.category === 'Pain Control').map(s => (
+          <ServiceCard name={s.name} url={s.url} description={s.description} />
+        ))}
+      </div>
+      <div class="text-center mt-8 gsap-reveal">
+        <a href="/pain-control/" class="text-brand-teal font-semibold text-sm hover:underline">
+          View All Pain Control Services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES — Orthopedic ── -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="text-center mb-12 gsap-reveal">
+        <p class="eyebrow text-brand-gold mb-3">Orthopedic Clinic in St. Louis, MO</p>
+        <h2 class="text-4xl font-display font-bold text-brand-navy">Orthopedic Clinic in St. Louis, MO</h2>
+      </div>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allServices.filter(s => ['Orthopedic','Weight Loss','Sports Medicine'].includes(s.category)).map(s => (
+          <ServiceCard name={s.name} url={s.url} description={s.description} />
+        ))}
+      </div>
+      <div class="flex justify-center gap-6 mt-8 gsap-reveal text-sm">
+        <a href="/orthopedic/" class="text-brand-teal font-semibold hover:underline">View Orthopedic Services →</a>
+        <a href="/weight-loss/" class="text-brand-teal font-semibold hover:underline">Weight Loss Clinic →</a>
+        <a href="/sports-medicine/" class="text-brand-teal font-semibold hover:underline">Sports Medicine →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONDITIONS ── -->
+  <section class="section bg-brand-warm">
+    <div class="container">
+      <div class="text-center mb-12 gsap-reveal">
+        <p class="eyebrow text-brand-gold mb-3">Conditions We Treat</p>
+        <h2 class="text-4xl font-display font-bold text-brand-navy">Conditions We Treat in St. Louis</h2>
+      </div>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {allConditions.map(c => (
+          <ConditionCard name={c.name} url={c.url} />
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/conditions/" class="text-brand-teal font-semibold text-sm hover:underline">View All Conditions →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US ── -->
+  <section class="section bg-brand-navy relative overflow-hidden">
+    <div aria-hidden="true" class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <div class="text-center mb-12 gsap-reveal">
+        <p class="eyebrow text-brand-gold mb-3">Why Choose Us</p>
+        <h2 class="text-4xl font-display font-bold text-white">Why St. Louis Pain Center?</h2>
+      </div>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { icon: '🎯', title: 'Targeted Treatments', body: 'Every treatment plan is custom-built for your specific condition — no one-size-fits-all protocols.' },
+          { icon: '💊', title: 'Multimodal Approach', body: 'We combine multiple evidence-based therapies for better outcomes than single-treatment protocols.' },
+          { icon: '🏥', title: 'Medicare Accepted', body: 'We work with Medicare, Blue Cross, Aetna, Cigna, and most major insurance plans.' },
+          { icon: '📍', title: 'South St. Louis County', body: 'Conveniently located at 4455 Telegraph Rd, serving Oakville, Mehlville, and the greater south county area.' },
+        ].map(item => (
+          <div class="card bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="font-display font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-white/70 text-sm leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <Testimonials testimonials={testimonials} />
+
+  <!-- ── FAQ ── -->
+  <FAQ faqs={homepageFaqs} />
+
+  <!-- ── CTA ── -->
+  <CTA />
+
+</BaseLayout>
+
+<script>
+  import { gsap } from 'gsap';
+
+  document.addEventListener('astro:page-load', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Hero entrance — stagger in sequence
+    const tl = gsap.timeline({ delay: 0.1 });
+    tl.to('.gsap-reveal', { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'power3.out' });
+
+    // Journey step numbers
+    tl.from('.journey-num', {
+      scale: 0.7,
+      autoAlpha: 0,
+      duration: 0.4,
+      stagger: 0.15,
+      ease: 'back.out(1.7)',
+    }, '-=0.3');
+
+    // Journey arrows
+    tl.from('.journey-arrow', {
+      scaleX: 0,
+      transformOrigin: 'left center',
+      duration: 0.3,
+      stagger: 0.1,
+    }, '-=0.4');
+
+    // Magnetic hero CTA
+    const heroCta = document.getElementById('hero-cta');
+    if (heroCta) {
+      const xTo = gsap.quickTo(heroCta, 'x', { duration: 0.3, ease: 'power3' });
+      const yTo = gsap.quickTo(heroCta, 'y', { duration: 0.3, ease: 'power3' });
+      heroCta.addEventListener('mousemove', (e: MouseEvent) => {
+        const r = heroCta.getBoundingClientRect();
+        xTo((e.clientX - r.left - r.width/2) * 0.3);
+        yTo((e.clientY - r.top - r.height/2) * 0.3);
+      });
+      heroCta.addEventListener('mouseleave', () => { xTo(0); yTo(0); });
+    }
+  });
+</script>

@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MedicalWebPageSchema from '../../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../../components/schemas/FAQPageSchema.astro';
+import ConditionCard from '../../components/ConditionCard.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const allConditions = await getCollection('conditions');
+const conditions = allConditions.sort((a, b) => a.data.h1.localeCompare(b.data.h1));
+
+const pageTitle = 'Conditions We Treat | St. Louis Pain Center in St. Louis, MO';
+const pageDescription = 'St. Louis Pain Center treats neuropathy, knee pain, back pain, sciatica, arthritis, fibromyalgia, vertigo, and more in St. Louis, MO.';
+const pageH1 = 'Conditions We Treat at St. Louis Pain Center';
+const publishDate = new Date('2026-05-19');
+const lastEdited = new Date('2026-05-19');
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Conditions', url: '/conditions/' },
+];
+
+const faqs = [
+  {
+    question: 'What conditions does St. Louis Pain Center treat?',
+    answer: 'We treat a broad range of pain and neurological conditions including neuropathy, diabetic neuropathy, knee pain, back pain, sciatica, neck pain, shoulder pain, arthritis, fibromyalgia, vertigo, and chronic pain.',
+  },
+  {
+    question: 'Do you treat conditions not listed here?',
+    answer: 'We evaluate each patient individually. If you have a condition not listed, contact us to discuss whether our services may benefit you.',
+  },
+];
+---
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Fragment slot="schema">
+    <MedicalWebPageSchema
+      title={pageTitle}
+      description={pageDescription}
+      url="/conditions/"
+      datePublished={publishDate}
+      dateModified={lastEdited}
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    <FAQPageSchema faqs={faqs} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{pageH1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{pageDescription}</p>
+      <a href="/" class="inline-block mt-6 text-brand-teal text-sm hover:underline gsap-reveal">← Back to St. Louis Pain Center</a>
+    </div>
+  </section>
+
+  <!-- Conditions grid -->
+  <section class="section bg-brand-warm">
+    <div class="container">
+      <h2 class="text-4xl font-display font-bold text-brand-navy text-center mb-4 gsap-reveal">Browse All Conditions</h2>
+      <p class="text-center text-brand-body/70 mb-12 gsap-reveal">Click any condition to learn about causes, symptoms, and treatment options at St. Louis Pain Center.</p>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {conditions.map(c => (
+          <ConditionCard
+            name={c.data.h1}
+            url={`/conditions/${c.data.conditionSlug}/`}
+            snippet={c.data.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="bg-white py-10 border-y border-amber-100">
+    <div class="container max-w-3xl text-center">
+      <p class="text-brand-body/70 text-sm leading-relaxed">
+        St. Louis Pain Center provides comprehensive, non-surgical pain management in south St. Louis, MO. Our team tailors every treatment plan to your specific diagnosis, condition severity, and personal health goals.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href="/contact/" class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-6 py-3 rounded-xl text-sm shadow-brand gsap-reveal">Schedule a Consultation</a>
+        <a href="/pain-control/" class="border border-brand-navy/20 text-brand-navy font-semibold px-6 py-3 rounded-xl text-sm hover:border-brand-gold hover:text-brand-gold transition-colors gsap-reveal">View Pain Control Services</a>
+        <a href="/orthopedic/" class="border border-brand-navy/20 text-brand-navy font-semibold px-6 py-3 rounded-xl text-sm hover:border-brand-gold hover:text-brand-gold transition-colors gsap-reveal">View Orthopedic Services</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQ faqs={faqs} />
+  <CTA />
+</BaseLayout>

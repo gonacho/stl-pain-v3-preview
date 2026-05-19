@@ -1,0 +1,105 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TherapeuticProcedureSchema from '../../components/schemas/TherapeuticProcedureSchema.astro';
+import MedicalWebPageSchema from '../../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../../components/schemas/FAQPageSchema.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE_URL } from '../../data/site-config';
+
+const allServices = await getCollection('services');
+const service = allServices.find(s => s.slug === 'standalone/weight-loss');
+if (!service) throw new Error('weight-loss service not found');
+
+const { Content } = await service.render();
+const slug = 'weight-loss';
+const url = '/weight-loss/';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: service.data.h1.split(' in ')[0], url },
+];
+
+const serviceReviews = service.data.testimonials
+  .filter(t => ['service-page', 'therapeuticprocedure'].includes(t.schema_binding))
+  .map(r => ({ author: r.author, date: r.date, rating: r.rating, text: r.text }));
+---
+<BaseLayout title={service.data.title} description={service.data.description} image={service.data.heroImage}>
+  <Fragment slot="schema">
+    <TherapeuticProcedureSchema
+      name={service.data.h1.split(' in ')[0]}
+      slug={slug}
+      url={url}
+      description={service.data.description}
+      indications={service.data.indications}
+      reviews={serviceReviews}
+      schemaType={service.data.schemaType}
+      categoryName={service.data.categoryName}
+      datePublished={service.data.publishDate}
+      dateModified={service.data.lastEdited}
+    />
+    <MedicalWebPageSchema
+      title={service.data.title}
+      description={service.data.description}
+      url={url}
+      datePublished={service.data.publishDate}
+      dateModified={service.data.lastEdited}
+      mainEntityId={`${SITE_URL}/#service-${slug}`}
+      aspect="Treatment"
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    {service.data.faqs.length > 0 && <FAQPageSchema faqs={service.data.faqs} />}
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      {service.data.heroImage && (
+        <div class="float-right ml-8 mb-6 hidden lg:block w-72">
+          <img
+            src={service.data.heroImage}
+            alt={service.data.heroImageAlt ?? service.data.h1}
+            width="288"
+            height="192"
+            class="rounded-2xl shadow-brand-lg object-cover"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+      )}
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{service.data.h1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{service.data.description}</p>
+      <div class="flex gap-4 mt-8 gsap-reveal">
+        <a href="/contact/" class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-6 py-3 rounded-xl text-sm shadow-brand">Book Appointment</a>
+        <a href="/" class="text-white/70 hover:text-white text-sm flex items-center gap-1 transition-colors">← St. Louis Pain Center</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional anchor mention -->
+  <section class="bg-white py-4 border-b border-amber-100">
+    <div class="container max-w-prose">
+      <p class="text-sm text-brand-body/70 italic">
+        St. Louis Pain Center is conveniently located in the south St. Louis community, serving the same area as Washington University School of Medicine-affiliated practices.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-prose">
+      <div class="prose prose-lg prose-headings:font-display prose-headings:text-brand-navy prose-a:text-brand-teal">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  {service.data.faqs.length > 0 && <FAQ faqs={service.data.faqs} />}
+  <CTA />
+</BaseLayout>

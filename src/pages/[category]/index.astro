@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OfferCatalogSchema from '../../components/schemas/OfferCatalogSchema.astro';
+import MedicalWebPageSchema from '../../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../../components/schemas/FAQPageSchema.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE_URL } from '../../data/site-config';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return categories.map(cat => ({
+    params: { category: cat.data.categorySlug },
+    props: { cat },
+  }));
+}
+
+const { cat } = Astro.props;
+const { Content } = await cat.render();
+
+// Get services for this category
+const allServices = await getCollection('services');
+const catServices = allServices.filter(s => s.data.categorySlug === cat.data.categorySlug);
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: cat.data.h1, url: `/${cat.data.categorySlug}/` },
+];
+
+const serviceItems = catServices.map(s => ({
+  name: s.data.title.split('|')[0].trim(),
+  slug: s.slug.split('/').pop() ?? s.slug,
+  url: `/${cat.data.categorySlug}/${s.slug.split('/').pop()}/`,
+  description: s.data.description,
+}));
+---
+<BaseLayout title={cat.data.title} description={cat.data.description}>
+  <Fragment slot="schema">
+    <OfferCatalogSchema
+      categoryName={cat.data.h1}
+      categorySlug={cat.data.categorySlug}
+      url={`/${cat.data.categorySlug}/`}
+      description={cat.data.description}
+      services={serviceItems}
+    />
+    <MedicalWebPageSchema
+      title={cat.data.title}
+      description={cat.data.description}
+      url={`/${cat.data.categorySlug}/`}
+      datePublished={cat.data.publishDate}
+      dateModified={cat.data.lastEdited}
+      mainEntityId={`${SITE_URL}/#catalog-${cat.data.categorySlug}`}
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    {cat.data.faqs.length > 0 && <FAQPageSchema faqs={cat.data.faqs} />}
+  </Fragment>
+
+  <!-- Hero section -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{cat.data.h1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{cat.data.description}</p>
+      <a href="/" class="inline-block mt-6 text-brand-teal text-sm hover:underline gsap-reveal">← Back to St. Louis Pain Center</a>
+    </div>
+  </section>
+
+  <!-- Services grid -->
+  <section class="section bg-brand-warm">
+    <div class="container">
+      <h2 class="text-4xl font-display font-bold text-brand-navy text-center mb-12 gsap-reveal">{cat.data.h1} Services</h2>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {catServices.map(s => {
+          const slug = s.slug.split('/').pop() ?? s.slug;
+          return (
+            <ServiceCard
+              name={s.data.title.split('|')[0].trim()}
+              url={`/${cat.data.categorySlug}/${slug}/`}
+              description={s.data.description}
+              image={s.data.heroImage}
+              imageAlt={s.data.heroImageAlt}
+            />
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Content from .md file -->
+  <section class="section bg-white">
+    <div class="container max-w-prose">
+      <div class="prose prose-lg prose-headings:font-display prose-headings:text-brand-navy prose-a:text-brand-teal">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  {cat.data.faqs.length > 0 && <FAQ faqs={cat.data.faqs} />}
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+interface TestimonialItem {
+  author: string;
+  text: string;
+  rating: number;
+  condition?: string;
+}
+
+interface Props {
+  testimonials: TestimonialItem[];
+  title?: string;
+}
+
+const { testimonials, title = "What Our Patients Say" } = Astro.props;
+
+function stars(n: number) {
+  return Array(n).fill('★').join('');
+}
+---
+<section class="section bg-brand-warm">
+  <div class="container">
+    <div class="text-center mb-12 gsap-reveal">
+      <p class="eyebrow text-brand-gold mb-3">Patient Stories</p>
+      <h2 class="text-4xl font-display font-bold text-brand-navy">{title}</h2>
+    </div>
+    <div class="card-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+      {testimonials.map(t => (
+        <article class="card bg-white rounded-2xl p-6 border border-amber-100 shadow-brand flex flex-col gap-4">
+          <div class="text-brand-gold text-lg tracking-wide" aria-label={`${t.rating} out of 5 stars`}>
+            {stars(t.rating)}
+          </div>
+          <blockquote class="text-brand-body text-sm leading-relaxed flex-1">"{t.text}"</blockquote>
+          <footer class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-brand-navy-dark/10 flex items-center justify-center text-brand-navy font-bold text-sm">
+              {t.author[0]}
+            </div>
+            <div>
+              <cite class="not-italic font-semibold text-brand-navy text-sm">{t.author}</cite>
+              {t.condition && <p class="text-xs text-brand-teal">{t.condition}</p>}
+            </div>
+          </footer>
+        </article>
+      ))}
+    </div>
+    <p class="text-center mt-8 text-xs text-brand-body/50">⭐ 4.9 out of 5 — Based on Google Reviews</p>
+  </div>
+</section>

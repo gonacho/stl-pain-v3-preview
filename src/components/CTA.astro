@@ -1,0 +1,60 @@
+---
+import { BOOKING_URL, SITE_PHONE_DISPLAY } from '../data/site-config';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryText?: string;
+  primaryUrl?: string;
+}
+
+const {
+  title = "Ready to Start Your Recovery?",
+  subtitle = "Take the first step. Our team is ready to help you reclaim your life from pain.",
+  primaryText = "Book Appointment",
+  primaryUrl = BOOKING_URL,
+} = Astro.props;
+---
+<section class="section bg-gradient-to-br from-brand-navy to-brand-navy-dark relative overflow-hidden">
+  <div aria-hidden="true" class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl"></div>
+  <div aria-hidden="true" class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-brand-teal/10 blur-3xl"></div>
+
+  <div class="container max-w-3xl text-center relative z-10">
+    <p class="eyebrow text-brand-gold mb-4 gsap-reveal">Get Started Today</p>
+    <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-5 gsap-reveal">{title}</h2>
+    <p class="text-white/70 text-lg mb-10 gsap-reveal">{subtitle}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center gsap-reveal">
+      <a
+        href={primaryUrl}
+        id="cta-book-btn"
+        class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-8 py-4 rounded-xl text-base shadow-brand-lg hover:shadow-brand-xl transition-shadow"
+      >
+        {primaryText}
+      </a>
+      <a
+        href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`}
+        class="flex items-center justify-center gap-2 border-2 border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base hover:bg-white/5 transition-colors"
+      >
+        <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        {SITE_PHONE_DISPLAY}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  document.addEventListener('astro:page-load', () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const btn = document.getElementById('cta-book-btn');
+    if (!btn) return;
+    const xTo = gsap.quickTo(btn, 'x', { duration: 0.3, ease: 'power3' });
+    const yTo = gsap.quickTo(btn, 'y', { duration: 0.3, ease: 'power3' });
+    btn.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = btn.getBoundingClientRect();
+      xTo((e.clientX - rect.left - rect.width/2) * 0.3);
+      yTo((e.clientY - rect.top - rect.height/2) * 0.3);
+    });
+    btn.addEventListener('mouseleave', () => { xTo(0); yTo(0); });
+  });
+</script>

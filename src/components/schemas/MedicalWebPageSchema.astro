@@ -1,0 +1,54 @@
+---
+import { SITE_URL, SITE_NAME, INSTITUTIONAL_ANCHOR, LOCAL_EVENT } from '../../data/site-config';
+
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: Date;
+  dateModified: Date;
+  mainEntityId?: string;
+  aspect?: 'Treatment' | 'Cause' | 'Symptom' | 'Information';
+  includeInstitutionalAnchor?: boolean;
+  breadcrumbId?: string;
+}
+
+const {
+  title, description, url, datePublished, dateModified,
+  mainEntityId, aspect = 'Information',
+  includeInstitutionalAnchor = false,
+  breadcrumbId,
+} = Astro.props;
+
+const mentions: Array<Record<string,string>> = [
+  { "@type": "City", name: "St. Louis", sameAs: "https://en.wikipedia.org/wiki/St._Louis" },
+  { "@type": "Event", name: LOCAL_EVENT.name, sameAs: LOCAL_EVENT.sameAs },
+];
+
+if (includeInstitutionalAnchor) {
+  mentions.push({
+    "@type": INSTITUTIONAL_ANCHOR.type,
+    name: INSTITUTIONAL_ANCHOR.name,
+    sameAs: INSTITUTIONAL_ANCHOR.sameAs,
+  });
+}
+
+const schema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "@id": `${SITE_URL}${url}`,
+  name: title,
+  description,
+  url: `${SITE_URL}${url}`,
+  datePublished: datePublished.toISOString(),
+  dateModified: dateModified.toISOString(),
+  inLanguage: "en-US",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+  ...(mainEntityId ? { mainEntity: { "@id": mainEntityId } } : {}),
+  ...(aspect !== 'Information' ? { aspect } : {}),
+  mentions,
+  ...(breadcrumbId ? { breadcrumb: { "@id": breadcrumbId } } : {}),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
