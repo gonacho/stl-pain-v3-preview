@@ -93,6 +93,19 @@ build_directive: migrate_repurpose_expand
 
 ---
 
+## Hero Video Asset
+
+| Field | Value |
+|---|---|
+| Video URL | `https://clinicboom.co/wp-content/uploads/St.-Louis-Pain-Center_video_header.mp4` |
+| Usage | Hero section background video (autoplay, muted, loop) |
+| Grade | B — reuse as-is |
+| Source | Extracted from live site homepage (discovered 2026-05-19) |
+
+> **Directive (confirmed 2026-05-19 by Bobbee):** Repurpose this existing background video as the hero background in the rebuilt site. Do not replace with stock/generated video unless quality is substandard after review. Download and self-host in `/public/video/` as `hero-bg.mp4`.
+
+---
+
 ## Special Flags
 
 - Spanish pages: No
