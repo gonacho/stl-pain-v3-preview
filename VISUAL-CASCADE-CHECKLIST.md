@@ -206,21 +206,7 @@ The five cascade elements per page (all GSAP — never motion/react):
 - [ ] Reveal animations (GSAP ScrollTrigger)
 - [ ] End-of-page CTA motion (GSAP)
 
-## Provider Pages
-
-### Dr. Ron Arconati, DC
-- [ ] Hero motion (GSAP)
-- [ ] Specialty cards image-backed (or text cards with GSAP motion)
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
-
-### Anissa Wheeler
-- [ ] Hero motion (GSAP)
-- [ ] Specialty cards image-backed (or text cards with GSAP motion)
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+> **Gate 1 Decision (2026-05-19):** Provider pages removed. No provider pages in this build phase.
 
 ## Comparison Pages
 
@@ -301,13 +287,6 @@ The five cascade elements per page (all GSAP — never motion/react):
 - [ ] Reveal animations (GSAP ScrollTrigger)
 - [ ] End-of-page CTA motion (GSAP)
 
-### Providers Hub
-- [ ] Hero motion (GSAP)
-- [ ] Provider cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
-
 ---
 
 ## Completion Summary
@@ -318,7 +297,8 @@ The five cascade elements per page (all GSAP — never motion/react):
 | Category Pages | 2 | 10 | 0/10 |
 | Service Pages | 11 | 55 | 0/55 |
 | Condition Pages | 13 | 65 | 0/65 |
-| Provider Pages | 2 | 10 | 0/10 |
 | Comparison Pages | 5 | 25 | 0/25 |
-| Standard Pages | 7 | 33 | 0/33 |
-| **TOTAL** | **41** | **203** | **0/203** |
+| Standard Pages | 6 | 28 | 0/28 |
+| **TOTAL** | **38** | **188** | **0/188** |
+
+> Provider Pages (2 pages, 10 checkboxes) and Providers Hub (5 checkboxes) removed per Gate 1 decision (2026-05-19).

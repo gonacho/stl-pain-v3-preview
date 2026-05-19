@@ -256,25 +256,7 @@ Full Core 30 architecture built beyond current 17 pages. New pages (no existing 
     - Schema: MedicalCondition with possibleTreatment → TherapeuticProcedure @id refs
     - Note: High-value longtail — patients search "neuropathy in feet" as a distinct symptom query
 
-### Provider Pages (2 pages)
-
-1. **Dr. Ron Arconati, DC**
-   - URL: /providers/ron-arconati/
-   - Specialties: Pain Management, Neuropathy Treatment, Regenerative Medicine
-   - Conditions treated: Neuropathy, Chronic Pain, Knee Pain, Back Pain, Neck Pain, Sciatica, Joint Pain, Arthritis
-   - Services performed: All 10 non-PT services
-   - Reviews mentioning provider: none by name in current pool
-   - Schema: ProviderPerson (Block K) wrapped in MedicalWebPage
-
-2. **Anissa Wheeler**
-   - URL: /providers/anissa-wheeler/
-   - Specialties: Physical Therapy, Pain Rehabilitation
-   - Conditions treated: Back Pain, Neck Pain, Knee Pain, Shoulder Pain, Sciatica, Fibromyalgia, Vertigo
-   - Services performed: Physical Therapy
-   - Reviews mentioning provider: Review #6 (Lester Brannam) mentions Anissa Wheeler by name
-   - Schema: ProviderPerson (Block K) wrapped in MedicalWebPage
-
-> **⚠️ Provider Credential Discrepancy:** Client brief lists Anissa Wheeler as "Physical Therapist (PT)" but web research shows stlpaincenter.com lists her as "N.P." (Nurse Practitioner). Client brief lists Dr. Ron Arconati as "Founder/MD" — NPI registry confirms him as DC (Doctor of Chiropractic). Project Director must confirm credentials before content is written.
+> **Gate 1 Decision (2026-05-19):** No providers or staff are to be listed on the site at this stage. Provider pages removed from architecture. /providers/ hub removed. Provider-to-service schema coverage omitted from this build phase.
 
 ### Comparison Pages (5 pages)
 
@@ -313,7 +295,6 @@ Full Core 30 architecture built beyond current 17 pages. New pages (no existing 
 - New Patient Page: /new-patients/
 - Insurance Page: /insurance/
 - HIPAA Privacy: /hipaa-privacy/
-- Providers Hub: /providers/
 - Conditions Hub: /conditions/
 - About: /about/
 - Contact: /contact/
@@ -327,7 +308,7 @@ Build AFTER rank map shows 30-40% green coverage.
 
 ```
 Main Nav:
-Logo | [Services ▾] | [Conditions ▾] | About | Providers | Contact | [Book Appointment]
+Logo | [Services ▾] | [Conditions ▾] | About | Contact | [Book Appointment]
 ```
 
 **Services Mega Menu:**
@@ -385,11 +366,10 @@ Plus category hubs:
 
 Plus standard pages:
 13. /conditions/
-14. /providers/
-15. /about/
-16. /contact/
-17. /new-patients/
-18. /insurance/
+14. /about/
+15. /contact/
+16. /new-patients/
+17. /insurance/
 
 ## Condition-to-Service Coverage Matrix
 
@@ -409,12 +389,7 @@ Plus standard pages:
 
 All 11 services have ≥3 condition pages. Coverage complete.
 
-## Provider-to-Service Coverage Matrix
-
-| Provider | Services They Perform | Conditions They Treat |
-|---|---|---|
-| Dr. Ron Arconati, DC | Neuropathy Treatment, Neuromodulation Technique, Nerve Blocks, Injection Therapy, Kyphoplasty, Medication Management, Medical Weight Loss, HA Injections, PRP Therapy, Regenerative Therapy | Neuropathy, Diabetic Neuropathy, Chronic Pain, Back Pain, Neck Pain, Sciatica, Knee Pain, Joint Pain, Shoulder Pain, Arthritis, Fibromyalgia |
-| Anissa Wheeler | Physical Therapy | Back Pain, Neck Pain, Knee Pain, Shoulder Pain, Sciatica, Fibromyalgia, Vertigo/Vestibular |
+> **Gate 1 Decision (2026-05-19):** Provider-to-service coverage matrix omitted — no providers listed on site at this stage.
 
 ## Comparison Page Opportunity Matrix
 
@@ -498,7 +473,8 @@ All 11 services have ≥3 condition pages. Coverage complete.
 | Category Hub Pages | 2 (Pain Control, Orthopedic) |
 | Service Pages | 11 |
 | Condition Pages | 13 |
-| Provider Pages | 2 |
 | Comparison Pages | 5 |
-| Standard Pages (About, Contact, New Patients, Insurance, HIPAA, Providers Hub, Conditions Hub) | 7 |
-| **TOTAL** | **41** |
+| Standard Pages (About, Contact, New Patients, Insurance, HIPAA, Conditions Hub) | 6 |
+| **TOTAL** | **38** |
+
+> Provider Pages removed per Gate 1 decision (2026-05-19). No providers or staff listed at this stage.

@@ -30,49 +30,23 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 
 ## EDIT Section (Grade B images — POST /v1/images/edits)
 
-### E1 — Dr. Ron Arconati Headshot
-- source: extract from existing stlpaincenter.com /about-us page
-- target: /public/images/providers/ron-arconati-st-louis-mo-headshot.webp
-- api: gpt-image-2-edits
-- size: 800x800
-- quality: high
-- edit_instruction: |
-    Clean up this professional medical headshot: remove cluttered background and replace with a clean, 
-    softly graduated backdrop in muted {hex_primary} tones. Maintain exact facial features and likeness. 
-    Improve lighting to be even, soft, and professional. Ensure the subject appears approachable and 
-    authoritative. Output as square crop, head and shoulders framing.
-- alt_text: "Dr. Ron Arconati, DC — Pain Management Physician in St. Louis, MO"
-- source_grade_notes: Grade B — existing headshot, needs background cleanup
+> Gate 1 Decision (2026-05-19): Provider headshots (E1 — Dr. Arconati, E2 — Anissa Wheeler) removed. No provider imagery in this build phase.
 
-### E2 — Anissa Wheeler Headshot
-- source: extract from existing stlpaincenter.com /about-us page
-- target: /public/images/providers/anissa-wheeler-st-louis-mo-headshot.webp
-- api: gpt-image-2-edits
-- size: 800x800
-- quality: high
-- edit_instruction: |
-    Clean up this professional medical headshot: remove cluttered background and replace with a clean, 
-    softly graduated backdrop in muted {hex_primary} tones. Maintain exact facial features and likeness. 
-    Improve lighting to be even, soft, and professional. Ensure the subject appears approachable and 
-    caring. Output as square crop, head and shoulders framing.
-- alt_text: "Anissa Wheeler — Physical Therapist at St. Louis Pain Center"
-- source_grade_notes: Grade B — existing headshot, needs background cleanup
-
-### E3 — Logo
+### E1 — Logo
 - source: extract SVG/PNG from existing stlpaincenter.com
 - target: /public/images/brand/stl-pain-center-logo.svg (or .webp if raster)
 - operations: [extract, optimize, convert_to_svg_if_possible]
 - alt_text: "St. Louis Pain Center logo"
 - source_grade_notes: Grade B — logo reuse, optimize format
 
-### E4 — Favicon
+### E2 — Favicon
 - source: extract from existing stlpaincenter.com
 - target: /public/favicon.ico + /public/images/brand/favicon-192.webp
 - operations: [extract, generate_sizes: {16, 32, 192}]
 - alt_text: "St. Louis Pain Center favicon"
 - source_grade_notes: Grade B — reuse/optimize
 
-**EDIT count: 4**
+**EDIT count: 2** (logo + favicon only; provider headshots removed per Gate 1)
 
 ## GENERATE Section (new images — POST /v1/images/generations)
 
@@ -502,12 +476,13 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - size: 1600x900
 - quality: high
 - prompt: |
-    Photorealistic photograph of a medical team in a modern clinic lobby. Two healthcare professionals 
-    (a male doctor in a white coat and a female therapist) stand together smiling confidently. Bold 
-    modern clinic interior with the practice's brand feel — clean lines, dark accents, professional 
-    atmosphere. Warm mid-morning light. The image conveys expertise, teamwork, and approachability. 
-    No text overlays.
-- alt_text: "St. Louis Pain Center medical team"
+    Photorealistic photograph of a modern pain management clinic interior. A welcoming reception area 
+    and consultation corridor — clean contemporary design with bold dark accents, crisp white walls, 
+    and professional medical signage. No identifiable individuals in focus. The atmosphere conveys 
+    trust, expertise, and a well-established practice. Midwest setting. Warm mid-morning light. 
+    No text overlays. Professional architectural/interior medical photography style.
+- alt_text: "St. Louis Pain Center clinic — modern pain management facility in St. Louis, MO"
+> Gate 1 Note: Image uses clinic interior rather than staff photography — no named individuals shown.
 
 ### GBP Post Imagery (12 posts for 90-day calendar)
 
@@ -541,15 +516,15 @@ All GBP posts:
 | Category | Count |
 |---|---|
 | Reuse (no API call) | 1 (hero background video) |
-| Edit (GPT-image-2 edits API) | 4 (2 headshots, logo, favicon) |
+| Edit (GPT-image-2 edits API) | 2 (logo, favicon; provider headshots removed per Gate 1) |
 | Generate (GPT-image-2 generations API) | 34 (1 homepage hero + 2 category heroes + 11 service heroes + 13 condition illustrations + 5 comparison graphics + 2 standard page images) |
 | GBP Post Images (generate) | 12 |
-| **TOTAL** | **51** (1 video reuse + 4 edits + 34 generations + 12 GBP posts) |
+| **TOTAL** | **49** (1 video reuse + 2 edits + 34 generations + 12 GBP posts) |
 
 ### Estimated Cost
-- Edits (4 × ~$0.04 each at 800×800): ~$0.16
+- Edits (2 × ~$0.04 each at logo/favicon): ~$0.08
 - Generations HD (34 × ~$0.08 each at 1600×900/1920×1080): ~$2.72
 - Generations standard (12 × ~$0.04 each at 1080×1080 medium): ~$0.48
-- **Total estimated: ~$3.36**
+- **Total estimated: ~$3.28**
 
 > Note: Costs are estimates based on gpt-image-2 pricing as of 2026-05. Actual costs depend on final dimensions and quality settings.

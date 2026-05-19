@@ -12,16 +12,16 @@
 - Telephone: +13148462100
 - Hours: Mon–Thu 08:00–17:00, Fri–Sun Closed
 
-## GBP Locks (Local Clinic — ADMINISTRATOR APPROVAL REQUIRED)
+## GBP Locks (Local Clinic — APPROVED)
 
-### Location 1 — St. Louis (Checkpoint A)
-- CID: **PENDING** — web search could not extract; must be resolved from Google Maps URL `?cid=` parameter or third-party CID extractor tool
-- CID URL (verified): PENDING — https://www.google.com/maps?cid=[PENDING]
-- PlaceID: **PENDING** — must be extracted from Google Place ID Finder or Maps `data=` parameter
-- hasMap URL (verified): PENDING — https://www.google.com/maps/search/?api=1&query=St.+Louis+Pain+Center&query_place_id=[PENDING]
-- Administrator approved: PENDING
-
-> **⚠️ Checkpoint A — CID + PlaceID:** These values could not be extracted via web search. The administrator must use Google's Place ID Finder tool or extract from the Maps URL for "St. Louis Pain Center, 4455 Telegraph Rd #250, St. Louis, MO 63129". Both values require explicit approval before schema injection.
+### Location 1 — St. Louis (Checkpoint A — APPROVED 2026-05-19)
+- CID: **8132065016093573560**
+- CID URL: https://www.google.com/maps?cid=8132065016093573560
+- Place reference: g/11vry51098
+- GBP share URL: https://maps.app.goo.gl/K8r42Uki1xFUEbNa8
+- Full Maps URL: https://www.google.com/maps/place/St.+Louis+Pain+Center/@38.4826929,-90.3050876,779m/data=!3m2!1e3!4b1!4m6!3m5!1s0x87d8c7450bcd48ab:0x70dae60beea381b8
+- Coordinates: 38.4826929, -90.3050876 (precise — extracted from Maps URL)
+- Administrator approved: ✅ APPROVED (GBP share link provided by Bobbee 2026-05-19)
 
 ## GBP Locations
 
@@ -37,69 +37,20 @@
 - Local Event: Fair Saint Louis — Wikipedia: https://en.wikipedia.org/wiki/Fair_Saint_Louis — Annual timing: July 4th weekend
 - City Wikipedia: https://en.wikipedia.org/wiki/St._Louis
 
-## Institutional Anchor Entities (Checkpoint B — ADMINISTRATOR APPROVAL REQUIRED)
+## Institutional Anchor Entities (Checkpoint B — APPROVED 2026-05-19)
 
-### Location 1 — St. Louis
+### Selected Anchor (Agent's call per Gate 1 Q&A)
 
-**Candidates (3–5 for administrator selection of 1–3):**
-
-1. **Barnes-Jewish Hospital** — @type: Hospital — Wikipedia: https://en.wikipedia.org/wiki/Barnes-Jewish_Hospital
-   - Rationale: Largest hospital in Missouri. Teaching hospital for Washington University School of Medicine. 1,400 beds. Massive KG entity weight. Located ~12 mi from practice. NOT a competitor (hospital vs. outpatient pain clinic).
-   - Administrator approved: PENDING
-
-2. **SSM Health** — @type: MedicalOrganization — Wikipedia: https://en.wikipedia.org/wiki/SSM_Health
-   - Rationale: Major Catholic health system with regional presence across Missouri/Illinois. 11,000+ providers. Strong institutional entity. NOT a competitor (health system vs. specialty pain clinic).
-   - Administrator approved: PENDING
-
-3. **Mercy Hospital St. Louis** — @type: Hospital — Wikipedia: https://en.wikipedia.org/wiki/Mercy_Hospital_St._Louis
-   - Rationale: 979-bed teaching hospital in Creve Coeur. Major regional healthcare institution with deep KG footprint. NOT a competitor.
-   - Administrator approved: PENDING
-
-4. **Saint Louis University Hospital** — @type: Hospital — Wikipedia: https://en.wikipedia.org/wiki/Saint_Louis_University_Hospital
-   - Rationale: 356-bed academic medical center and Level 1 Trauma Center. Affiliated with SLU School of Medicine. Strong institutional entity. NOT a competitor.
-   - Administrator approved: PENDING
-
-5. **Washington University School of Medicine** — @type: CollegeOrUniversity — Wikipedia: https://en.wikipedia.org/wiki/Washington_University_School_of_Medicine
-   - Rationale: Top-10 US medical school. Highest entity weight of any medical institution in St. Louis. NOT a competitor (academic institution vs. outpatient clinic).
-   - Administrator approved: PENDING
-
-> **⚠️ Checkpoint B — Institutional Anchors:** Administrator must select 1–3 approved anchors from the 5 candidates above. All have Wikipedia entries (Green Entity test passed). None are direct competitors. All are geographically within the service area.
+**Washington University School of Medicine** — @type: CollegeOrUniversity
+- Wikipedia: https://en.wikipedia.org/wiki/Washington_University_School_of_Medicine
+- Rationale selected: Top-10 US medical school, highest entity weight of any medical institution in St. Louis. Directly associated with pain medicine research and clinical training. NOT a competitor (academic institution vs. outpatient clinic). Single anchor provides maximum KG signal without dilution.
+- Schema injection: LocalBusiness.areaServed.containsPlace + MedicalWebPage.mentions on relevant service pages
+- Visible copy template: "Located near the Washington University School of Medicine medical corridor" / "Serving the same south St. Louis community as Washington University-affiliated practices"
+- Administrator approved: ✅ Agent decision confirmed per Gate 1 (Bobbee delegated to agent)
 
 ## Provider Entities
 
-### Provider: Dr. Ron Arconati, DC
-- @id: https://stlpaincenter.com/#person-ron-arconati
-- Title/Credentials: Doctor of Chiropractic (DC), Founder / Medical Director
-- NPI: 1295821783 (confirmed via NPI registry — type: Chiropractor)
-- LinkedIn URL: PENDING — to be confirmed
-- Provider Page URL: /providers/ron-arconati/
-- medicalSpecialty: PainMedicine (with sameAs to Wikipedia)
-- knowsAbout Topics:
-  - Pain management — Wikipedia: https://en.wikipedia.org/wiki/Pain_management
-  - Peripheral neuropathy — Wikipedia: https://en.wikipedia.org/wiki/Peripheral_neuropathy
-  - Regenerative medicine — Wikipedia: https://en.wikipedia.org/wiki/Regenerative_medicine
-- Professional Memberships: PENDING — to be confirmed by client
-- Services performed: /pain-control/nerve-blocks/, /pain-control/injection-therapy/, /pain-control/kyphoplasty/, /pain-control/medication-management/, /weight-loss/, /orthopedic/hyaluronic-acid-injections/, /orthopedic/prp-therapy/, /orthopedic/regenerative-therapy/, /pain-control/neuropathy-treatment/, /pain-control/neuromodulation-technique/
-- Has client-supplied headshot: yes (existing site — Grade B, needs EDIT-1)
-
-> **⚠️ Credential Note:** Client brief states "Founder/MD" but NPI registry confirms DC (Doctor of Chiropractic). Website also references chiropractic background (drronchiro.com domain found). Project Director must confirm correct credentials for content and schema.
-
-### Provider: Anissa Wheeler
-- @id: https://stlpaincenter.com/#person-anissa-wheeler
-- Title/Credentials: PENDING CONFIRMATION — client brief says "Physical Therapist (PT)" but stlpaincenter.com may list as "N.P." (Nurse Practitioner)
-- NPI: PENDING — not confirmed via search
-- LinkedIn URL: PENDING — to be confirmed (a LinkedIn result showed "Anissa Wheeler, MSN, APRN, FNP-BC" at Mercy — may be different person)
-- Provider Page URL: /providers/anissa-wheeler/
-- medicalSpecialty: PhysicalTherapy (pending credential confirmation)
-- knowsAbout Topics:
-  - Physical therapy — Wikipedia: https://en.wikipedia.org/wiki/Physical_therapy
-  - Pain management — Wikipedia: https://en.wikipedia.org/wiki/Pain_management
-  - Physical medicine and rehabilitation — Wikipedia: https://en.wikipedia.org/wiki/Physical_medicine_and_rehabilitation
-- Professional Memberships: PENDING
-- Services performed: /sports-medicine/
-- Has client-supplied headshot: yes (existing site — Grade B, needs EDIT-1)
-
-> **⚠️ Credential Note:** Web research found conflicting information about Anissa Wheeler's credentials. Client brief says PT; website may say NP. Project Director must confirm before content/schema is written.
+> **Gate 1 Decision (2026-05-19):** No providers or staff to be listed on site at this stage. All provider entities removed from this build phase. Provider pages, provider schema (Block C / Block K), and provider references in content are all omitted. Re-introduce in a future phase when client confirms readiness.
 
 ## Industry Topic Entities
 - Primary Industry: Pain management — Wikipedia: https://en.wikipedia.org/wiki/Pain_management
@@ -113,21 +64,24 @@
 - Condition 3: Knee pain — Wikipedia: https://en.wikipedia.org/wiki/Knee_pain
 
 ## Business Profile URLs (sameAs Stacking)
-- Google Business Profile (share URL): PENDING
-- Google Maps CID URL: PENDING (https://www.google.com/maps?cid=[CID]) — inject into Organization.sameAs AND LocalBusiness.sameAs
-- Facebook: PENDING — check for business page
+- Google Business Profile (share URL): https://maps.app.goo.gl/K8r42Uki1xFUEbNa8 ✅ CONFIRMED
+- Google Maps CID URL: https://www.google.com/maps?cid=8132065016093573560 ✅ RESOLVED
+- Facebook: https://www.facebook.com/profile.php?id=61558443726830 ✅ CONFIRMED
 - Instagram: PENDING
 - LinkedIn: PENDING
 - YouTube: PENDING
-- Healthgrades: https://www.healthgrades.com/providers/ronald-arconati-2y6fg (Dr. Arconati profile)
-- NPI Registry: https://npiprofile.com/npi/1295821783 (Dr. Arconati)
-- Entity NPI: https://npiregistry.cms.hhs.gov/ (NPI 1992587968)
+- Entity NPI Profile: https://npiprofile.com/npi/1992587968 ✅ CONFIRMED (entity NPI 1992587968)
+- Entity NPI Registry: https://npiregistry.cms.hhs.gov/ (NPI 1992587968)
 - CareCredit: https://www.carecredit.com/doctor-locator/st-louis-mo/st-louis-pain-center-llc-765kmq/
 - PainClinics.com: https://painclinics.com/pain-management/st-louis-pain-center-mo-63129/
 - BBB: PENDING
 - Wikidata entry: none found
 
-## Review Data (Semantic-Filtered, Administrator-Approved) — Checkpoint C
+> Note: Individual provider profiles (Healthgrades for Dr. Arconati, individual NPI) removed from sameAs stacking per Gate 1 provider removal decision.
+
+## Review Data (Semantic-Filtered) — Checkpoint C PENDING
+
+> **Gate 1 Status (2026-05-19):** Q5 review approval pending Bobbee confirmation. Hold all review injection until approved. Do not include any reviews in schema or visible content until Checkpoint C is resolved.
 
 ### Filtering Criteria
 - Star rating ≥4: All 8 reviews are 5-star ✅
@@ -221,12 +175,7 @@
     one_line: "Physical therapy and rehabilitation for pain recovery and mobility"
     url: /sports-medicine/
 
-- provider_one_liners:
-  - provider: "Dr. Ron Arconati, DC"
-    one_line: "Founder and Medical Director specializing in pain management and neuropathy treatment"
-    url: /providers/ron-arconati/
-  - provider: "Anissa Wheeler"
-    one_line: "Physical therapy and pain rehabilitation specialist"
-    url: /providers/anissa-wheeler/
+- provider_one_liners: []
+  # Gate 1 Decision (2026-05-19): No providers listed on site at this stage.
 
 - booking_url: https://stlpaincenter.com/contact/

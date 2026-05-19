@@ -4,7 +4,7 @@
 - Type: Local Clinic
 - LocalBusiness schema on homepage: ON
 - Institutional Anchor Piggybacking: ON
-- GBP CID/PlaceID hardcoding: Required (pending administrator approval — Checkpoint A)
+- GBP CID/PlaceID hardcoding: Required — CID 8132065016093573560 APPROVED ✅
 - GeoCircle service area: Required (25-mile radius = 40,234 meters)
 - MedicalWebPage wrapper for YMYL pages: ON (always for healthcare)
 - TherapeuticProcedure for healthcare services: ON
@@ -16,12 +16,13 @@
 
 ### Homepage
 - Block A: MedicalOrganization (practice-level entity)
-- Block B: MedicalClinic (LocalBusiness with geo-enrichment + institutional anchors + homepage reviews)
-- Block C: Person (Dr. Ron Arconati — primary provider)
+- Block B: MedicalClinic (LocalBusiness with geo-enrichment + institutional anchor + homepage reviews when approved)
 - Block E: MedicalWebPage
 - Block F: WebSite (with SearchAction)
 - Block G: BreadcrumbList (position 1 only)
 - Block H: FAQPage (if FAQs present)
+
+> Block C (Person — Dr. Ron Arconati) removed per Gate 1 decision (2026-05-19). No providers listed at this stage.
 
 ### Category Pages (/pain-control/, /orthopedic/)
 - Block D-category: OfferCatalog (lists child services per hub: 6 for pain-control, 3 for orthopedic)
@@ -46,10 +47,7 @@
 - Block G: BreadcrumbList (2 levels: Home > Conditions > [Condition])
 - Block H: FAQPage
 
-### Provider Pages (2 pages)
-- Block K: Provider Person (with medicalSpecialty, knowsAbout, affiliation → MedicalOrganization @id)
-- Block E: MedicalWebPage (aspect=Treatment)
-- Block G: BreadcrumbList (2 levels: Home > Providers > [Name])
+> **Gate 1 Decision (2026-05-19):** Provider pages (Block K) removed. No provider pages in this build phase.
 
 ### Comparison Pages (5 pages)
 - Block D-service: References to both compared TherapeuticProcedure @ids
@@ -68,8 +66,8 @@
 - New Patients: Block E (MedicalWebPage) + Block G
 - Insurance: Block E (MedicalWebPage) + Block G
 - HIPAA Privacy: Block E (plain WebPage) + Block G
-- Providers Hub: Block E (MedicalWebPage) + Block G
 - Conditions Hub: Block E (MedicalWebPage) + Block G
+> Providers Hub removed per Gate 1 decision (2026-05-19).
 
 ## Strategic Type Choices
 - Organization @type: MedicalOrganization
@@ -79,9 +77,9 @@
 - WebPage wrapper: MedicalWebPage for all YMYL pages; WebPage for Contact, HIPAA Privacy, Terms only
 
 ## Cross-References to ENTITY-VARIABLES.md
-- GBP Locks: see §GBP Locks (Checkpoint A — PENDING)
-- Institutional Anchors: see §Institutional Anchor Entities (Checkpoint B — PENDING)
-- Semantic Reviews: see §Review Data (Checkpoint C — PENDING)
+- GBP Locks: see §GBP Locks (Checkpoint A — ✅ APPROVED 2026-05-19)
+- Institutional Anchors: see §Institutional Anchor Entities (Checkpoint B — ✅ APPROVED: Washington University School of Medicine)
+- Semantic Reviews: see §Review Data (Checkpoint C — ⏳ PENDING: Q5 awaiting Bobbee approval)
 - NAICS: see §Business Entity > NAICS Code (621111 — from §6 lookup table, no administrator approval needed)
 
 ## Tech Builder Notes
@@ -90,8 +88,8 @@
 - Render every JSON-LD block via individual `.astro` components in `src/components/schemas/`:
   - `OrganizationSchema.astro` (Block A)
   - `LocalBusinessSchema.astro` (Block B)
-  - `PersonSchema.astro` (Block C / Block K)
   - `TherapeuticProcedureSchema.astro` (Block D-service, non-surgical)
+  > PersonSchema.astro (Block C / Block K) omitted — no providers listed at this stage.
   - `MedicalProcedureSchema.astro` (Block D-service, Kyphoplasty)
   - `OfferCatalogSchema.astro` (Block D-category)
   - `MedicalWebPageSchema.astro` (Block E)
