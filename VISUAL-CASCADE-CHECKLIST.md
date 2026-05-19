@@ -12,7 +12,7 @@ The five cascade elements per page (all GSAP — never motion/react):
 ---
 
 ## Homepage / GBP Landing Page 1
-- [ ] Hero motion (GSAP)
+- [ ] Hero motion (GSAP) — **VIDEO HERO**: uses `/public/video/hero-bg.mp4` (autoplay, muted, loop). Do NOT replace with generated image.
 - [ ] Service cards image-backed
 - [ ] Section alternation
 - [ ] Reveal animations (GSAP ScrollTrigger)

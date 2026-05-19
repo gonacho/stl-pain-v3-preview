@@ -17,11 +17,16 @@ References MIGRATION-AUDIT.md image grades (§2 IMAGE_INVENTORY).
 - {time_of_day}: soft mid-morning
 - {patient_demographics}: adults 40-75, mix of active seniors and working professionals with chronic pain conditions
 
-## REUSE Section (Grade A images — no API call)
+## REUSE Section (Grade A/B video + images — no generation API call)
 
-No Grade A images in MIGRATION-AUDIT.md image inventory. All hero/service images graded C (stock/generic). Only Grade A content pages are Privacy Policy and Terms (no images).
+### V1 — Hero Background Video (Grade B — confirmed reuse)
+- source: https://clinicboom.co/wp-content/uploads/St.-Louis-Pain-Center_video_header.mp4
+- target: /public/video/hero-bg.mp4
+- usage: Homepage hero section — autoplay, muted, loop
+- operations: [download, self-host, optimize_if_needed]
+- notes: Branded video from existing site. Do NOT replace with stock/generated video. Confirmed by Bobbee 2026-05-19.
 
-**REUSE count: 0**
+**REUSE count: 1 (video)**
 
 ## EDIT Section (Grade B images — POST /v1/images/edits)
 
@@ -522,11 +527,11 @@ All GBP posts:
 
 | Category | Count |
 |---|---|
-| Reuse (no API call) | 0 |
+| Reuse (no API call) | 1 (hero background video) |
 | Edit (GPT-image-2 edits API) | 4 (2 headshots, logo, favicon) |
 | Generate (GPT-image-2 generations API) | 33 (1 homepage hero + 1 category hero + 11 service heroes + 13 condition illustrations + 5 comparison graphics + 2 standard page images) |
 | GBP Post Images (generate) | 12 |
-| **TOTAL** | **49** |
+| **TOTAL** | **50** (1 video reuse + 4 edits + 33 generations + 12 GBP posts) |
 
 ### Estimated Cost
 - Edits (4 × ~$0.04 each at 800×800): ~$0.16
