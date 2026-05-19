@@ -2,8 +2,52 @@
 
 ## Build Type
 - build_type: migration
+- build_directive: migrate_repurpose_expand (confirmed 2026-05-19 by Bobbee)
 - gbp_count: 1
 - Flags: none (no Spanish, no telehealth, no attorney referral)
+
+## Build Directive — Migrate + Repurpose + Expand
+
+This is NOT a straight 1:1 migration. Three parallel strategies apply:
+
+### Migrate
+All 19 existing URLs receive 301 redirects (see Redirect Map below). URLs currently ranking (especially `/neuropathy` for neuropathy keywords, homepage for "pain management physician St. Louis") are redirected with care. DataForSEO Local Rank check recommended before finalizing.
+
+### Repurpose
+Existing content is NOT copied 1:1. Per-page content treatment:
+
+| Old URL | Grade | Treatment | New URL |
+|---|---|---|---|
+| / | B | Rewrite to Core 30 AIDA + single-city H1 | / |
+| /neuropathy | B | Preserve cause/symptom framework, expand depth + AIDA | /neuropathy-treatment/peripheral-neuropathy/ |
+| /back-pain | B | Expand to Core 30 depth + AIDA | /conditions/back-pain/ |
+| /chronic-pain | B | Expand to Core 30 depth + AIDA | /conditions/chronic-pain/ |
+| /joint-pain | B | Best existing depth — edit + expand | /conditions/joint-pain/ |
+| /knee-pain | B | Expand + AIDA | /conditions/knee-pain/ |
+| /neck-pain | B | Only 2 treatments listed — expand significantly | /conditions/neck-pain/ |
+| /sciatica | B | Most thorough — preserve + expand | /conditions/sciatica/ |
+| /prp-therapy | B | Clarify A2M references or remove; add AIDA | /pain-management/prp-therapy/ |
+| /medical-weight-loss | B | Best data page (SURMOUNT-5 stats) — preserve data + AIDA | /pain-management/medical-weight-loss/ |
+| /neuromodulation-technique | B | Most detailed service page — preserve + expand | /neuropathy-treatment/neuromodulation-technique/ |
+| /contact | B | Remap to Core 30 contact with neuropathy FAQs preserved | /contact/ |
+| /schedule-appointment | B | Port to Core 30 booking with Resend Worker form | /new-patients/ |
+| /about-us | C | Complete overhaul — add Dr. Arconati + Anissa bios, credentials, history | /about/ |
+| /regenerative-therapy | C | Rewrite from scratch — "exosome" confusion in current copy | /pain-management/regenerative-therapy/ |
+| /hyaluronic-acid-injections | C | Only 310 words, 1 condition — complete rewrite | /pain-management/hyaluronic-acid-injections/ |
+| /testimonials | C | Replace — reviews distributed per-page in Core 30 | / (301 to homepage) |
+| /privacy-policy | A | Keep as-is with updated date | /hipaa-privacy/ |
+| /terms-and-conditions | A | Keep as-is with updated date | /terms-and-conditions/ |
+
+### Expand
+Full Core 30 architecture built beyond current 17 pages. New pages (no existing content):
+- Category hub: /pain-management/ (hub for 8 services)
+- 5 new condition pages: Shoulder Pain, Arthritis/Osteoarthritis, Fibromyalgia, Vertigo/Vestibular Disorders, Neuropathy in Feet
+- 6 new service pages: Physical Therapy, Nerve Blocks, Injection Therapy, Kyphoplasty, Medication Management (no current pages)
+- 5 comparison pages (all new)
+- Standard pages: New Patients, Insurance, Providers Hub, Conditions Hub
+- 2 provider bio pages (overhaul from thin About Us)
+
+**Repositioning:** Dr. Arconati as the credentialed pain management authority. Midwest chronic pain / neuropathy epidemic as the local hook.
 
 ## GBP Entity Summary
 - GBP 1: St. Louis Pain Center — St. Louis, MO
@@ -197,6 +241,12 @@
     - URL: /conditions/vertigo-vestibular-disorders/
     - Treatments: Neuromodulation Technique, Physical Therapy
 
+13. **Neuropathy in Feet**
+    - URL: /conditions/neuropathy-in-feet/
+    - Treatments: Neuropathy Treatment, Neuromodulation Technique, Physical Therapy
+    - Schema: MedicalCondition with possibleTreatment → TherapeuticProcedure @id refs
+    - Note: High-value longtail — patients search "neuropathy in feet" as a distinct symptom query
+
 ### Provider Pages (2 pages)
 
 1. **Dr. Ron Arconati, DC**
@@ -299,6 +349,7 @@ Logo | [Services ▾] | [Conditions ▾] | About | Providers | Contact | [Book A
 - Arthritis / Osteoarthritis
 - Fibromyalgia
 - Vertigo / Vestibular Disorders
+- Neuropathy in Feet
 - [View All Conditions →]
 
 **Providers:** Simple link to /providers/ hub
@@ -336,9 +387,9 @@ Plus standard pages:
 
 | Service Page | Condition Pages Linking To It | Count | Coverage |
 |---|---|---|---|
-| Neuropathy Treatment | Neuropathy, Diabetic Neuropathy, Chronic Pain | 3 | ✅ |
-| Neuromodulation Technique | Neuropathy, Chronic Pain, Fibromyalgia, Vertigo/Vestibular | 4 | ✅ |
-| Physical Therapy | Back Pain, Neck Pain, Knee Pain, Shoulder Pain, Sciatica, Fibromyalgia, Vertigo/Vestibular | 7 | ✅ |
+| Neuropathy Treatment | Neuropathy, Diabetic Neuropathy, Chronic Pain, Neuropathy in Feet | 4 | ✅ |
+| Neuromodulation Technique | Neuropathy, Chronic Pain, Fibromyalgia, Vertigo/Vestibular, Neuropathy in Feet | 5 | ✅ |
+| Physical Therapy | Back Pain, Neck Pain, Knee Pain, Shoulder Pain, Sciatica, Fibromyalgia, Vertigo/Vestibular, Neuropathy in Feet | 8 | ✅ |
 | Hyaluronic Acid Injections | Knee Pain, Joint Pain, Arthritis/Osteoarthritis | 3 | ✅ |
 | PRP Therapy | Knee Pain, Joint Pain, Shoulder Pain | 3 | ✅ |
 | Regenerative Therapy | Joint Pain, Arthritis/Osteoarthritis, Knee Pain | 3 | ✅ |
@@ -436,8 +487,8 @@ All 11 services have ≥3 condition pages. Coverage complete.
 | Homepage | 1 |
 | Category Hub Pages | 1 |
 | Service Pages | 11 |
-| Condition Pages | 12 |
+| Condition Pages | 13 |
 | Provider Pages | 2 |
 | Comparison Pages | 5 |
 | Standard Pages (About, Contact, New Patients, Insurance, HIPAA, Providers Hub, Conditions Hub) | 7 |
-| **TOTAL** | **39** |
+| **TOTAL** | **40** |

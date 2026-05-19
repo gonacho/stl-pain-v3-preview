@@ -390,6 +390,20 @@ No Grade A images in MIGRATION-AUDIT.md image inventory. All hero/service images
     dark background. Anatomically accurate with high contrast colors. No text overlays.
 - alt_text: "Vestibular system and vertigo mechanism illustration"
 
+#### Neuropathy in Feet
+- target: /public/images/conditions/neuropathy-in-feet-st-louis-mo-illustration.webp
+- api: gpt-image-2-generations
+- size: 1600x900
+- quality: high
+- prompt: |
+    Detailed medical illustration focusing on peripheral neuropathy in the feet. Transparent 
+    view of the foot and ankle showing nerve pathways from the ankle branching into the toes. 
+    Damaged nerve endings in the toes and sole highlighted in warm red/orange, with healthy 
+    proximal nerve segments in cool blue. Small inset showing cross-section of a damaged 
+    nerve fiber with degraded myelin sheath. Dark background, bold modern medical illustration 
+    style. Anatomically accurate. No text overlays.
+- alt_text: "Neuropathy in feet — nerve damage illustration showing affected foot nerves"
+
 ### Comparison Page Graphics (5 images)
 
 #### PRP Therapy vs. Hyaluronic Acid Injections
@@ -510,14 +524,14 @@ All GBP posts:
 |---|---|
 | Reuse (no API call) | 0 |
 | Edit (GPT-image-2 edits API) | 4 (2 headshots, logo, favicon) |
-| Generate (GPT-image-2 generations API) | 32 (1 homepage hero + 1 category hero + 11 service heroes + 12 condition illustrations + 5 comparison graphics + 2 standard page images) |
+| Generate (GPT-image-2 generations API) | 33 (1 homepage hero + 1 category hero + 11 service heroes + 13 condition illustrations + 5 comparison graphics + 2 standard page images) |
 | GBP Post Images (generate) | 12 |
-| **TOTAL** | **48** |
+| **TOTAL** | **49** |
 
 ### Estimated Cost
 - Edits (4 × ~$0.04 each at 800×800): ~$0.16
-- Generations HD (32 × ~$0.08 each at 1600×900/1920×1080): ~$2.56
+- Generations HD (33 × ~$0.08 each at 1600×900/1920×1080): ~$2.64
 - Generations standard (12 × ~$0.04 each at 1080×1080 medium): ~$0.48
-- **Total estimated: ~$3.20**
+- **Total estimated: ~$3.28**
 
 > Note: Costs are estimates based on gpt-image-2 pricing as of 2026-05. Actual costs depend on final dimensions and quality settings.

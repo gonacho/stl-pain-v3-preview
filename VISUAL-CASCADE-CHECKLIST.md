@@ -192,6 +192,13 @@ The five cascade elements per page (all GSAP — never motion/react):
 - [ ] Reveal animations (GSAP ScrollTrigger)
 - [ ] End-of-page CTA motion (GSAP)
 
+### Neuropathy in Feet
+- [ ] Hero motion (GSAP — illustration enters with motion)
+- [ ] Treatment cards image-backed
+- [ ] Section alternation
+- [ ] Reveal animations (GSAP ScrollTrigger)
+- [ ] End-of-page CTA motion (GSAP)
+
 ## Provider Pages
 
 ### Dr. Ron Arconati, DC
@@ -303,8 +310,8 @@ The five cascade elements per page (all GSAP — never motion/react):
 | Homepage | 1 | 5 | 0/5 |
 | Category Pages | 1 | 5 | 0/5 |
 | Service Pages | 11 | 55 | 0/55 |
-| Condition Pages | 12 | 60 | 0/60 |
+| Condition Pages | 13 | 65 | 0/65 |
 | Provider Pages | 2 | 10 | 0/10 |
 | Comparison Pages | 5 | 25 | 0/25 |
 | Standard Pages | 7 | 33 | 0/33 |
-| **TOTAL** | **39** | **193** | **0/193** |
+| **TOTAL** | **40** | **198** | **0/198** |
