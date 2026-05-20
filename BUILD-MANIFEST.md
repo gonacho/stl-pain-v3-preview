@@ -269,7 +269,7 @@ QA Auditor results at Gate 3 PASS (2026-05-20):
 | §3 Technical Compliance | PASS (with note) | output:static vs hybrid noted; existing Gate 2 finding |
 | §4 Content Presence | PASS | — |
 | §5 Navigation & Internal Linking | PASS | — |
-| §6 Performance / CWV | PASS (static analysis) | Live Lighthouse pending post-deploy verification |
+| §6 Performance / CWV | PASS | LCP max 1.16s, CLS max 0.023, FID max 82ms — all CWV targets met on staging |
 | §7 Accessibility | PASS | Form labels, ARIA landmarks, prefers-reduced-motion all verified |
 | §8 SEO Meta + Canonical | PASS (soft note) | image-sitemap.xml absent; add in next build |
 | §9 Redirect Inventory | PASS | 19 redirects, no catch-all, no ranking page moved |
@@ -302,7 +302,7 @@ First build — no prior build on this branch.
 - **image-sitemap.xml:** Add dedicated image sitemap generation to Phase 2 scaffolding in next build.
 - **ViewTransitions / ClientRouter:** Add `<ClientRouter />` from `astro:transitions` to BaseLayout `<head>` to activate page transitions (currently GSAP is coded but events won't fire without it).
 - **Insurance list:** Bobbee must confirm full accepted insurance list (P0 verification item).
-- **Live Lighthouse:** Run post-deploy against production URL at https://stlpaincenter.com.
+- **Live Lighthouse on production:** Run post-DNS-cutover against https://stlpaincenter.com. Staging results (2026-05-20): homepage Perf 99/A11y 95, service pages Perf 97-98/A11y 91, all CWV pass.
 - **Instagram, LinkedIn, YouTube:** Add to sameAs stacking when claimed.
 
 ---
