@@ -131,7 +131,7 @@ When client supplies real provider headshots: run through EDIT-1 (gpt-image-2 ed
 ## 10. Known issues to fix in next iteration
 
 1. **`astro.config.mjs` `output: 'static'`** — should be `output: 'hybrid'` per Core 30 spec. No functional impact for current static build but should be updated before adding any SSR endpoints.
-2. **Missing `<ClientRouter />`** — import from `astro:transitions` and add to `BaseLayout.astro` `<head>` to activate page transitions (GSAP code is ready but `astro:before-swap`/`astro:after-swap` events won't fire without it).
+2. **`<ClientRouter />` FIXED in COR-85** — `import { ClientRouter } from 'astro:transitions'` is now in `BaseLayout.astro` `<head>`. Page transitions are functional.
 3. **image-sitemap.xml absent** — add to `astro.config.mjs` integrations for Google image indexing.
 4. **Insurance acceptance list (P0)** — client must verify full list of accepted insurance plans before next Paperclip rebuild.
 

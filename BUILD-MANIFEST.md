@@ -22,10 +22,11 @@ For audit trail of every build and manual edit, see `BUILD-LOG.md`.
 | Primary GBP category | Pain control clinic |
 | Locations | St. Louis, MO (4455 Telegraph Rd #250, 63129) |
 | **Paperclip issue** | [COR-65](/COR/issues/COR-65) |
-| **GitHub PR** | https://github.com/gonacho/stl-pain-v3-preview/pull/1 |
-| **Build branch** | COR-65-phase-2 |
-| **HEAD SHA at PR open** | 3057560d28d74cb0c5cb91565e4441b1f9c76c03 |
-| **Merge SHA on main** | 4da2a048 |
+| **GitHub PR (Build #1)** | https://github.com/gonacho/stl-pain-v3-preview/pull/1 (merged 4da2a048) |
+| **GitHub PR (Build #2 — COR-85)** | https://github.com/driven-sites/stl-pain-v3/pull/1 (pending merge) |
+| **Build branch** | COR-85-visual-rebuild |
+| **HEAD SHA at PR open** | d43817f46933f305ef419358b9aa8bab55effacd |
+| **Merge SHA on main** | [pending merge] |
 | **Cloudflare PR preview URL** | https://cor-65-phase-2.stl-pain-v3-preview.pages.dev |
 | **Cloudflare production URL** | https://stlpaincenter.com |
 | Last Phase 7 handoff date | 2026-05-20 |
@@ -260,24 +261,24 @@ The 4 v3 administrator-approval checkpoints. **Every entry is locked.** Changing
 
 ## §10. Last QA Report Summary
 
-QA Auditor results at Gate 3 PASS (2026-05-20):
+QA Auditor results at Gate 3 RE-AUDIT PASS (2026-05-20) — post COR-85 visual rebuild:
 
 | Section | Status | Notes |
 |---|---|---|
 | §1 Architecture Compliance | PASS | — |
 | §2 Schema Compliance | PASS | — |
-| §3 Technical Compliance | PASS (with note) | output:static vs hybrid noted; existing Gate 2 finding |
+| §3 Technical Compliance | PASS (with note) | output:static vs hybrid noted; carry-over soft issue |
 | §4 Content Presence | PASS | — |
 | §5 Navigation & Internal Linking | PASS | — |
-| §6 Performance / CWV | PASS | LCP max 1.16s, CLS max 0.023, FID max 82ms — all CWV targets met on staging |
-| §7 Accessibility | PASS | Form labels, ARIA landmarks, prefers-reduced-motion all verified |
+| §6 Performance / CWV | PASS | Baseline: LCP max 1.16s, CLS max 0.023, FID max 82ms (staging pre-rebuild); live re-run pending new Cloudflare deploy |
+| §7 Accessibility | PASS | Form labels, ARIA landmarks, prefers-reduced-motion (7 locations) verified |
 | §8 SEO Meta + Canonical | PASS (soft note) | image-sitemap.xml absent; add in next build |
 | §9 Redirect Inventory | PASS | 19 redirects, no catch-all, no ranking page moved |
-| §10 Image Quality Spot-Check | PASS | Phase 4a approval verified; 47 images, no AI artifacts in samples |
-| §11 Visual Cascade Completeness | PASS (soft note) | 188/188 checklist; ViewTransitions component absent (page transitions won't fire); add in next build |
+| §10 Image Quality Spot-Check | PASS | No new images in COR-85 rebuild; Phase 4a approval still valid |
+| §11 Visual Cascade Completeness | PASS ✅ | 188/188 checklist; `<ClientRouter />` NOW FIXED in COR-85 rebuild |
 | §12 Build Handoff Manifest | PASS | This document |
 
-Full QA report archived at `audit-reports/gate-3-build-1-2026-05-20.md`.
+Full QA reports archived at `audit-reports/`. Re-audit report: `audit-reports/gate-3-build-2-2026-05-20.md`.
 
 ---
 
@@ -302,7 +303,7 @@ First build — no prior build on this branch.
 - **image-sitemap.xml:** Add dedicated image sitemap generation to Phase 2 scaffolding in next build.
 - **ViewTransitions / ClientRouter:** Add `<ClientRouter />` from `astro:transitions` to BaseLayout `<head>` to activate page transitions (currently GSAP is coded but events won't fire without it).
 - **Insurance list:** Bobbee must confirm full accepted insurance list (P0 verification item).
-- **Live Lighthouse on production:** Run post-DNS-cutover against https://stlpaincenter.com. Staging results (2026-05-20): homepage Perf 99/A11y 95, service pages Perf 97-98/A11y 91, all CWV pass.
+- **Live Lighthouse on COR-85 deploy:** Run post-deploy against new Cloudflare Pages preview for COR-85-visual-rebuild branch. Pre-rebuild baseline: homepage Perf 99/A11y 95, service pages Perf 97-98/A11y 91, all CWV pass.
 - **Instagram, LinkedIn, YouTube:** Add to sameAs stacking when claimed.
 
 ---

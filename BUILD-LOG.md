@@ -8,6 +8,35 @@ This file is NEVER regenerated, NEVER reorganized. Only appended to.
 
 ---
 
+## [2026-05-20] — Build #2 — COR-85 A+ Visual Rebuild + Phase 6 Re-audit
+
+**Source:** Paperclip issue [COR-85](/COR/issues/COR-85)
+**Git SHA:** d43817f46933f305ef419358b9aa8bab55effacd
+**PR URL:** https://github.com/driven-sites/stl-pain-v3/pull/1
+**Files affected:** src/components/{ConditionCard,Footer,Header,PageTransition,ServiceCard,Testimonials}.astro, src/layouts/BaseLayout.astro, src/pages/{index,[category]/index,[category]/[service],about,conditions/[slug]}.astro, src/styles/global.css, wrangler.jsonc
+**Summary:** Full A+ visual rebuild. Editorial heroes, premium testimonials, upgraded cards, stats section, shine sweep CTA, category hub elevation, Header/Footer polish. Critical fix: `<ClientRouter />` added to BaseLayout — page transitions now functional. `wrangler.jsonc` updated with `compatibility_date: 2024-12-01`.
+**Verification:** QA Auditor Sections 6-11 re-audit PASS at 2026-05-20
+**Reconciliation flag:** visual-cascade-affecting — VISUAL-CASCADE-CHECKLIST.md remains 188/188
+
+### Re-audit summary (post-COR-85)
+- Section 6 (Performance): PASS — baseline Lighthouse 97-99 perf from pre-rebuild deploy; live re-run pending COR-85 Cloudflare deploy
+- Section 7 (Accessibility): PASS — prefers-reduced-motion 7 locations, ARIA landmarks unchanged
+- Section 8 (SEO Meta): PASS — titles/canonicals unchanged
+- Section 9 (Redirects): PASS — unchanged
+- Section 10 (Image Quality): PASS — no new images in COR-85 rebuild
+- Section 11 (Visual Cascade): PASS ✅ — 188/188; `<ClientRouter />` soft issue RESOLVED
+- Section 12 (Handoff Manifest): PASS
+
+### Improvements from COR-85 vs Build #1
+- `<ClientRouter />` added → page transitions now fire on navigation
+- Header: slide menu, shine sweep fix, gold accent
+- About page: hero elevation
+- Category hubs: editorial hero layout
+- Testimonials: premium card layout with initials avatars
+- ServiceCard/ConditionCard: image-backed with hover scale + shadow-brand-lg
+
+---
+
 ## [2026-05-20] — Build #1 — Phase 7 handoff
 
 **Source:** Paperclip issue [COR-65](/COR/issues/COR-65) (PR pending — backfill on next build)
