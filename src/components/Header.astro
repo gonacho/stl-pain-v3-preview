@@ -139,9 +139,10 @@ const conditions = [
       </a>
       <a
         href={BOOKING_URL}
-        class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-brand hover:shadow-brand-md transition-shadow"
+        class="btn-shine relative overflow-hidden bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-brand hover:shadow-brand-md transition-shadow"
         id="header-cta"
       >
+        <span class="shine-sweep absolute inset-0 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent); transform: translateX(-110%);"></span>
         Book Appointment
       </a>
       <!-- Mobile hamburger -->
@@ -160,9 +161,14 @@ const conditions = [
 <!-- Mobile menu overlay -->
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-50 bg-brand-navy-dark opacity-0 pointer-events-none overflow-y-auto"
+  class="fixed inset-0 z-50 pointer-events-none overflow-hidden"
   aria-hidden="true"
 >
+  <!-- Scrim -->
+  <div id="mobile-menu-scrim" class="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm opacity-0"></div>
+  <!-- Slide panel -->
+  <div id="mobile-menu-panel" class="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-brand-navy-dark overflow-y-auto" style="transform: translateX(100%);">
+
   <div class="p-6">
     <div class="flex items-center justify-between mb-8">
       <span class="text-white font-display font-bold">Menu</span>
@@ -218,7 +224,8 @@ const conditions = [
       <a href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`} class="block text-center text-white/70 hover:text-white text-sm transition-colors py-2">{SITE_PHONE_DISPLAY}</a>
     </div>
   </div>
-</div>
+  </div>{/* end mobile-menu-panel */}
+</div>{/* end mobile-menu */}
 
 <!-- Spacer to push content below fixed header -->
 <div style="height: var(--header-height);"></div>
@@ -227,23 +234,29 @@ const conditions = [
   import { gsap } from 'gsap';
 
   const toggle = document.getElementById('mobile-menu-toggle');
-  const close = document.getElementById('mobile-menu-close');
+  const closeBtn = document.getElementById('mobile-menu-close');
   const menu = document.getElementById('mobile-menu');
+  const scrim = document.getElementById('mobile-menu-scrim');
+  const panel = document.getElementById('mobile-menu-panel');
 
   function openMenu() {
-    if (!menu) return;
+    if (!menu || !panel || !scrim) return;
     menu.classList.remove('pointer-events-none');
     menu.setAttribute('aria-hidden', 'false');
     toggle?.setAttribute('aria-expanded', 'true');
-    gsap.to(menu, { autoAlpha: 1, duration: 0.3, ease: 'power3.out' });
     document.body.style.overflow = 'hidden';
+    gsap.to(scrim, { autoAlpha: 1, duration: 0.25, ease: 'power3.out' });
+    gsap.to(panel, { x: 0, duration: 0.35, ease: 'power4.out' });
   }
 
   function closeMenu() {
-    if (!menu) return;
+    if (!menu || !panel || !scrim) return;
     toggle?.setAttribute('aria-expanded', 'false');
-    gsap.to(menu, {
-      autoAlpha: 0, duration: 0.25, ease: 'power3.in',
+    gsap.to(scrim, { autoAlpha: 0, duration: 0.2, ease: 'power3.in' });
+    gsap.to(panel, {
+      x: '100%',
+      duration: 0.3,
+      ease: 'power3.in',
       onComplete: () => {
         menu.classList.add('pointer-events-none');
         menu.setAttribute('aria-hidden', 'true');
@@ -253,25 +266,27 @@ const conditions = [
   }
 
   toggle?.addEventListener('click', openMenu);
-  close?.addEventListener('click', closeMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  scrim?.addEventListener('click', closeMenu);
 
-  // Magnetic CTA effect
+  // Magnetic CTA + shine sweep
   const ctaBtn = document.getElementById('header-cta');
   if (ctaBtn) {
     const xTo = gsap.quickTo(ctaBtn, 'x', { duration: 0.3, ease: 'power3' });
     const yTo = gsap.quickTo(ctaBtn, 'y', { duration: 0.3, ease: 'power3' });
     ctaBtn.addEventListener('mousemove', (e: MouseEvent) => {
       const rect = ctaBtn.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      xTo((e.clientX - cx) * 0.25);
-      yTo((e.clientY - cy) * 0.25);
+      xTo((e.clientX - rect.left - rect.width / 2) * 0.25);
+      yTo((e.clientY - rect.top - rect.height / 2) * 0.25);
     });
     ctaBtn.addEventListener('mouseleave', () => { xTo(0); yTo(0); });
 
-    // Shine sweep on hover
-    ctaBtn.addEventListener('mouseenter', () => {
-      gsap.fromTo(ctaBtn.querySelector('::after') as Element ?? ctaBtn, { x: '-100%' }, { x: '200%', duration: 0.4, ease: 'power2.out' });
-    });
+    // Shine sweep on hover (targets the .shine-sweep child span)
+    const shine = ctaBtn.querySelector<HTMLElement>('.shine-sweep');
+    if (shine) {
+      ctaBtn.addEventListener('mouseenter', () => {
+        gsap.fromTo(shine, { x: '-110%' }, { x: '120%', duration: 0.5, ease: 'power2.out' });
+      });
+    }
   }
 </script>

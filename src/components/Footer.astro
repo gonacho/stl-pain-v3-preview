@@ -30,7 +30,11 @@ const conditions = [
 ];
 ---
 
-<footer class="bg-brand-navy-dark text-white/70">
+<footer class="bg-brand-navy-dark text-white/70 relative overflow-hidden">
+  <!-- Gold top accent line -->
+  <div class="h-px w-full" style="background: linear-gradient(to right, transparent, #C8A04A 20%, #E8C070 50%, #C8A04A 80%, transparent);"></div>
+  <!-- Subtle background glow -->
+  <div aria-hidden="true" class="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-5 blur-3xl pointer-events-none" style="background: radial-gradient(circle, #C8A04A 0%, transparent 70%);"></div>
   <div class="container py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
