@@ -12,7 +12,7 @@ This file is NEVER regenerated, NEVER reorganized. Only appended to.
 
 **Source:** Paperclip issue [COR-65](/COR/issues/COR-65) (PR pending — backfill on next build)
 **Git SHA:** 3057560d28d74cb0c5cb91565e4441b1f9c76c03
-**PR URL:** [filled after gh pr create]
+**PR URL:** https://github.com/gonacho/stl-pain-v3-preview/pull/1
 **Files affected:** Entire project (first build). BUILD-MANIFEST.md generated. BUILD-LOG.md created. CLAUDE.md created.
 **Summary:** Local Clinic migration build for St. Louis Pain Center. 38 pages (1 homepage, 2 category, 11 service, 13 condition, 5 comparison, 6 standard). 47 images generated via gpt-image-2, 1 hero video reused. Design concept: Recovery Momentum (navy #1B3A5C + gold #C8A04A). All Sections 1–11 PASS at Gate 3.
 **Verification:** QA Auditor Sections 1–12 PASS at 2026-05-20

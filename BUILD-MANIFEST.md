@@ -22,10 +22,10 @@ For audit trail of every build and manual edit, see `BUILD-LOG.md`.
 | Primary GBP category | Pain control clinic |
 | Locations | St. Louis, MO (4455 Telegraph Rd #250, 63129) |
 | **Paperclip issue** | [COR-65](/COR/issues/COR-65) |
-| **GitHub PR** | [pending — filled after gh pr create] |
+| **GitHub PR** | https://github.com/gonacho/stl-pain-v3-preview/pull/1 |
 | **Build branch** | COR-65-phase-2 |
 | **HEAD SHA at PR open** | 3057560d28d74cb0c5cb91565e4441b1f9c76c03 |
-| **Merge SHA on main** | [pending merge] |
+| **Merge SHA on main** | 4da2a048 |
 | **Cloudflare PR preview URL** | https://cor-65-phase-2.stl-pain-v3-preview.pages.dev |
 | **Cloudflare production URL** | https://stlpaincenter.com |
 | Last Phase 7 handoff date | 2026-05-20 |
