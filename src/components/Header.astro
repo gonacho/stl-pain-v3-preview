@@ -1,0 +1,277 @@
+---
+import { SITE_NAME, SITE_PHONE_DISPLAY, BOOKING_URL } from '../data/site-config';
+
+const serviceCategories = [
+  {
+    name: 'Pain Control Clinic',
+    url: '/pain-control/',
+    services: [
+      { name: 'Nerve Blocks', url: '/pain-control/nerve-blocks/' },
+      { name: 'Injection Therapy', url: '/pain-control/injection-therapy/' },
+      { name: 'Kyphoplasty', url: '/pain-control/kyphoplasty/' },
+      { name: 'Medication Management', url: '/pain-control/medication-management/' },
+      { name: 'Neuropathy Treatment', url: '/pain-control/neuropathy-treatment/' },
+      { name: 'Neuromodulation Technique', url: '/pain-control/neuromodulation-technique/' },
+    ],
+  },
+  {
+    name: 'Orthopedic Clinic',
+    url: '/orthopedic/',
+    services: [
+      { name: 'Hyaluronic Acid Injections', url: '/orthopedic/hyaluronic-acid-injections/' },
+      { name: 'PRP Therapy', url: '/orthopedic/prp-therapy/' },
+      { name: 'Regenerative Therapy', url: '/orthopedic/regenerative-therapy/' },
+    ],
+  },
+  {
+    name: 'Weight Loss Clinic',
+    url: '/weight-loss/',
+    services: [
+      { name: 'Medical Weight Loss', url: '/weight-loss/' },
+    ],
+  },
+  {
+    name: 'Sports Medicine Clinic',
+    url: '/sports-medicine/',
+    services: [
+      { name: 'Physical Therapy', url: '/sports-medicine/' },
+    ],
+  },
+];
+
+const conditions = [
+  { name: 'Neuropathy', url: '/conditions/neuropathy/' },
+  { name: 'Diabetic Neuropathy', url: '/conditions/diabetic-neuropathy/' },
+  { name: 'Knee Pain', url: '/conditions/knee-pain/' },
+  { name: 'Joint Pain', url: '/conditions/joint-pain/' },
+  { name: 'Back Pain', url: '/conditions/back-pain/' },
+  { name: 'Neck Pain', url: '/conditions/neck-pain/' },
+  { name: 'Sciatica', url: '/conditions/sciatica/' },
+  { name: 'Chronic Pain', url: '/conditions/chronic-pain/' },
+  { name: 'Shoulder Pain', url: '/conditions/shoulder-pain/' },
+  { name: 'Arthritis / Osteoarthritis', url: '/conditions/arthritis-osteoarthritis/' },
+  { name: 'Fibromyalgia', url: '/conditions/fibromyalgia/' },
+  { name: 'Vertigo / Vestibular Disorders', url: '/conditions/vertigo-vestibular-disorders/' },
+  { name: 'Neuropathy in Feet', url: '/conditions/neuropathy-in-feet/' },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-40 bg-brand-navy/95 backdrop-blur-sm border-b border-white/10"
+  style="height: var(--header-height);"
+>
+  <div class="container flex items-center justify-between h-full">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 text-white hover:opacity-90 transition-opacity" aria-label="St. Louis Pain Center — Home">
+      <div class="w-8 h-8 rounded-lg bg-brand-gold flex items-center justify-center shrink-0">
+        <span class="text-white font-display font-bold text-sm">S</span>
+      </div>
+      <div class="hidden sm:block">
+        <span class="font-display font-bold text-white text-base leading-none">St. Louis</span>
+        <span class="block font-display text-brand-gold text-xs tracking-widest uppercase leading-none mt-0.5">Pain Center</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+      <!-- Services dropdown -->
+      <div class="relative group">
+        <button
+          class="flex items-center gap-1 px-3 py-2 text-white/90 hover:text-white text-sm font-medium rounded-lg hover:bg-white/5 transition-colors"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Services
+          <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <!-- Mega menu -->
+        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[800px] bg-white rounded-2xl shadow-navy-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-6">
+          <div class="grid grid-cols-4 gap-6">
+            {serviceCategories.map(cat => (
+              <div>
+                <a href={cat.url} class="block text-xs font-semibold tracking-eyebrow uppercase text-brand-gold mb-3 hover:text-brand-gold-dark transition-colors">{cat.name}</a>
+                <ul class="space-y-1.5">
+                  {cat.services.map(s => (
+                    <li>
+                      <a href={s.url} class="block text-sm text-brand-body hover:text-brand-navy transition-colors py-0.5 link-underline">{s.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <a href="/pain-control/" class="text-xs text-brand-teal hover:underline">View All Services →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conditions dropdown (DISTINCT peer — NOT under Services) -->
+      <div class="relative group">
+        <button
+          class="flex items-center gap-1 px-3 py-2 text-white/90 hover:text-white text-sm font-medium rounded-lg hover:bg-white/5 transition-colors"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Conditions
+          <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="absolute top-full right-0 mt-1 w-64 bg-white rounded-2xl shadow-navy-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-3">
+          {conditions.map(c => (
+            <a href={c.url} class="block px-4 py-2 text-sm text-brand-body hover:text-brand-navy hover:bg-brand-warm/50 transition-colors">{c.name}</a>
+          ))}
+          <div class="border-t border-gray-100 mt-2 pt-2 px-4">
+            <a href="/conditions/" class="text-xs text-brand-teal hover:underline">View All Conditions →</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/about/" class="px-3 py-2 text-white/90 hover:text-white text-sm font-medium rounded-lg hover:bg-white/5 transition-colors">About</a>
+      <a href="/contact/" class="px-3 py-2 text-white/90 hover:text-white text-sm font-medium rounded-lg hover:bg-white/5 transition-colors">Contact</a>
+    </nav>
+
+    <!-- CTA + Phone + Mobile menu -->
+    <div class="flex items-center gap-3">
+      <a href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`} class="hidden md:flex items-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors">
+        <svg class="w-3.5 h-3.5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        {SITE_PHONE_DISPLAY}
+      </a>
+      <a
+        href={BOOKING_URL}
+        class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-brand hover:shadow-brand-md transition-shadow"
+        id="header-cta"
+      >
+        Book Appointment
+      </a>
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-toggle"
+        class="lg:hidden p-2 text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-50 bg-brand-navy-dark opacity-0 pointer-events-none overflow-y-auto"
+  aria-hidden="true"
+>
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-8">
+      <span class="text-white font-display font-bold">Menu</span>
+      <button
+        id="mobile-menu-close"
+        class="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+        aria-label="Close navigation menu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="space-y-6">
+      <div>
+        <p class="eyebrow text-brand-gold mb-3">Services</p>
+        <div class="space-y-4">
+          {serviceCategories.map(cat => (
+            <div>
+              <a href={cat.url} class="block text-white/70 text-xs uppercase tracking-wide mb-2 hover:text-brand-gold transition-colors">{cat.name}</a>
+              <div class="space-y-1.5 pl-3">
+                {cat.services.map(s => (
+                  <a href={s.url} class="block text-white/90 hover:text-white text-sm transition-colors py-0.5">{s.name}</a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow text-brand-gold mb-3">Conditions</p>
+        <div class="grid grid-cols-2 gap-1.5">
+          {conditions.map(c => (
+            <a href={c.url} class="text-white/90 hover:text-white text-sm transition-colors py-0.5">{c.name}</a>
+          ))}
+        </div>
+        <a href="/conditions/" class="block mt-3 text-brand-teal text-sm hover:underline">View All Conditions →</a>
+      </div>
+
+      <div class="space-y-2">
+        <a href="/about/" class="block text-white/90 hover:text-white py-2 text-sm transition-colors">About</a>
+        <a href="/contact/" class="block text-white/90 hover:text-white py-2 text-sm transition-colors">Contact</a>
+        <a href="/new-patients/" class="block text-white/90 hover:text-white py-2 text-sm transition-colors">New Patients</a>
+        <a href="/insurance/" class="block text-white/90 hover:text-white py-2 text-sm transition-colors">Insurance</a>
+      </div>
+
+      <a
+        href={BOOKING_URL}
+        class="btn-shine block w-full text-center bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-6 py-3 rounded-xl shadow-brand"
+      >
+        Book Appointment
+      </a>
+      <a href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`} class="block text-center text-white/70 hover:text-white text-sm transition-colors py-2">{SITE_PHONE_DISPLAY}</a>
+    </div>
+  </div>
+</div>
+
+<!-- Spacer to push content below fixed header -->
+<div style="height: var(--header-height);"></div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const close = document.getElementById('mobile-menu-close');
+  const menu = document.getElementById('mobile-menu');
+
+  function openMenu() {
+    if (!menu) return;
+    menu.classList.remove('pointer-events-none');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle?.setAttribute('aria-expanded', 'true');
+    gsap.to(menu, { autoAlpha: 1, duration: 0.3, ease: 'power3.out' });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!menu) return;
+    toggle?.setAttribute('aria-expanded', 'false');
+    gsap.to(menu, {
+      autoAlpha: 0, duration: 0.25, ease: 'power3.in',
+      onComplete: () => {
+        menu.classList.add('pointer-events-none');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      },
+    });
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+
+  // Magnetic CTA effect
+  const ctaBtn = document.getElementById('header-cta');
+  if (ctaBtn) {
+    const xTo = gsap.quickTo(ctaBtn, 'x', { duration: 0.3, ease: 'power3' });
+    const yTo = gsap.quickTo(ctaBtn, 'y', { duration: 0.3, ease: 'power3' });
+    ctaBtn.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = ctaBtn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      xTo((e.clientX - cx) * 0.25);
+      yTo((e.clientY - cy) * 0.25);
+    });
+    ctaBtn.addEventListener('mouseleave', () => { xTo(0); yTo(0); });
+
+    // Shine sweep on hover
+    ctaBtn.addEventListener('mouseenter', () => {
+      gsap.fromTo(ctaBtn.querySelector('::after') as Element ?? ctaBtn, { x: '-100%' }, { x: '200%', duration: 0.4, ease: 'power2.out' });
+    });
+  }
+</script>

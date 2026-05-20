@@ -1,0 +1,20 @@
+---
+import { SITE_URL, SITE_NAME } from '../../data/site-config';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/?s={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

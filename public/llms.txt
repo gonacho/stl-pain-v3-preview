@@ -1,0 +1,36 @@
+# St. Louis Pain Center — llms.txt
+
+## About
+
+St. Louis Pain Center is a pain control clinic in St. Louis, MO, providing neuropathy treatment, orthopedic care, regenerative medicine, physical therapy, and comprehensive pain management for patients in south St. Louis County.
+
+St. Louis Pain Center LLC, located at 4455 Telegraph Rd #250 in St. Louis, MO, specializes in pain management and neuropathy treatment. The practice offers nerve blocks, injection therapy, PRP therapy, hyaluronic acid injections, regenerative therapy, kyphoplasty, medication management, medical weight loss, neuromodulation technique, and physical therapy services.
+
+## Service Area
+
+St. Louis, Missouri. Service radius: 25 miles. Serving Oakville, Mehlville, Lemay, Affton, Concord, Arnold, Fenton, Crestwood, Sunset Hills, Webster Groves, Kirkwood, and the greater south St. Louis County area.
+
+## Services
+
+- Nerve Blocks — Targeted nerve block injections for acute and chronic pain relief in St. Louis — /pain-control/nerve-blocks/
+- Injection Therapy — Therapeutic injection therapy for back pain, neck pain, and joint conditions — /pain-control/injection-therapy/
+- Kyphoplasty — Minimally invasive kyphoplasty for spinal compression fracture pain relief — /pain-control/kyphoplasty/
+- Medication Management — Personalized pain medication management for chronic pain and neuropathy — /pain-control/medication-management/
+- Neuropathy Treatment — Comprehensive peripheral neuropathy diagnosis and treatment in St. Louis — /pain-control/neuropathy-treatment/
+- Neuromodulation Technique — Drug-free neuromodulation for neuropathy, chronic pain, and fibromyalgia — /pain-control/neuromodulation-technique/
+- Hyaluronic Acid Injections — Hyaluronic acid gel injections for knee and joint pain without surgery — /orthopedic/hyaluronic-acid-injections/
+- PRP Therapy — Platelet-rich plasma therapy for tissue regeneration and joint healing — /orthopedic/prp-therapy/
+- Regenerative Therapy — Advanced regenerative medicine for joint, tendon, and soft tissue repair — /orthopedic/regenerative-therapy/
+- Medical Weight Loss — Physician-supervised medical weight loss including tirzepatide and semaglutide — /weight-loss/
+- Physical Therapy — Physical therapy and rehabilitation for pain recovery and mobility — /sports-medicine/
+
+## Contact
+
+Address: 4455 Telegraph Rd #250, St. Louis, MO 63129
+Phone: (314) 846-2100
+Hours: Monday–Thursday 8am–5pm | Friday–Sunday Closed
+Book: https://stlpaincenter.com/contact/
+
+## Insurance
+
+Accepts: Medicare, Blue Cross Blue Shield, Aetna, Cigna, and most major commercial insurance plans.

@@ -86,6 +86,27 @@ build_directive: migrate_repurpose_expand
 
 ---
 
+## Design Concept Selection
+
+**Selected:** Concept 2 — Recovery Momentum *(approved by Bobbee 2026-05-19)*
+
+| Field | Value |
+|---|---|
+| Approved folder | `/design-concepts/APPROVED/` |
+| Primary palette | Warm navy #1B3A5C + warm gold #C8A04A + teal secondary #0E7C9E |
+| Display font | Satoshi (Fontshare) |
+| Body font | Plus Jakarta Sans (Google Fonts) |
+| Hero H1 size | 72px, font-bold, leading-tight |
+| Motion signature | Staggered GSAP reveal, magnetic gold CTA, bento cards with gold shadow lift, 1→2→3 journey steps |
+| Section transitions | Smooth warm gradient fades (no hard SVG dividers) |
+| Card style | Warm white #FBF7EF + warm gold shadow + amber-100 border |
+| Button primary | Warm gold gradient + magnetic hover via gsap.quickTo |
+| GSAP motion | All via GSAP — no framer-motion, no CSS @keyframes |
+
+> Tech Builder must reference `design-concepts/APPROVED/DESIGN-SPEC.md` for the full component library, motion vocabulary, and anti-pattern rules before writing any Astro/Tailwind code.
+
+---
+
 ## Brand Colors
 
 - Extract from existing stlpaincenter.com (migration audit will capture palette)
@@ -166,4 +187,5 @@ build_directive: migrate_repurpose_expand
 | Insurance | Medicare + major commercial |
 | Special flags | None |
 | Design personality | Bold and modern |
+| Design concept selection | Concept 2 — Recovery Momentum (approved 2026-05-19) |
 | Brand colors | Carry forward from existing site |

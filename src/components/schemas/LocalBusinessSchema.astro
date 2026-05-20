@@ -1,0 +1,104 @@
+---
+import {
+  SITE_URL, SITE_NAME, SITE_LEGAL_NAME, SITE_PHONE, SITE_ADDRESS, SITE_GEO,
+  SAME_AS_URLS, MEDICAL_SPECIALTY, GBP_CID, GBP_SHARE_URL,
+  INSTITUTIONAL_ANCHOR, LANDMARKS, LOCAL_EVENT, AGGREGATE_RATING,
+  HOMEPAGE_REVIEWS,
+} from '../../data/site-config';
+
+interface Props {
+  isHomepage?: boolean;
+  reviews?: Array<{
+    author: string;
+    date: string;
+    rating: number;
+    text: string;
+  }>;
+}
+
+const { isHomepage = false, reviews } = Astro.props;
+
+const reviewsToUse = reviews ?? (isHomepage ? HOMEPAGE_REVIEWS.map(r => ({
+  author: r.author,
+  date: r.date,
+  rating: r.rating,
+  text: r.text,
+})) : []);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": ["MedicalClinic", "LocalBusiness"],
+  "@id": `${SITE_URL}/#localbusiness`,
+  name: SITE_NAME,
+  legalName: SITE_LEGAL_NAME,
+  url: SITE_URL,
+  telephone: SITE_PHONE,
+  image: `${SITE_URL}/images/stl-pain-center-building.webp`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE_ADDRESS.street,
+    addressLocality: SITE_ADDRESS.city,
+    addressRegion: SITE_ADDRESS.state,
+    postalCode: SITE_ADDRESS.zip,
+    addressCountry: SITE_ADDRESS.country,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: SITE_GEO.lat,
+    longitude: SITE_GEO.lng,
+  },
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE_NAME)}&query_place_id=ChIJq0jNS0XHjocRGKPjbu4A2nA`,
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday"], opens: "08:00", closes: "17:00" },
+  ],
+  medicalSpecialty: {
+    "@type": "MedicalSpecialty",
+    name: MEDICAL_SPECIALTY.name,
+    sameAs: MEDICAL_SPECIALTY.sameAs,
+  },
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: SITE_GEO.lat,
+      longitude: SITE_GEO.lng,
+    },
+    geoRadius: "40234",
+    containsPlace: [
+      ...LANDMARKS.map(l => ({ "@type": l.type, name: l.name, sameAs: l.sameAs })),
+      { "@type": INSTITUTIONAL_ANCHOR.type, name: INSTITUTIONAL_ANCHOR.name, sameAs: INSTITUTIONAL_ANCHOR.sameAs },
+      { "@type": "City", name: "St. Louis", sameAs: "https://en.wikipedia.org/wiki/St._Louis" },
+    ],
+  },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/contact/`,
+      actionPlatform: ["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"],
+    },
+    result: { "@type": "Reservation", name: "Appointment" },
+  },
+  sameAs: [
+    ...SAME_AS_URLS,
+    `https://www.google.com/maps?cid=${GBP_CID}`,
+    GBP_SHARE_URL,
+  ].filter((v, i, a) => a.indexOf(v) === i),
+  ...(reviewsToUse.length > 0 ? {
+    review: reviewsToUse.map(r => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      datePublished: typeof r.date === 'object' ? (r.date as Date).toISOString().split('T')[0] : r.date,
+      reviewBody: r.text,
+      reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
+    })),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: AGGREGATE_RATING.ratingValue,
+      reviewCount: AGGREGATE_RATING.reviewCount,
+      bestRating: AGGREGATE_RATING.bestRating,
+    },
+  } : {}),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

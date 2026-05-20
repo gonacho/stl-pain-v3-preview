@@ -1,0 +1,28 @@
+---
+import { SITE_URL, SITE_NAME } from '../../data/site-config';
+
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: Date;
+  dateModified: Date;
+  image?: string;
+}
+
+const { title, description, url, datePublished, dateModified, image } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalScholarlyArticle",
+  "@id": `${SITE_URL}${url}`,
+  headline: title,
+  description,
+  url: `${SITE_URL}${url}`,
+  datePublished: datePublished.toISOString(),
+  dateModified: dateModified.toISOString(),
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  ...(image ? { image: `${SITE_URL}${image}` } : {}),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

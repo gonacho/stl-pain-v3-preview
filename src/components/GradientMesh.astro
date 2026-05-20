@@ -1,0 +1,19 @@
+---
+interface Props {
+  variant?: 'gold' | 'navy' | 'teal';
+  class?: string;
+}
+const { variant = 'gold', class: className = '' } = Astro.props;
+
+const colors: Record<string, string> = {
+  gold: 'rgba(200,160,74,0.18)',
+  navy: 'rgba(27,58,92,0.15)',
+  teal: 'rgba(14,124,158,0.12)',
+};
+const color = colors[variant];
+---
+<div
+  aria-hidden="true"
+  class={`gradient-mesh pointer-events-none absolute rounded-full blur-3xl ${className}`}
+  style={`background-color: ${color};`}
+></div>

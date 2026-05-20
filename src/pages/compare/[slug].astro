@@ -1,0 +1,155 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MedicalWebPageSchema from '../../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../../components/schemas/FAQPageSchema.astro';
+import ConditionCard from '../../components/ConditionCard.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE_URL } from '../../data/site-config';
+
+export async function getStaticPaths() {
+  const comparisons = await getCollection('comparisons');
+  return comparisons.map(c => ({
+    params: { slug: c.data.comparisonSlug },
+    props: { comparison: c },
+  }));
+}
+
+const { comparison } = Astro.props;
+const { Content } = await comparison.render();
+const url = `/compare/${comparison.data.comparisonSlug}/`;
+
+// Fetch related conditions
+const allConditions = await getCollection('conditions');
+const relatedConditions = allConditions.filter(c =>
+  comparison.data.related_conditions.includes(c.data.conditionSlug)
+);
+
+// Fetch the two compared services for deep links
+const allServices = await getCollection('services');
+const serviceA = allServices.find(s =>
+  (s.slug.split('/').pop() ?? s.slug) === comparison.data.option_a.serviceSlug
+);
+const serviceB = allServices.find(s =>
+  (s.slug.split('/').pop() ?? s.slug) === comparison.data.option_b.serviceSlug
+);
+
+function getServiceUrl(s: typeof serviceA) {
+  if (!s) return '/';
+  const svcSlug = s.slug.split('/').pop() ?? s.slug;
+  return s.slug.startsWith('standalone/')
+    ? `/${svcSlug}/`
+    : `/${s.data.categorySlug}/${svcSlug}/`;
+}
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Comparisons', url: '/compare/' },
+  { name: comparison.data.h1.split(' in ')[0], url },
+];
+---
+<BaseLayout title={comparison.data.title} description={comparison.data.description} image={comparison.data.heroImage}>
+  <Fragment slot="schema">
+    <MedicalWebPageSchema
+      title={comparison.data.title}
+      description={comparison.data.description}
+      url={url}
+      datePublished={comparison.data.publishDate}
+      dateModified={comparison.data.lastEdited}
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    {comparison.data.faqs.length > 0 && <FAQPageSchema faqs={comparison.data.faqs} />}
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      {comparison.data.heroImage && (
+        <div class="float-right ml-8 mb-6 hidden lg:block w-72">
+          <img
+            src={comparison.data.heroImage}
+            alt={comparison.data.heroImageAlt ?? comparison.data.h1}
+            width="288"
+            height="192"
+            class="rounded-2xl shadow-brand-lg object-cover"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+      )}
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{comparison.data.h1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{comparison.data.description}</p>
+      <div class="flex gap-4 mt-8 gsap-reveal">
+        <a href="/contact/" class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-6 py-3 rounded-xl text-sm shadow-brand">Get Expert Recommendation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- At-a-glance comparison cards -->
+  <section class="bg-white py-10 border-b border-amber-100">
+    <div class="container max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Option A -->
+        <div class="bg-brand-warm rounded-2xl border border-amber-100 shadow-brand p-6">
+          <div class="text-xs font-semibold text-brand-teal uppercase tracking-wider mb-2">Option A</div>
+          <h2 class="text-xl font-display font-bold text-brand-navy mb-3">{comparison.data.option_a.name}</h2>
+          {serviceA && (
+            <a
+              href={getServiceUrl(serviceA)}
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-navy transition-colors"
+            >
+              Learn about {comparison.data.option_a.name}
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          )}
+        </div>
+        <!-- Option B -->
+        <div class="bg-brand-warm rounded-2xl border border-amber-100 shadow-brand p-6">
+          <div class="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-2">Option B</div>
+          <h2 class="text-xl font-display font-bold text-brand-navy mb-3">{comparison.data.option_b.name}</h2>
+          {serviceB && (
+            <a
+              href={getServiceUrl(serviceB)}
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-navy transition-colors"
+            >
+              Learn about {comparison.data.option_b.name}
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-prose">
+      <div class="prose prose-lg prose-headings:font-display prose-headings:text-brand-navy prose-a:text-brand-teal">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Related conditions -->
+  {relatedConditions.length > 0 && (
+    <section class="section bg-white">
+      <div class="container">
+        <h2 class="text-3xl font-display font-bold text-brand-navy mb-8 gsap-reveal">Conditions These Treatments Address</h2>
+        <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {relatedConditions.map(c => (
+            <ConditionCard name={c.data.h1} url={`/conditions/${c.data.conditionSlug}/`} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {comparison.data.faqs.length > 0 && <FAQ faqs={comparison.data.faqs} />}
+  <CTA />
+</BaseLayout>

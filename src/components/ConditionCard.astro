@@ -1,0 +1,45 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  snippet?: string;
+  image?: string;
+  imageAlt?: string;
+}
+const { name, url, snippet, image, imageAlt } = Astro.props;
+---
+{image ? (
+  <a
+    href={url}
+    class="card group bg-[#FBF7EF] rounded-2xl border border-amber-100 shadow-brand overflow-hidden hover:shadow-brand-lg transition-all duration-300"
+  >
+    <div class="relative h-40 overflow-hidden">
+      <img
+        src={image}
+        alt={imageAlt ?? name}
+        width="400"
+        height="160"
+        loading="lazy"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/50 to-transparent"></div>
+    </div>
+    <div class="p-4">
+      <span class="font-display font-semibold text-brand-navy text-sm group-hover:text-brand-gold transition-colors block mb-1">{name}</span>
+      {snippet && <p class="text-xs text-brand-body/70 leading-relaxed line-clamp-2">{snippet}</p>}
+    </div>
+  </a>
+) : (
+  <a
+    href={url}
+    class="card group flex items-start gap-3 bg-white rounded-xl border border-amber-100 shadow-brand-sm p-4 hover:shadow-brand hover:border-brand-gold/30 transition-all duration-200"
+  >
+    <div class="w-8 h-8 rounded-lg bg-brand-gold/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-gold/20 transition-colors">
+      <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+    <div>
+      <span class="font-display font-semibold text-brand-navy text-sm group-hover:text-brand-gold transition-colors">{name}</span>
+      {snippet && <p class="text-xs text-brand-body/70 mt-0.5 leading-relaxed">{snippet}</p>}
+    </div>
+  </a>
+)}

@@ -1,0 +1,26 @@
+---
+import { SITE_URL } from '../../data/site-config';
+
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: Date;
+  dateModified: Date;
+}
+
+const { title, description, url, datePublished, dateModified } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}${url}`,
+  name: title,
+  description,
+  url: `${SITE_URL}${url}`,
+  datePublished: datePublished.toISOString(),
+  dateModified: dateModified.toISOString(),
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

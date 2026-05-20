@@ -12,280 +12,280 @@ The five cascade elements per page (all GSAP — never motion/react):
 ---
 
 ## Homepage / GBP Landing Page 1
-- [ ] Hero motion (GSAP) — **VIDEO HERO**: uses `/public/video/hero-bg.mp4` (autoplay, muted, loop). Do NOT replace with generated image.
-- [ ] Service cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP) — **VIDEO HERO**: uses `/public/video/hero-bg.mp4` (autoplay, muted, loop). Do NOT replace with generated image.
+- [x] Service cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ## Category Pages
 
 ### Pain Control
-- [ ] Hero motion (GSAP)
-- [ ] Service cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Service cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Orthopedic
-- [ ] Hero motion (GSAP)
-- [ ] Service cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Service cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ## Service Pages
 
 ### Nerve Blocks
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Injection Therapy
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Kyphoplasty
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Medication Management
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Medical Weight Loss
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Hyaluronic Acid Injections
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### PRP Therapy
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Regenerative Therapy
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Neuropathy Treatment (Peripheral Neuropathy)
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Neuromodulation Technique
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Physical Therapy
-- [ ] Hero motion (GSAP)
-- [ ] Related services cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Related services cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ## Condition Pages
 
 ### Neuropathy
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Diabetic Neuropathy
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Knee Pain
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Joint Pain
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Back Pain
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Neck Pain
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Sciatica
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Chronic Pain
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Shoulder Pain
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Arthritis / Osteoarthritis
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Fibromyalgia
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Vertigo / Vestibular Disorders
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Neuropathy in Feet
-- [ ] Hero motion (GSAP — illustration enters with motion)
-- [ ] Treatment cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP — illustration enters with motion)
+- [x] Treatment cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 > **Gate 1 Decision (2026-05-19):** Provider pages removed. No provider pages in this build phase.
 
 ## Comparison Pages
 
 ### PRP Therapy vs. Hyaluronic Acid Injections
-- [ ] Hero motion (GSAP)
-- [ ] Comparison graphic with subtle GSAP entrance
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Comparison graphic with subtle GSAP entrance
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Regenerative Therapy vs. Cortisone Injections
-- [ ] Hero motion (GSAP)
-- [ ] Comparison graphic with subtle GSAP entrance
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Comparison graphic with subtle GSAP entrance
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Nerve Blocks vs. Medication Management
-- [ ] Hero motion (GSAP)
-- [ ] Comparison graphic with subtle GSAP entrance
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Comparison graphic with subtle GSAP entrance
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Physical Therapy vs. Surgery for Back Pain
-- [ ] Hero motion (GSAP)
-- [ ] Comparison graphic with subtle GSAP entrance
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Comparison graphic with subtle GSAP entrance
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Neuromodulation vs. Traditional Neuropathy Treatment
-- [ ] Hero motion (GSAP)
-- [ ] Comparison graphic with subtle GSAP entrance
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Comparison graphic with subtle GSAP entrance
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ## Standard Pages
 
 ### About
-- [ ] Hero motion (GSAP)
-- [ ] Team cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Team cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Contact
-- [ ] Hero motion (GSAP)
-- [ ] Map embed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] Form motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Map embed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] Form motion (GSAP)
 
 ### New Patients
-- [ ] Hero motion (GSAP)
-- [ ] Journey-step cards
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Journey-step cards
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### Insurance
-- [ ] Hero motion (GSAP)
-- [ ] Plan list
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Plan list
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ### HIPAA Privacy
-- [ ] Hero motion (GSAP)
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
+- [x] Hero motion (GSAP)
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
 
 ### Conditions Hub
-- [ ] Hero motion (GSAP)
-- [ ] Condition cards image-backed
-- [ ] Section alternation
-- [ ] Reveal animations (GSAP ScrollTrigger)
-- [ ] End-of-page CTA motion (GSAP)
+- [x] Hero motion (GSAP)
+- [x] Condition cards image-backed
+- [x] Section alternation
+- [x] Reveal animations (GSAP ScrollTrigger)
+- [x] End-of-page CTA motion (GSAP)
 
 ---
 
@@ -293,12 +293,43 @@ The five cascade elements per page (all GSAP — never motion/react):
 
 | Section | Pages | Checkboxes | Complete |
 |---|---|---|---|
-| Homepage | 1 | 5 | 0/5 |
-| Category Pages | 2 | 10 | 0/10 |
-| Service Pages | 11 | 55 | 0/55 |
-| Condition Pages | 13 | 65 | 0/65 |
-| Comparison Pages | 5 | 25 | 0/25 |
-| Standard Pages | 6 | 28 | 0/28 |
-| **TOTAL** | **38** | **188** | **0/188** |
+| Homepage | 1 | 5 | 5/5 |
+| Category Pages | 2 | 10 | 10/10 |
+| Service Pages | 11 | 55 | 55/55 |
+| Condition Pages | 13 | 65 | 65/65 |
+| Comparison Pages | 5 | 25 | 25/25 |
+| Standard Pages | 6 | 28 | 28/28 |
+| **TOTAL** | **38** | **188** | **188/188** ✅ |
 
 > Provider Pages (2 pages, 10 checkboxes) and Providers Hub (5 checkboxes) removed per Gate 1 decision (2026-05-19).
+
+## Phase 5 Implementation Notes (2026-05-20)
+
+### Hero Motion (all pages)
+- Global GSAP ScrollTrigger in `BaseLayout.astro` animates `.gsap-reveal` elements (`autoAlpha 0→1, y 24→0, power3.out, 0.65s`) on all pages
+- Homepage has enhanced timeline: eyebrow → H1 → subheadlines → journey-step numbers (scale + stagger) → journey-step arrows (scaleX), followed by magnetic CTA via `gsap.quickTo`
+
+### Image-Backed Cards
+- `ServiceCard.astro` — image support with `h-48` cover photo + hover scale
+- `ConditionCard.astro` — updated with image support (Phase 5): `h-40` illustration cover + hover scale; falls back to icon-only when no image provided
+- Condition illustrations mapped to `/images/conditions/` subdirectory
+- Service images mapped to `/images/{category}/` subdirectories
+- Comparison hero images added to all 5 comparison content files
+- About page hero image added
+
+### Section Alternation
+- `bg-brand-warm` (#FBF7EF) ↔ `bg-white` ↔ `bg-brand-navy` rhythm throughout all page types
+- Gradient fade transition bands between light and dark sections (per DESIGN-SPEC.md)
+
+### Reveal Animations
+- `.gsap-reveal` class triggers ScrollTrigger `start: 'top 82%'` on all content sections
+- `.card-grid` class triggers staggered card entrance (`stagger: 0.08, y 20→0`)
+- ScrollTriggers cleaned up on `astro:after-swap`
+
+### End-of-page CTA Motion
+- `CTA.astro` magnetic gold button via `gsap.quickTo` on `mousemove` / `mouseleave`
+- Shine sweep pseudo-element on `.btn-shine` class
+
+### No motion/react, no framer-motion
+- Confirmed: zero imports of `motion`, `motion/react`, or `framer-motion` in `src/`
+- GSAP loaded via `import { gsap } from 'gsap'` in client `<script>` tags only

@@ -1,0 +1,22 @@
+# St. Louis Pain Center — 301 Redirect Map (19 legacy URLs)
+# Generated: 2026-05-19
+# NEVER use catch-all /* → /:splat 301
+
+/neuropathy /pain-control/neuropathy-treatment/ 301
+/back-pain /conditions/back-pain/ 301
+/chronic-pain /conditions/chronic-pain/ 301
+/joint-pain /conditions/joint-pain/ 301
+/knee-pain /conditions/knee-pain/ 301
+/neck-pain /conditions/neck-pain/ 301
+/sciatica /conditions/sciatica/ 301
+/regenerative-therapy /orthopedic/regenerative-therapy/ 301
+/hyaluronic-acid-injections /orthopedic/hyaluronic-acid-injections/ 301
+/prp-therapy /orthopedic/prp-therapy/ 301
+/medical-weight-loss /weight-loss/ 301
+/neuromodulation-technique /pain-control/neuromodulation-technique/ 301
+/about-us /about/ 301
+/contact /contact/ 301
+/schedule-appointment /new-patients/ 301
+/testimonials / 301
+/privacy-policy /hipaa-privacy/ 301
+/terms-and-conditions /terms-and-conditions/ 301

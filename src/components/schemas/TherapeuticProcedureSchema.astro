@@ -1,0 +1,64 @@
+---
+import { SITE_URL } from '../../data/site-config';
+
+interface Review {
+  author: string;
+  date: Date | string;
+  rating: number;
+  text: string;
+}
+
+interface Props {
+  name: string;
+  slug: string;
+  url: string;
+  description: string;
+  indications?: string[];
+  reviews?: Review[];
+  aggregateRating?: { ratingValue: string; reviewCount: string };
+  categoryName?: string;
+  datePublished?: Date;
+  dateModified?: Date;
+  schemaType?: 'TherapeuticProcedure' | 'MedicalProcedure';
+}
+
+const {
+  name, slug, url, description, indications = [],
+  reviews = [], aggregateRating, categoryName,
+  datePublished, dateModified,
+  schemaType = 'TherapeuticProcedure',
+} = Astro.props;
+
+const schema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  "@id": `${SITE_URL}/#service-${slug}`,
+  name,
+  url: `${SITE_URL}${url}`,
+  description,
+  provider: { "@id": `${SITE_URL}/#localbusiness` },
+  ...(categoryName ? { category: categoryName } : {}),
+  ...(indications.length > 0 ? {
+    indication: indications.map(condSlug => ({
+      "@id": `${SITE_URL}/#condition-${condSlug}`,
+    })),
+  } : {}),
+  ...(reviews.length > 0 ? {
+    review: reviews.map(r => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      datePublished: r.date instanceof Date ? r.date.toISOString().split('T')[0] : r.date,
+      reviewBody: r.text,
+      reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
+    })),
+  } : {}),
+  ...(aggregateRating ? {
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ...aggregateRating,
+      bestRating: "5",
+    },
+  } : {}),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

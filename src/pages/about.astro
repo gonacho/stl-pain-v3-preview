@@ -1,0 +1,174 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MedicalWebPageSchema from '../components/schemas/MedicalWebPageSchema.astro';
+import BreadcrumbSchema from '../components/schemas/BreadcrumbSchema.astro';
+import FAQPageSchema from '../components/schemas/FAQPageSchema.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_URL, SITE_NAME, SITE_PHONE_DISPLAY, SITE_ADDRESS, SITE_HOURS } from '../data/site-config';
+
+const page = await getEntry('pages', 'about');
+if (!page) throw new Error('about page content not found');
+const { Content } = await page.render();
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'About', url: '/about/' },
+];
+---
+<BaseLayout title={page.data.title} description={page.data.description} image={page.data.heroImage}>
+  <Fragment slot="schema">
+    <MedicalWebPageSchema
+      title={page.data.title}
+      description={page.data.description}
+      url="/about/"
+      datePublished={page.data.publishDate}
+      dateModified={page.data.lastEdited}
+      includeInstitutionalAnchor={true}
+    />
+    <BreadcrumbSchema items={breadcrumbs} />
+    {page.data.faqs.length > 0 && <FAQPageSchema faqs={page.data.faqs} />}
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand-navy to-brand-navy-dark py-16 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute top-0 right-0 w-64 h-64 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div class="container relative z-10">
+      <Breadcrumb items={breadcrumbs} />
+      {page.data.heroImage && (
+        <div class="float-right ml-8 mb-6 hidden lg:block w-72">
+          <img
+            src={page.data.heroImage}
+            alt={page.data.heroImageAlt ?? page.data.h1}
+            width="288"
+            height="192"
+            class="rounded-2xl shadow-brand-lg object-cover"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+      )}
+      <h1 class="text-5xl lg:text-6xl font-display font-bold text-white mt-4 mb-4 gsap-reveal" style="letter-spacing:-0.02em">{page.data.h1}</h1>
+      <p class="text-white/70 text-lg max-w-2xl gsap-reveal">{page.data.description}</p>
+    </div>
+  </section>
+
+  <!-- Quick info strip -->
+  <section class="bg-white py-8 border-b border-amber-100">
+    <div class="container max-w-4xl">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div class="gsap-reveal">
+          <div class="text-brand-gold font-display font-bold text-2xl mb-1">4455 Telegraph Rd</div>
+          <div class="text-brand-body/70 text-sm">{SITE_ADDRESS.city}, {SITE_ADDRESS.state} {SITE_ADDRESS.zip}</div>
+        </div>
+        <div class="gsap-reveal">
+          <div class="text-brand-gold font-display font-bold text-2xl mb-1">
+            <a href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`} class="hover:text-brand-navy transition-colors">{SITE_PHONE_DISPLAY}</a>
+          </div>
+          <div class="text-brand-body/70 text-sm">Call to schedule</div>
+        </div>
+        <div class="gsap-reveal">
+          <div class="text-brand-gold font-display font-bold text-lg mb-1">{SITE_HOURS.split('|')[0].trim()}</div>
+          <div class="text-brand-body/70 text-sm">{SITE_HOURS.split('|')[1]?.trim()}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-prose">
+      <div class="prose prose-lg prose-headings:font-display prose-headings:text-brand-navy prose-a:text-brand-teal">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional anchor -->
+  <section class="bg-white py-8 border-y border-amber-100">
+    <div class="container max-w-3xl text-center">
+      <p class="text-brand-body/70 text-sm leading-relaxed italic">
+        St. Louis Pain Center is located in the south St. Louis community, in the same area as Washington University School of Medicine-affiliated practices, providing accessible specialty pain care to patients throughout the St. Louis region.
+      </p>
+    </div>
+  </section>
+
+  <!-- Practice photo + services overview -->
+  <section class="section bg-brand-warm">
+    <div class="container max-w-5xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Image -->
+        <div class="gsap-reveal">
+          <div class="relative rounded-2xl overflow-hidden shadow-brand-lg">
+            <img
+              src="/images/about/about-st-louis-pain-center.webp"
+              alt="St. Louis Pain Center — Pain Control Clinic in St. Louis, MO"
+              width="600"
+              height="400"
+              loading="lazy"
+              class="w-full h-72 lg:h-96 object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div class="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 flex items-center gap-3">
+                <span class="text-brand-gold font-bold text-lg">⭐ 4.9</span>
+                <div>
+                  <div class="font-display font-bold text-brand-navy text-sm">Google Reviews</div>
+                  <div class="text-brand-body/60 text-xs">South St. Louis County</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Stats -->
+        <div>
+          <p class="eyebrow text-brand-gold mb-3 gsap-reveal">Our Practice</p>
+          <h2 class="text-3xl font-display font-bold text-brand-navy mb-4 gsap-reveal">Personalized Pain Care Since 2019</h2>
+          <p class="text-brand-body/70 text-sm leading-relaxed mb-8 gsap-reveal">
+            Located at 4455 Telegraph Rd #250 in the heart of south St. Louis County, St. Louis Pain Center provides comprehensive, non-surgical pain management for patients from Oakville, Mehlville, Arnold, Fenton, Kirkwood, and beyond.
+          </p>
+          <div class="card-grid grid grid-cols-2 gap-4">
+            <div class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-5 text-center hover:shadow-brand-lg transition-all">
+              <div class="text-brand-gold font-display font-bold text-3xl mb-1">11+</div>
+              <div class="text-brand-navy text-sm font-semibold">Specialized Services</div>
+            </div>
+            <div class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-5 text-center hover:shadow-brand-lg transition-all">
+              <div class="text-brand-gold font-display font-bold text-3xl mb-1">4.9★</div>
+              <div class="text-brand-navy text-sm font-semibold">Google Rating</div>
+            </div>
+            <div class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-5 text-center hover:shadow-brand-lg transition-all">
+              <div class="text-brand-gold font-display font-bold text-3xl mb-1">13+</div>
+              <div class="text-brand-navy text-sm font-semibold">Conditions Treated</div>
+            </div>
+            <div class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-5 text-center hover:shadow-brand-lg transition-all">
+              <div class="text-brand-gold font-display font-bold text-3xl mb-1">Medicare</div>
+              <div class="text-brand-navy text-sm font-semibold">Accepted</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service categories -->
+      <h2 class="text-3xl font-display font-bold text-brand-navy mb-8 text-center gsap-reveal">Our Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/pain-control/" class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-6 hover:shadow-brand-lg hover:border-brand-gold/30 transition-all group">
+          <div class="text-brand-gold font-display font-bold text-lg mb-2 group-hover:text-brand-navy transition-colors">Pain Control</div>
+          <p class="text-sm text-brand-body/70">Nerve blocks, injections, neuromodulation, and more.</p>
+        </a>
+        <a href="/orthopedic/" class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-6 hover:shadow-brand-lg hover:border-brand-gold/30 transition-all group">
+          <div class="text-brand-gold font-display font-bold text-lg mb-2 group-hover:text-brand-navy transition-colors">Orthopedic</div>
+          <p class="text-sm text-brand-body/70">PRP therapy, hyaluronic acid injections, and regenerative care.</p>
+        </a>
+        <a href="/conditions/" class="card bg-white rounded-2xl border border-amber-100 shadow-brand p-6 hover:shadow-brand-lg hover:border-brand-gold/30 transition-all group">
+          <div class="text-brand-gold font-display font-bold text-lg mb-2 group-hover:text-brand-navy transition-colors">Conditions Treated</div>
+          <p class="text-sm text-brand-body/70">Neuropathy, knee pain, back pain, sciatica, and more.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {page.data.faqs.length > 0 && <FAQ faqs={page.data.faqs} />}
+  <CTA />
+</BaseLayout>
