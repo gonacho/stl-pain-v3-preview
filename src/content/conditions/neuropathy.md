@@ -5,7 +5,7 @@ h1: "Neuropathy (Peripheral Neuropathy)"
 conditionSlug: neuropathy
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/neuropathy-st-louis-mo.webp
+heroImage: /images/conditions/neuropathy-st-louis-mo-illustration.webp
 heroImageAlt: Neuropathy (Peripheral Neuropathy) at St. Louis Pain Center
 treatment_services:
   - neuropathy-treatment

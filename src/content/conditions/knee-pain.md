@@ -5,7 +5,7 @@ h1: "Knee Pain"
 conditionSlug: knee-pain
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/knee-pain-st-louis-mo.webp
+heroImage: /images/conditions/knee-pain-st-louis-mo.webp
 heroImageAlt: Knee Pain at St. Louis Pain Center
 treatment_services:
   - hyaluronic-acid-injections

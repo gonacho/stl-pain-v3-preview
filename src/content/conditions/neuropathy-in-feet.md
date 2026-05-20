@@ -5,7 +5,7 @@ h1: "Neuropathy in Feet"
 conditionSlug: neuropathy-in-feet
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/neuropathy-in-feet-st-louis-mo.webp
+heroImage: /images/conditions/neuropathy-in-feet-st-louis-mo-illustration.webp
 heroImageAlt: Neuropathy in Feet at St. Louis Pain Center
 treatment_services:
   - neuropathy-treatment

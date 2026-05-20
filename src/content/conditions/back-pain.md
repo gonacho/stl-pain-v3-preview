@@ -5,7 +5,7 @@ h1: "Back Pain"
 conditionSlug: back-pain
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/back-pain-st-louis-mo.webp
+heroImage: /images/conditions/back-pain-st-louis-mo-illustration.webp
 heroImageAlt: Back Pain at St. Louis Pain Center
 treatment_services:
   - nerve-blocks

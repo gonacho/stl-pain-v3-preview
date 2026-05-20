@@ -5,6 +5,8 @@ h1: "Neuromodulation vs. Traditional Neuropathy Treatment"
 comparisonSlug: "neuromodulation-vs-traditional-neuropathy-treatment"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
+heroImage: /images/compare/neuromodulation-vs-traditional-neuropathy-st-louis-mo.webp
+heroImageAlt: Neuromodulation vs Traditional Neuropathy Treatment at St. Louis Pain Center
 option_a:
   name: "Neuromodulation Technique"
   serviceSlug: "neuromodulation-technique"

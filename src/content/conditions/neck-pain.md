@@ -5,7 +5,7 @@ h1: "Neck Pain"
 conditionSlug: neck-pain
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/neck-pain-st-louis-mo.webp
+heroImage: /images/conditions/neck-pain-st-louis-mo-illustration.webp
 heroImageAlt: Neck Pain at St. Louis Pain Center
 treatment_services:
   - nerve-blocks

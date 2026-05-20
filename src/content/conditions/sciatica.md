@@ -5,7 +5,7 @@ h1: "Sciatica"
 conditionSlug: sciatica
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/sciatica-st-louis-mo.webp
+heroImage: /images/conditions/sciatica-st-louis-mo-illustration.webp
 heroImageAlt: Sciatica at St. Louis Pain Center
 treatment_services:
   - nerve-blocks

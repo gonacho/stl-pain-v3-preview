@@ -5,7 +5,7 @@ h1: "Diabetic Neuropathy"
 conditionSlug: diabetic-neuropathy
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/diabetic-neuropathy-st-louis-mo.webp
+heroImage: /images/conditions/diabetic-neuropathy-st-louis-mo-illustration.webp
 heroImageAlt: Diabetic Neuropathy at St. Louis Pain Center
 treatment_services:
   - neuropathy-treatment

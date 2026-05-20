@@ -6,7 +6,7 @@ categorySlug: orthopedic
 categoryName: "Orthopedic Care"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/regenerative-therapy-st-louis-mo.webp
+heroImage: /images/orthopedic/regenerative-therapy-st-louis-mo.webp
 heroImageAlt: Regenerative Therapy in St. Louis, MO at St. Louis Pain Center
 schemaType: TherapeuticProcedure
 indications:

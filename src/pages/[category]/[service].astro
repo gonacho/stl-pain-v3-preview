@@ -125,7 +125,12 @@ const serviceReviews = service.data.testimonials
         <h2 class="text-3xl font-display font-bold text-brand-navy mb-8 gsap-reveal">Conditions This Treatment Addresses</h2>
         <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {relatedConditions.map(c => (
-            <ConditionCard name={c.data.h1} url={`/conditions/${c.data.conditionSlug}/`} />
+            <ConditionCard
+              name={c.data.h1}
+              url={`/conditions/${c.data.conditionSlug}/`}
+              image={c.data.heroImage}
+              imageAlt={c.data.heroImageAlt}
+            />
           ))}
         </div>
       </div>

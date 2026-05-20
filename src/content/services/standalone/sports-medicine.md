@@ -6,7 +6,7 @@ categorySlug: standalone
 categoryName: "Sports Medicine"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/sports-medicine-st-louis-mo.webp
+heroImage: /images/sports-medicine/physical-therapy-st-louis-mo.webp
 heroImageAlt: Physical Therapy in St. Louis, MO at St. Louis Pain Center
 schemaType: TherapeuticProcedure
 indications:

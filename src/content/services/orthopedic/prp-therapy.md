@@ -6,7 +6,7 @@ categorySlug: orthopedic
 categoryName: "Orthopedic Care"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/prp-therapy-st-louis-mo.webp
+heroImage: /images/orthopedic/prp-therapy-st-louis-mo.webp
 heroImageAlt: PRP Therapy in St. Louis, MO at St. Louis Pain Center
 schemaType: TherapeuticProcedure
 indications:

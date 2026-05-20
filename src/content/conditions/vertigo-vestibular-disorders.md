@@ -5,7 +5,7 @@ h1: "Vertigo / Vestibular Disorders"
 conditionSlug: vertigo-vestibular-disorders
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/vertigo-vestibular-disorders-st-louis-mo.webp
+heroImage: /images/conditions/vertigo-vestibular-st-louis-mo-illustration.webp
 heroImageAlt: Vertigo / Vestibular Disorders at St. Louis Pain Center
 treatment_services:
   - neuromodulation-technique

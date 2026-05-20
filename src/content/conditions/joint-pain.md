@@ -5,7 +5,7 @@ h1: "Joint Pain"
 conditionSlug: joint-pain
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/joint-pain-st-louis-mo.webp
+heroImage: /images/conditions/joint-pain-st-louis-mo-illustration.webp
 heroImageAlt: Joint Pain at St. Louis Pain Center
 treatment_services:
   - hyaluronic-acid-injections

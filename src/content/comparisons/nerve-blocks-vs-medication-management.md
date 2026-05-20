@@ -5,6 +5,8 @@ h1: "Nerve Blocks vs. Medication Management"
 comparisonSlug: "nerve-blocks-vs-medication-management"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
+heroImage: /images/compare/nerve-blocks-vs-medication-st-louis-mo.webp
+heroImageAlt: Nerve Blocks vs Medication Management at St. Louis Pain Center
 option_a:
   name: "Nerve Blocks"
   serviceSlug: "nerve-blocks"

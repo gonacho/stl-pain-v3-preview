@@ -6,7 +6,7 @@ categorySlug: pain-control
 categoryName: "Pain Control Clinic"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/medication-management-st-louis-mo.webp
+heroImage: /images/pain-control/medication-management-st-louis-mo.webp
 heroImageAlt: Medication Management in St. Louis, MO at St. Louis Pain Center
 schemaType: TherapeuticProcedure
 indications:

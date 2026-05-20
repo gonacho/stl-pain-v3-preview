@@ -5,7 +5,7 @@ h1: "Chronic Pain"
 conditionSlug: chronic-pain
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/chronic-pain-st-louis-mo.webp
+heroImage: /images/conditions/chronic-pain-st-louis-mo-illustration.webp
 heroImageAlt: Chronic Pain at St. Louis Pain Center
 treatment_services:
   - neuropathy-treatment

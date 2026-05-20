@@ -6,7 +6,7 @@ categorySlug: pain-control
 categoryName: "Pain Control Clinic"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/neuromodulation-technique-st-louis-mo.webp
+heroImage: /images/pain-control/neuromodulation-technique-st-louis-mo.webp
 heroImageAlt: Neuromodulation Technique in St. Louis, MO at St. Louis Pain Center
 schemaType: TherapeuticProcedure
 indications:

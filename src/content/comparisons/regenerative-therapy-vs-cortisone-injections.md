@@ -5,6 +5,8 @@ h1: "Regenerative Therapy vs. Cortisone Injections"
 comparisonSlug: "regenerative-therapy-vs-cortisone-injections"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
+heroImage: /images/compare/regenerative-therapy-vs-cortisone-st-louis-mo.webp
+heroImageAlt: Regenerative Therapy vs Cortisone Injections at St. Louis Pain Center
 option_a:
   name: "Regenerative Therapy"
   serviceSlug: "regenerative-therapy"

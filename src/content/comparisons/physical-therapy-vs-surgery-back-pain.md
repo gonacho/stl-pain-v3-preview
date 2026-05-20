@@ -5,6 +5,8 @@ h1: "Physical Therapy vs. Surgery for Back Pain"
 comparisonSlug: "physical-therapy-vs-surgery-back-pain"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
+heroImage: /images/compare/physical-therapy-vs-surgery-back-pain-st-louis-mo.webp
+heroImageAlt: Physical Therapy vs Surgery for Back Pain at St. Louis Pain Center
 option_a:
   name: "Physical Therapy"
   serviceSlug: "sports-medicine"

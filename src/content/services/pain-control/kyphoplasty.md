@@ -6,7 +6,7 @@ categorySlug: pain-control
 categoryName: "Pain Control Clinic"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/kyphoplasty-st-louis-mo.webp
+heroImage: /images/pain-control/kyphoplasty-st-louis-mo.webp
 heroImageAlt: Kyphoplasty in St. Louis, MO at St. Louis Pain Center
 schemaType: MedicalProcedure
 indications:

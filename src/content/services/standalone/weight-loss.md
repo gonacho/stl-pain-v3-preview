@@ -6,7 +6,7 @@ categorySlug: standalone
 categoryName: "Weight Loss"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/weight-loss-st-louis-mo.webp
+heroImage: /images/weight-loss/medical-weight-loss-st-louis-mo.webp
 heroImageAlt: Medical Weight Loss in St. Louis, MO at St. Louis Pain Center
 schemaType: TherapeuticProcedure
 indications:

@@ -5,6 +5,8 @@ h1: "About St. Louis Pain Center"
 pageSlug: "about"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
+heroImage: /images/about/about-st-louis-pain-center.webp
+heroImageAlt: St. Louis Pain Center — Pain Control Clinic in St. Louis, MO
 testimonials: []
 faqs: []
 institutional_anchors:

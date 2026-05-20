@@ -5,6 +5,8 @@ h1: "PRP Therapy vs. Hyaluronic Acid Injections"
 comparisonSlug: "prp-therapy-vs-hyaluronic-acid-injections"
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
+heroImage: /images/compare/prp-therapy-vs-hyaluronic-acid-injections-st-louis-mo.webp
+heroImageAlt: PRP Therapy vs Hyaluronic Acid Injections at St. Louis Pain Center
 option_a:
   name: "PRP Therapy"
   serviceSlug: "prp-therapy"

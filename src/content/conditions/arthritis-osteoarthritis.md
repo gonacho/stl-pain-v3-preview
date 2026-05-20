@@ -5,7 +5,7 @@ h1: "Arthritis / Osteoarthritis"
 conditionSlug: arthritis-osteoarthritis
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/arthritis-osteoarthritis-st-louis-mo.webp
+heroImage: /images/conditions/arthritis-osteoarthritis-st-louis-mo-illustration.webp
 heroImageAlt: Arthritis / Osteoarthritis at St. Louis Pain Center
 treatment_services:
   - hyaluronic-acid-injections

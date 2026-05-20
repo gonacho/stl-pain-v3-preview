@@ -5,7 +5,7 @@ h1: "Fibromyalgia"
 conditionSlug: fibromyalgia
 publishDate: 2026-05-19
 lastEdited: 2026-05-19
-heroImage: /images/fibromyalgia-st-louis-mo.webp
+heroImage: /images/conditions/fibromyalgia-st-louis-mo-illustration.webp
 heroImageAlt: Fibromyalgia at St. Louis Pain Center
 treatment_services:
   - neuromodulation-technique
