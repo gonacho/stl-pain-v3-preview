@@ -24,7 +24,7 @@ For audit trail of every build and manual edit, see `BUILD-LOG.md`.
 | **Paperclip issue** | [COR-65](/COR/issues/COR-65) |
 | **GitHub PR** | [pending — filled after gh pr create] |
 | **Build branch** | COR-65-phase-2 |
-| **HEAD SHA at PR open** | [filled after commit] |
+| **HEAD SHA at PR open** | 3057560d28d74cb0c5cb91565e4441b1f9c76c03 |
 | **Merge SHA on main** | [pending merge] |
 | **Cloudflare PR preview URL** | https://cor-65-phase-2.stl-pain-v3-preview.pages.dev |
 | **Cloudflare production URL** | https://stlpaincenter.com |
