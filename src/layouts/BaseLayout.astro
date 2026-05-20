@@ -1,12 +1,13 @@
 ---
 import '../styles/global.css';
-import { SITE_NAME, SITE_URL, SITE_PHONE_DISPLAY } from '../data/site-config';
+import { SITE_NAME, SITE_URL } from '../data/site-config';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PageTransition from '../components/PageTransition.astro';
 import GrainOverlay from '../components/GrainOverlay.astro';
 import GradientMesh from '../components/GradientMesh.astro';
 import WebSiteSchema from '../components/schemas/WebSiteSchema.astro';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -15,7 +16,6 @@ interface Props {
   imageAlt?: string;
   noIndex?: boolean;
   canonicalUrl?: string;
-  schemaComponents?: string;
 }
 
 const {
@@ -40,6 +40,9 @@ const ogImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Astro Client Router — enables astro:before-swap / astro:after-swap page transitions -->
+  <ClientRouter />
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -91,33 +94,29 @@ const ogImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
   </main>
   <Footer />
 
-  <!-- GSAP core scripts -->
+  <!-- GSAP global scroll-driven animations -->
   <script>
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
     gsap.registerPlugin(ScrollTrigger);
 
-    document.addEventListener('astro:page-load', () => {
+    function initAnimations() {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.gsap-reveal, .gsap-reveal-fast').forEach(el => {
+        document.querySelectorAll('.gsap-reveal, .gsap-reveal-fast, .gsap-reveal-left, .gsap-reveal-right').forEach(el => {
           (el as HTMLElement).style.opacity = '1';
           (el as HTMLElement).style.transform = 'none';
         });
         return;
       }
 
-      // Scroll-driven section reveals
+      // Standard reveals (up)
       gsap.utils.toArray<HTMLElement>('.gsap-reveal').forEach(el => {
         gsap.to(el, {
           autoAlpha: 1,
           y: 0,
           duration: 0.65,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 82%',
-            toggleActions: 'play none none none',
-          },
+          scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' },
         });
       });
 
@@ -128,11 +127,29 @@ const ogImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
           y: 0,
           duration: 0.45,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      });
+
+      // Left reveals
+      gsap.utils.toArray<HTMLElement>('.gsap-reveal-left').forEach(el => {
+        gsap.to(el, {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.65,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' },
+        });
+      });
+
+      // Right reveals
+      gsap.utils.toArray<HTMLElement>('.gsap-reveal-right').forEach(el => {
+        gsap.to(el, {
+          autoAlpha: 1,
+          x: 0,
+          duration: 0.65,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' },
         });
       });
 
@@ -142,14 +159,54 @@ const ogImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
         if (cards.length === 0) return;
         gsap.from(cards, {
           autoAlpha: 0,
-          y: 20,
-          duration: 0.5,
+          y: 24,
+          duration: 0.55,
           stagger: 0.08,
           ease: 'power3.out',
-          scrollTrigger: { trigger: grid, start: 'top 85%' },
+          scrollTrigger: { trigger: grid, start: 'top 83%' },
         });
       });
-    });
+
+      // Stat counters
+      gsap.utils.toArray<HTMLElement>('.stat-number').forEach(el => {
+        const target = parseInt(el.dataset.target ?? '0', 10);
+        const suffix = el.dataset.suffix ?? '';
+        if (!target) return;
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 80%',
+          once: true,
+          onEnter: () => {
+            gsap.fromTo({ val: 0 }, { val: target }, {
+              duration: 1.8,
+              ease: 'power2.out',
+              onUpdate: function() { el.textContent = Math.round(this.targets()[0].val).toLocaleString() + suffix; },
+            });
+          },
+        });
+      });
+
+      // Shine sweep on gold CTAs
+      document.querySelectorAll<HTMLElement>('.btn-shine').forEach(btn => {
+        const shine = btn.querySelector<HTMLElement>('.shine-sweep');
+        if (!shine) return;
+        btn.addEventListener('mouseenter', () => {
+          gsap.fromTo(shine, { x: '-110%' }, { x: '120%', duration: 0.55, ease: 'power2.out' });
+        });
+      });
+
+      // Header shrink on scroll
+      const header = document.getElementById('site-header');
+      if (header) {
+        ScrollTrigger.create({
+          start: 'top -80',
+          end: 99999,
+          toggleClass: { targets: header, className: 'header-scrolled' },
+        });
+      }
+    }
+
+    document.addEventListener('astro:page-load', initAnimations);
 
     document.addEventListener('astro:after-swap', () => {
       ScrollTrigger.getAll().forEach(t => t.kill());

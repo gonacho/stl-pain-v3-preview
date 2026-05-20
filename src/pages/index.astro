@@ -14,7 +14,14 @@ import CTA from '../components/CTA.astro';
 import { SITE_PHONE_DISPLAY, BOOKING_URL, HOMEPAGE_REVIEWS } from '../data/site-config';
 
 const PUBLISH_DATE = new Date('2026-05-19');
-const LAST_EDITED = new Date('2026-05-19');
+const LAST_EDITED = new Date('2026-05-20');
+
+const stats = [
+  { value: 7, suffix: '+', label: 'Years Serving St. Louis' },
+  { value: 11, suffix: '', label: 'Specialist Services' },
+  { value: 4.9, suffix: '/5', label: 'Google Rating' },
+  { value: 47, suffix: '+', label: 'Verified Reviews' },
+];
 
 const allServices = [
   { name: 'Nerve Blocks', url: '/pain-control/nerve-blocks/', description: 'Targeted nerve block injections for back pain, neck pain, and sciatica relief.', category: 'Pain Control', image: '/images/pain-control/nerve-blocks-st-louis-mo.webp' },
@@ -48,6 +55,31 @@ const allConditions = [
 
 const testimonials = HOMEPAGE_REVIEWS.map(r => ({ author: r.author, text: r.text, rating: r.rating }));
 
+const whyUsItems = [
+  {
+    title: 'Targeted Treatments',
+    body: 'Every treatment plan is custom-built for your specific condition — no one-size-fits-all protocols.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>`,
+  },
+  {
+    title: 'Multimodal Approach',
+    body: 'We combine multiple evidence-based therapies for better outcomes than single-treatment protocols.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15a2.25 2.25 0 0 1 .45 1.32L20.25 21 12 17.25 3.75 21l.04-4.68A2.25 2.25 0 0 1 4.2 15m15.6 0-3.672-2.524M4.2 15l3.672-2.524m0 0 2.128-1.463"/></svg>`,
+  },
+  {
+    title: 'Medicare Accepted',
+    body: 'We work with Medicare, Blue Cross, Aetna, Cigna, and most major insurance plans.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>`,
+  },
+  {
+    title: 'South St. Louis County',
+    body: 'Conveniently located at 4455 Telegraph Rd, serving Oakville, Mehlville, and all of south county.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>`,
+  },
+];
+
+const insurancePlans = ['Medicare', 'Blue Cross Blue Shield', 'Aetna', 'Cigna', 'United Healthcare', 'Humana', 'Most Major Plans'];
+
 const homepageFaqs = [
   { question: "What is St. Louis Pain Center?", answer: "St. Louis Pain Center is a pain control clinic in St. Louis, MO specializing in neuropathy treatment, orthopedic care, regenerative medicine, physical therapy, and comprehensive pain management for patients throughout south St. Louis County." },
   { question: "Where is St. Louis Pain Center located?", answer: "We are located at 4455 Telegraph Rd #250, St. Louis, MO 63129. We serve patients from Oakville, Mehlville, Arnold, Fenton, Kirkwood, and the greater south St. Louis County area." },
@@ -79,10 +111,10 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
   </Fragment>
 
   <!-- ── HERO ── -->
-  <section class="relative bg-brand-navy min-h-[85vh] flex items-center overflow-hidden">
+  <section class="relative bg-brand-navy min-h-[90vh] flex items-center overflow-hidden">
     <!-- Video background -->
     <video
-      class="absolute inset-0 w-full h-full object-cover opacity-30"
+      class="absolute inset-0 w-full h-full object-cover opacity-25"
       autoplay
       muted
       loop
@@ -90,86 +122,142 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
       preload="metadata"
       poster="/images/hero-poster-st-louis-mo.webp"
       aria-hidden="true"
+      fetchpriority="high"
     >
       <source src="/video/hero-bg.mp4" type="video/mp4" />
     </video>
-    <div class="absolute inset-0 bg-hero-gradient"></div>
-    <!-- Gradient mesh -->
-    <div aria-hidden="true" class="absolute top-20 right-10 w-96 h-96 rounded-full bg-brand-gold/12 blur-3xl"></div>
-    <div aria-hidden="true" class="absolute bottom-10 left-20 w-64 h-64 rounded-full bg-brand-teal/10 blur-3xl"></div>
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(27,58,92,0.97) 0%, rgba(27,58,92,0.85) 50%, rgba(15,30,50,0.75) 100%);"></div>
+    <!-- Gradient mesh blobs -->
+    <div aria-hidden="true" class="absolute top-16 right-8 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl" style="background: radial-gradient(circle, #C8A04A 0%, transparent 70%);"></div>
+    <div aria-hidden="true" class="absolute bottom-12 left-16 w-72 h-72 rounded-full opacity-15 blur-3xl" style="background: radial-gradient(circle, #0E7C9E 0%, transparent 70%);"></div>
 
-    <div class="container relative z-10 py-20 lg:py-28">
-      <div class="max-w-2xl">
+    <div class="container relative z-10 py-24 lg:py-32">
+      <div class="max-w-3xl">
+
         <!-- Eyebrow -->
-        <p class="eyebrow text-brand-gold mb-5 gsap-reveal">Pain Control Clinic in St. Louis</p>
-
-        <!-- H1 — Single city, exact GBP category name -->
-        <h1 class="text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6 gsap-reveal" style="letter-spacing: -0.02em;">
-          Pain Control Clinic in St. Louis
-        </h1>
-
-        <p class="text-white/80 text-lg leading-relaxed mb-3 gsap-reveal">
-          Orthopedic Clinic · Weight Loss Clinic · Sports Medicine Clinic in St. Louis, MO
+        <p id="hero-eyebrow" class="eyebrow text-brand-gold mb-5 opacity-0">
+          Pain Control Clinic · St. Louis, MO
         </p>
 
-        <p class="text-white/70 text-base leading-relaxed mb-10 max-w-xl gsap-reveal">
+        <!-- H1 -->
+        <h1 id="hero-h1" class="text-6xl lg:text-8xl font-display font-bold text-white leading-[1.0] mb-6 opacity-0" style="letter-spacing: -0.03em;">
+          Pain Control Clinic in
+          <span class="text-gradient-gold block mt-1">St. Louis</span>
+        </h1>
+
+        <p id="hero-sub1" class="text-white/75 text-lg leading-relaxed mb-2 opacity-0">
+          Orthopedic Clinic · Weight Loss Clinic · Sports Medicine Clinic
+        </p>
+
+        <p id="hero-sub2" class="text-white/60 text-base leading-relaxed mb-10 max-w-xl opacity-0">
           Serving south St. Louis County since 2019. Expert care for neuropathy, chronic pain, joint conditions, and more — personalized to your recovery.
         </p>
 
         <!-- Journey steps -->
-        <div class="flex items-center gap-4 mb-10 gsap-reveal" id="journey-steps">
+        <div id="journey-steps" class="flex items-center gap-4 mb-10 opacity-0">
           {[
             { n: '1', label: 'Book Appointment' },
             { n: '2', label: 'Custom Treatment Plan' },
             { n: '3', label: 'Reclaim Your Life' },
           ].map((step, i) => (
             <div class="flex items-center gap-3">
-              {i > 0 && <div class="w-8 h-px bg-brand-gold/40 hidden sm:block journey-arrow"></div>}
+              {i > 0 && <div class="w-8 h-px bg-brand-gold/50 hidden sm:block journey-arrow" style="transform-origin: left center;"></div>}
               <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-white font-display font-bold text-sm shrink-0 journey-num">
+                <div class="journey-num w-9 h-9 rounded-full bg-brand-gold flex items-center justify-center text-white font-display font-bold text-sm shrink-0 shadow-brand">
                   {step.n}
                 </div>
-                <span class="text-white/80 text-sm hidden sm:block">{step.label}</span>
+                <span class="text-white/75 text-sm font-medium hidden sm:block">{step.label}</span>
               </div>
             </div>
           ))}
         </div>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 gsap-reveal">
+        <div id="hero-ctas" class="flex flex-col sm:flex-row gap-4 opacity-0">
           <a
             href={BOOKING_URL}
             id="hero-cta"
-            class="btn-shine bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-8 py-4 rounded-xl text-base shadow-brand-lg hover:shadow-brand-xl transition-shadow"
+            class="btn-shine relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-gold to-brand-gold-dark text-white font-semibold px-8 py-4 rounded-xl text-base shadow-brand-lg hover:shadow-brand-xl transition-shadow"
           >
+            <span class="shine-sweep absolute inset-0 pointer-events-none" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent); transform: translateX(-110%);"></span>
+            <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
             Book Appointment
           </a>
           <a
             href={`tel:${SITE_PHONE_DISPLAY.replace(/\D/g,'')}`}
-            class="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base hover:bg-white/15 transition-colors"
+            class="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-base hover:bg-white/15 transition-colors"
           >
-            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            <svg class="w-4 h-4 text-brand-gold shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
             {SITE_PHONE_DISPLAY}
           </a>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ── TRUST BAR ── -->
-  <section class="bg-white border-b border-amber-100 py-5">
+  <section class="bg-white border-b border-amber-100/60 py-4">
     <div class="container">
-      <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-brand-body/70">
-        <div class="flex items-center gap-2">
-          <span class="text-brand-gold font-bold">⭐ 4.9</span>
-          <span>Google Reviews</span>
+      <div class="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
+
+        <!-- Google Rating -->
+        <div class="flex items-center gap-2 text-sm">
+          <div class="flex gap-0.5">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            ))}
+          </div>
+          <span class="font-bold text-brand-navy">4.9</span>
+          <span class="text-brand-body/60">Google Reviews</span>
         </div>
-        <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
-        <span>✓ Medicare Accepted</span>
-        <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
-        <span>✓ Same-Week Appointments</span>
-        <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
-        <span>📍 South St. Louis County</span>
+
+        <div class="w-px h-5 bg-gray-200 hidden sm:block"></div>
+
+        <!-- Medicare -->
+        <div class="flex items-center gap-2 text-sm text-brand-body/70">
+          <svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+          <span class="font-semibold text-brand-navy">Medicare Accepted</span>
+        </div>
+
+        <div class="w-px h-5 bg-gray-200 hidden sm:block"></div>
+
+        <!-- Same-week -->
+        <div class="flex items-center gap-2 text-sm text-brand-body/70">
+          <svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+          <span class="font-semibold text-brand-navy">Same-Week Appointments</span>
+        </div>
+
+        <div class="w-px h-5 bg-gray-200 hidden sm:block"></div>
+
+        <!-- Location -->
+        <div class="flex items-center gap-2 text-sm text-brand-body/70">
+          <svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+          <span class="font-semibold text-brand-navy">South St. Louis County</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="bg-brand-navy py-14 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 opacity-10" style="background: linear-gradient(135deg, transparent 40%, rgba(200,160,74,0.3) 100%);"></div>
+    <div class="container relative z-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        {stats.map(s => (
+          <div class="gsap-reveal">
+            <div
+              class="stat-number text-5xl lg:text-6xl text-brand-gold mb-2"
+              data-target={s.value}
+              data-suffix={s.suffix}
+            >
+              {s.value}{s.suffix}
+            </div>
+            <p class="text-white/60 text-sm font-medium uppercase tracking-wider">{s.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -177,37 +265,50 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
   <!-- ── SERVICES — Pain Control ── -->
   <section class="section bg-brand-warm">
     <div class="container">
-      <div class="text-center mb-12 gsap-reveal">
-        <p class="eyebrow text-brand-gold mb-3">Pain Control Services in St. Louis, MO</p>
-        <h2 class="text-4xl font-display font-bold text-brand-navy">Pain Control Services in St. Louis, MO</h2>
+      <div class="flex items-end justify-between mb-10 gsap-reveal">
+        <div>
+          <p class="eyebrow text-brand-gold mb-3">Pain Management</p>
+          <h2 class="text-4xl lg:text-5xl font-display font-bold text-brand-navy leading-tight" style="letter-spacing: -0.02em;">
+            Pain Control Services<br class="hidden lg:block" /> in St. Louis, MO
+          </h2>
+        </div>
+        <a href="/pain-control/" class="hidden lg:inline-flex items-center gap-1 text-brand-teal font-semibold text-sm hover:underline shrink-0 mb-1">
+          View All
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
-      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {allServices.filter(s => s.category === 'Pain Control').map(s => (
           <ServiceCard name={s.name} url={s.url} description={s.description} image={s.image} imageAlt={`${s.name} in St. Louis, MO`} />
         ))}
       </div>
-      <div class="text-center mt-8 gsap-reveal">
-        <a href="/pain-control/" class="text-brand-teal font-semibold text-sm hover:underline">
-          View All Pain Control Services →
-        </a>
+      <div class="mt-6 lg:hidden text-center">
+        <a href="/pain-control/" class="text-brand-teal font-semibold text-sm hover:underline">View All Pain Control Services →</a>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICES — Orthopedic ── -->
+  <!-- ── SERVICES — Orthopedic + More ── -->
   <section class="section bg-white">
     <div class="container">
-      <div class="text-center mb-12 gsap-reveal">
-        <p class="eyebrow text-brand-gold mb-3">Orthopedic Clinic in St. Louis, MO</p>
-        <h2 class="text-4xl font-display font-bold text-brand-navy">Orthopedic Clinic in St. Louis, MO</h2>
+      <div class="flex items-end justify-between mb-10 gsap-reveal">
+        <div>
+          <p class="eyebrow text-brand-gold mb-3">Orthopedic &amp; Regenerative</p>
+          <h2 class="text-4xl lg:text-5xl font-display font-bold text-brand-navy leading-tight" style="letter-spacing: -0.02em;">
+            Orthopedic Clinic<br class="hidden lg:block" /> in St. Louis, MO
+          </h2>
+        </div>
+        <a href="/orthopedic/" class="hidden lg:inline-flex items-center gap-1 text-brand-teal font-semibold text-sm hover:underline shrink-0 mb-1">
+          View All
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
-      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {allServices.filter(s => ['Orthopedic','Weight Loss','Sports Medicine'].includes(s.category)).map(s => (
           <ServiceCard name={s.name} url={s.url} description={s.description} image={s.image} imageAlt={`${s.name} in St. Louis, MO`} />
         ))}
       </div>
-      <div class="flex justify-center gap-6 mt-8 gsap-reveal text-sm">
-        <a href="/orthopedic/" class="text-brand-teal font-semibold hover:underline">View Orthopedic Services →</a>
+      <div class="flex justify-center gap-6 mt-6 text-sm">
         <a href="/weight-loss/" class="text-brand-teal font-semibold hover:underline">Weight Loss Clinic →</a>
         <a href="/sports-medicine/" class="text-brand-teal font-semibold hover:underline">Sports Medicine →</a>
       </div>
@@ -217,16 +318,24 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
   <!-- ── CONDITIONS ── -->
   <section class="section bg-brand-warm">
     <div class="container">
-      <div class="text-center mb-12 gsap-reveal">
-        <p class="eyebrow text-brand-gold mb-3">Conditions We Treat</p>
-        <h2 class="text-4xl font-display font-bold text-brand-navy">Conditions We Treat in St. Louis</h2>
+      <div class="flex items-end justify-between mb-10 gsap-reveal">
+        <div>
+          <p class="eyebrow text-brand-gold mb-3">Conditions We Treat</p>
+          <h2 class="text-4xl lg:text-5xl font-display font-bold text-brand-navy leading-tight" style="letter-spacing: -0.02em;">
+            Conditions We Treat<br class="hidden lg:block" /> in St. Louis
+          </h2>
+        </div>
+        <a href="/conditions/" class="hidden lg:inline-flex items-center gap-1 text-brand-teal font-semibold text-sm hover:underline shrink-0 mb-1">
+          View All
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
-      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {allConditions.map(c => (
           <ConditionCard name={c.name} url={c.url} image={c.image} imageAlt={`${c.name} at St. Louis Pain Center`} />
         ))}
       </div>
-      <div class="text-center mt-8">
+      <div class="mt-6 lg:hidden text-center">
         <a href="/conditions/" class="text-brand-teal font-semibold text-sm hover:underline">View All Conditions →</a>
       </div>
     </div>
@@ -234,23 +343,19 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
 
   <!-- ── WHY US ── -->
   <section class="section bg-brand-navy relative overflow-hidden">
-    <div aria-hidden="true" class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-gold/10 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-15 blur-3xl" style="background: radial-gradient(circle, #C8A04A 0%, transparent 70%);"></div>
+    <div aria-hidden="true" class="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10 blur-3xl" style="background: radial-gradient(circle, #0E7C9E 0%, transparent 70%);"></div>
     <div class="container relative z-10">
-      <div class="text-center mb-12 gsap-reveal">
+      <div class="text-center mb-14 gsap-reveal">
         <p class="eyebrow text-brand-gold mb-3">Why Choose Us</p>
-        <h2 class="text-4xl font-display font-bold text-white">Why St. Louis Pain Center?</h2>
+        <h2 class="text-4xl lg:text-5xl font-display font-bold text-white" style="letter-spacing: -0.02em;">Why St. Louis Pain Center?</h2>
       </div>
-      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { icon: '🎯', title: 'Targeted Treatments', body: 'Every treatment plan is custom-built for your specific condition — no one-size-fits-all protocols.' },
-          { icon: '💊', title: 'Multimodal Approach', body: 'We combine multiple evidence-based therapies for better outcomes than single-treatment protocols.' },
-          { icon: '🏥', title: 'Medicare Accepted', body: 'We work with Medicare, Blue Cross, Aetna, Cigna, and most major insurance plans.' },
-          { icon: '📍', title: 'South St. Louis County', body: 'Conveniently located at 4455 Telegraph Rd, serving Oakville, Mehlville, and the greater south county area.' },
-        ].map(item => (
-          <div class="card bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-            <div class="text-4xl mb-4">{item.icon}</div>
-            <h3 class="font-display font-bold text-white mb-2">{item.title}</h3>
-            <p class="text-white/70 text-sm leading-relaxed">{item.body}</p>
+      <div class="card-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {whyUsItems.map(item => (
+          <div class="card group bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/8 hover:border-brand-gold/30 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center text-brand-gold mb-5 group-hover:bg-brand-gold/25 transition-colors duration-300" set:html={item.icon}></div>
+            <h3 class="font-display font-bold text-white mb-3 text-lg">{item.title}</h3>
+            <p class="text-white/60 text-sm leading-relaxed">{item.body}</p>
           </div>
         ))}
       </div>
@@ -259,6 +364,26 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
 
   <!-- ── TESTIMONIALS ── -->
   <Testimonials testimonials={testimonials} />
+
+  <!-- ── INSURANCE ── -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center gsap-reveal">
+        <p class="eyebrow text-brand-gold mb-3">Insurance</p>
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-brand-navy mb-4" style="letter-spacing: -0.02em;">We Accept Most Major Insurance Plans</h2>
+        <p class="text-brand-body/70 text-base mb-8">Including Medicare and most commercial insurance. Contact us to verify your coverage before your first visit.</p>
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          {insurancePlans.map(plan => (
+            <span class="inline-flex items-center gap-1.5 bg-brand-warm border border-amber-100 text-brand-navy text-sm font-medium px-4 py-2 rounded-full">
+              <svg class="w-3.5 h-3.5 text-brand-teal shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              {plan}
+            </span>
+          ))}
+        </div>
+        <a href="/insurance/" class="text-brand-teal font-semibold text-sm hover:underline">Full Insurance Information →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ── FAQ ── -->
   <FAQ faqs={homepageFaqs} />
@@ -270,40 +395,51 @@ const breadcrumbs = [{ name: 'Home', url: '/' }];
 
 <script>
   import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
 
   document.addEventListener('astro:page-load', () => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Ensure elements are visible if motion is reduced
+      ['#hero-eyebrow','#hero-h1','#hero-sub1','#hero-sub2','#journey-steps','#hero-ctas'].forEach(sel => {
+        const el = document.querySelector<HTMLElement>(sel);
+        if (el) { el.style.opacity = '1'; }
+      });
+      return;
+    }
 
-    // Hero entrance — stagger in sequence
-    const tl = gsap.timeline({ delay: 0.1 });
-    tl.to('.gsap-reveal', { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'power3.out' });
+    // ── Hero entrance timeline ──
+    const tl = gsap.timeline({ delay: 0.15 });
 
-    // Journey step numbers
-    tl.from('.journey-num', {
-      scale: 0.7,
-      autoAlpha: 0,
-      duration: 0.4,
-      stagger: 0.15,
-      ease: 'back.out(1.7)',
-    }, '-=0.3');
+    tl.to('#hero-eyebrow', { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' })
+      .to('#hero-h1', { autoAlpha: 1, y: 0, duration: 0.65, ease: 'power3.out' }, '-=0.25')
+      .to('#hero-sub1', { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('#hero-sub2', { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+      .to('#journey-steps', { autoAlpha: 1, duration: 0.4, ease: 'power3.out' }, '-=0.2')
+      .from('.journey-num', {
+        scale: 0.6,
+        autoAlpha: 0,
+        duration: 0.4,
+        stagger: 0.12,
+        ease: 'back.out(1.7)',
+      }, '-=0.35')
+      .from('.journey-arrow', {
+        scaleX: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        ease: 'power2.out',
+      }, '-=0.3')
+      .to('#hero-ctas', { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2');
 
-    // Journey arrows
-    tl.from('.journey-arrow', {
-      scaleX: 0,
-      transformOrigin: 'left center',
-      duration: 0.3,
-      stagger: 0.1,
-    }, '-=0.4');
-
-    // Magnetic hero CTA
+    // ── Magnetic hero CTA ──
     const heroCta = document.getElementById('hero-cta');
     if (heroCta) {
       const xTo = gsap.quickTo(heroCta, 'x', { duration: 0.3, ease: 'power3' });
       const yTo = gsap.quickTo(heroCta, 'y', { duration: 0.3, ease: 'power3' });
       heroCta.addEventListener('mousemove', (e: MouseEvent) => {
         const r = heroCta.getBoundingClientRect();
-        xTo((e.clientX - r.left - r.width/2) * 0.3);
-        yTo((e.clientY - r.top - r.height/2) * 0.3);
+        xTo((e.clientX - r.left - r.width / 2) * 0.3);
+        yTo((e.clientY - r.top - r.height / 2) * 0.3);
       });
       heroCta.addEventListener('mouseleave', () => { xTo(0); yTo(0); });
     }
